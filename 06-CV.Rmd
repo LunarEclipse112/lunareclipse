@@ -2,7 +2,6 @@
 
 Most likely if you are here you already received my C.V. but in case you haven't here it is. 
 
-
 ```{r, echo=FALSE}
 htmltools::includeHTML("test.html")
 ```
