@@ -171,8 +171,8 @@ fs::dir_tree(here::here(""))
 #> |       \-- unnamed-chunk-4-1.png
 #> +-- 03-Guerrilla.Rmd
 #> +-- 04-looking_ahead.Rmd
-#> +-- 05-blocks.Rmd
-#> +-- 06-share.Rmd
+#> +-- 05-projects.Rmd
+#> +-- 06-references.Rmd
 #> +-- bibliography_portfolio
 #> |   +-- bibliography_portfolio.bib
 #> |   \-- files
@@ -202,14 +202,12 @@ fs::dir_tree(here::here(""))
 #> |   \-- inputdata.csv
 #> +-- index.md
 #> +-- index.Rmd
-#> +-- lunareclipse.github.io.html
-#> +-- lunareclipse.github.io.md
 #> +-- lunareclipse.github.io.rds
 #> +-- lunareclipse.github.io.Rproj
 #> +-- packages.bib
 #> +-- preamble.tex
 #> +-- README.md
-#> +-- render2c78356ca35.rds
+#> +-- render2c787b40553a.rds
 #> +-- render77d072fa6f84.rds
 #> +-- style.css
 #> +-- _book
@@ -232,6 +230,8 @@ fs::dir_tree(here::here(""))
 #> |   +-- 04-citations.md
 #> |   +-- 04-looking_ahead.md
 #> |   +-- 05-blocks.md
+#> |   +-- 05-projects.md
+#> |   +-- 06-references.md
 #> |   +-- 06-share.md
 #> |   +-- 07-references.md
 #> |   +-- 404.html

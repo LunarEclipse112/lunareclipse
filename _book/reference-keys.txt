@@ -12,7 +12,6 @@ projects
 noldus-project
 the-application
 example-graphs
-sharing-your-book
-publishing
+references
 pages
-metadata-for-sharing
+references-1
