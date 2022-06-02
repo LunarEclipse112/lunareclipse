@@ -12,6 +12,7 @@ projects
 noldus-project
 the-application
 example-graphs
+resume
 references
 pages
 references-1

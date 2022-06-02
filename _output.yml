@@ -1,7 +1,7 @@
 bookdown::bs4_book:
   css: style.css
   theme:
-    primary: "#B34545"
+    primary: "#3CA6B1"
   repo: https://github.com/LunarEclipse112/lunareclipse.github.io
 bookdown::pdf_book:
   includes:

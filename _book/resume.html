@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 2 Example analysis C. Elegans experiment | Portfolio</title>
+<title>Chapter 7 Resume | Portfolio</title>
 <meta name="author" content="Lunar Eclipse">
-<meta name="description" content="First we will look at a case analysis of a C. elegans plate experiment. The data for this experiment was kindly supplied by J. Louter (INT/ILC). After exposure to various different compounds and a...">
+<meta name="description" content="This is my resume">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="Chapter 2 Example analysis C. Elegans experiment | Portfolio">
+<meta property="og:title" content="Chapter 7 Resume | Portfolio">
 <meta property="og:type" content="book">
-<meta property="og:description" content="First we will look at a case analysis of a C. elegans plate experiment. The data for this experiment was kindly supplied by J. Louter (INT/ILC). After exposure to various different compounds and a...">
+<meta property="og:description" content="This is my resume">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 2 Example analysis C. Elegans experiment | Portfolio">
-<meta name="twitter:description" content="First we will look at a case analysis of a C. elegans plate experiment. The data for this experiment was kindly supplied by J. Louter (INT/ILC). After exposure to various different compounds and a...">
+<meta name="twitter:title" content="Chapter 7 Resume | Portfolio">
+<meta name="twitter:description" content="This is my resume">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -66,12 +66,12 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
-<li><a class="active" href="example-analysis-c.-elegans-experiment.html"><span class="header-section-number">2</span> Example analysis C. Elegans experiment</a></li>
+<li><a class="" href="example-analysis-c.-elegans-experiment.html"><span class="header-section-number">2</span> Example analysis C. Elegans experiment</a></li>
 <li><a class="" href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></li>
 <li><a class="" href="guerrilla-analytics.html"><span class="header-section-number">4</span> Guerrilla Analytics</a></li>
 <li><a class="" href="looking-ahead.html"><span class="header-section-number">5</span> Looking ahead</a></li>
 <li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
-<li><a class="" href="resume.html"><span class="header-section-number">7</span> Resume</a></li>
+<li><a class="active" href="resume.html"><span class="header-section-number">7</span> Resume</a></li>
 <li><a class="" href="references.html"><span class="header-section-number">8</span> References</a></li>
 </ul>
 
@@ -80,29 +80,26 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="example-analysis-c.-elegans-experiment" class="section level1" number="2">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="resume" class="section level1" number="7">
 <h1>
-<span class="header-section-number">2</span> Example analysis <em>C. Elegans</em> experiment<a class="anchor" aria-label="anchor" href="#example-analysis-c.-elegans-experiment"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7</span> Resume<a class="anchor" aria-label="anchor" href="#resume"><i class="fas fa-link"></i></a>
 </h1>
-<p>First we will look at a case analysis of a <em>C. elegans</em> plate experiment. The data for this experiment was kindly supplied by J. Louter (INT/ILC). After exposure to various different compounds and a certain incubation time <em>C. elegans</em> nematode offspring where counted to determine toxicity of the compounds. The data is supplied in a excel file <a href="https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows/raw/main/data/CE.LIQ.FLOW.062_Tidydata.xlsx">Data Link</a>.</p>
-<p>While looking at the data a number of things popped up. The compound unit values aren’t all the same. The values for the controls are listed as being ‘pct’, we will plot them in the same graph to see the comparison for nematode offspring between the treated and control groups. This wil allow us to make a guess at the efficacy of the compounds in question. S-medium and Ethanol are the controls in this study. Ethanol with a concentration of 1.5 pct is the positive control, Medium-S is the negative control with a concentration of 0.0 pct and lastly Ethanol with a concentration of 0.5 pct is the control vehicle A. To better illustrate the position of the values in the graph a set amount of jitter is added, 0.5 in the width and none in height, just to pull apart the points for better visualization. All the y-axis values remain thus unchanged and seeing as the concentration values are the same within groups it should not disturb the data.</p>
-<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
-<p>Looking at the graph we can estimate that there might be a correlation between less offspring being counted on trated colonies of <em>C. Elegans</em> with higher concentrations of Naphtalene, 2,6-diisopropylnaphthalene, decane and Ethanol. To continue and test our assumption the data will be normalized and plotted again using a min-max scaling. This will allow us to better look at the the different compounds compared to each other.</p>
-<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
-<p>Based on the last graph we are able to say there might be a correlation between the higher dosage of the different compounds (not controls, except the positive control) and the reduced offspring in the different <em>C. elegans</em> populations counted.</p>
+<div class="figure">
+<embed src="./cv.pdf"></embed><p class="caption">This is my resume</p>
+</div>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="index.html"><span class="header-section-number">1</span> Welcome!</a></div>
-<div class="next"><a href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></div>
+<div class="prev"><a href="projects.html"><span class="header-section-number">6</span> Projects</a></div>
+<div class="next"><a href="references.html"><span class="header-section-number">8</span> References</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#example-analysis-c.-elegans-experiment"><span class="header-section-number">2</span> Example analysis C. Elegans experiment</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#resume"><span class="header-section-number">7</span> Resume</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/LunarEclipse112/lunareclipse.github.io/blob/master/01-intro.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/LunarEclipse112/lunareclipse.github.io/edit/master/01-intro.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/LunarEclipse112/lunareclipse.github.io/blob/master/06-CV.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/LunarEclipse112/lunareclipse.github.io/edit/master/06-CV.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
