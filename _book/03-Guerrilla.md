@@ -169,13 +169,9 @@ fs::dir_tree(here::here(""))
 #> +-- 02-peer_revieuw_files
 #> |   \-- figure-html
 #> |       \-- unnamed-chunk-4-1.png
-#> +-- 03-Guerrilla.md
 #> +-- 03-Guerrilla.Rmd
-#> +-- 04-looking_ahead.md
 #> +-- 04-looking_ahead.Rmd
-#> +-- 05-projects.md
 #> +-- 05-projects.Rmd
-#> +-- 06-references.md
 #> +-- 06-references.Rmd
 #> +-- bibliography_portfolio
 #> |   +-- bibliography_portfolio.bib
@@ -206,15 +202,13 @@ fs::dir_tree(here::here(""))
 #> |   \-- inputdata.csv
 #> +-- index.md
 #> +-- index.Rmd
-#> +-- lunareclipse.github.io.html
-#> +-- lunareclipse.github.io.md
 #> +-- lunareclipse.github.io.rds
 #> +-- lunareclipse.github.io.Rproj
 #> +-- packages.bib
 #> +-- preamble.tex
 #> +-- README.md
 #> +-- render2c783334165a.rds
-#> +-- render759c36317d.rds
+#> +-- render759c68215866.rds
 #> +-- render77d072fa6f84.rds
 #> +-- style.css
 #> +-- _book
