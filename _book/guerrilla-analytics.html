@@ -70,9 +70,8 @@
 <li><a class="" href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></li>
 <li><a class="active" href="guerrilla-analytics.html"><span class="header-section-number">4</span> Guerrilla Analytics</a></li>
 <li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">5</span> Footnotes and citations</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">6</span> Blocks</a></li>
+<li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
 <li><a class="" href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></li>
-<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -241,10 +240,9 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   \-- figure-html</span>
 <span class="co">#&gt; |       \-- unnamed-chunk-4-1.png</span>
 <span class="co">#&gt; +-- 03-Guerrilla.Rmd</span>
-<span class="co">#&gt; +-- 04-citations.Rmd</span>
+<span class="co">#&gt; +-- 04-looking_ahead.Rmd</span>
 <span class="co">#&gt; +-- 05-blocks.Rmd</span>
 <span class="co">#&gt; +-- 06-share.Rmd</span>
-<span class="co">#&gt; +-- 07-references.Rmd</span>
 <span class="co">#&gt; +-- bibliography_portfolio</span>
 <span class="co">#&gt; |   +-- bibliography_portfolio.bib</span>
 <span class="co">#&gt; |   \-- files</span>
@@ -274,12 +272,14 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   \-- inputdata.csv</span>
 <span class="co">#&gt; +-- index.md</span>
 <span class="co">#&gt; +-- index.Rmd</span>
+<span class="co">#&gt; +-- lunareclipse.github.io.html</span>
+<span class="co">#&gt; +-- lunareclipse.github.io.md</span>
 <span class="co">#&gt; +-- lunareclipse.github.io.rds</span>
 <span class="co">#&gt; +-- lunareclipse.github.io.Rproj</span>
 <span class="co">#&gt; +-- packages.bib</span>
 <span class="co">#&gt; +-- preamble.tex</span>
 <span class="co">#&gt; +-- README.md</span>
-<span class="co">#&gt; +-- render359890f5710.rds</span>
+<span class="co">#&gt; +-- render2c78356ca35.rds</span>
 <span class="co">#&gt; +-- render77d072fa6f84.rds</span>
 <span class="co">#&gt; +-- style.css</span>
 <span class="co">#&gt; +-- _book</span>
@@ -294,9 +294,13 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   |   \-- figure-html</span>
 <span class="co">#&gt; |   |       \-- nice-fig-1.png</span>
 <span class="co">#&gt; |   +-- 02-peer_revieuw.md</span>
+<span class="co">#&gt; |   +-- 02-peer_revieuw_files</span>
+<span class="co">#&gt; |   |   \-- figure-html</span>
+<span class="co">#&gt; |   |       \-- unnamed-chunk-4-1.png</span>
 <span class="co">#&gt; |   +-- 03-Guerrilla.md</span>
 <span class="co">#&gt; |   +-- 03-parts.md</span>
 <span class="co">#&gt; |   +-- 04-citations.md</span>
+<span class="co">#&gt; |   +-- 04-looking_ahead.md</span>
 <span class="co">#&gt; |   +-- 05-blocks.md</span>
 <span class="co">#&gt; |   +-- 06-share.md</span>
 <span class="co">#&gt; |   +-- 07-references.md</span>
@@ -331,6 +335,7 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   |       \-- jquery-3.6.0.min.js</span>
 <span class="co">#&gt; |   +-- open-peer-review.html</span>
 <span class="co">#&gt; |   +-- parts.html</span>
+<span class="co">#&gt; |   +-- projects.html</span>
 <span class="co">#&gt; |   +-- references-1.html</span>
 <span class="co">#&gt; |   +-- references.html</span>
 <span class="co">#&gt; |   +-- search.json</span>
@@ -376,34 +381,6 @@ The path shown below is longer than necessary when working from a server or gith
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>

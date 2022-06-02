@@ -70,9 +70,8 @@
 <li><a class="" href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></li>
 <li><a class="" href="guerrilla-analytics.html"><span class="header-section-number">4</span> Guerrilla Analytics</a></li>
 <li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">5</span> Footnotes and citations</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">6</span> Blocks</a></li>
+<li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
 <li><a class="" href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></li>
-<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -84,8 +83,7 @@
 <h1>
 <span class="header-section-number">2</span> Example analysis <em>C. Elegans</em> experiment<a class="anchor" aria-label="anchor" href="#example-analysis-c.-elegans-experiment"><i class="fas fa-link"></i></a>
 </h1>
-<p>First we will look at a case analysis of a <em>C. elegans</em> plate experiment. The data for this experiment was kindly supplied by J. Louter (INT/ILC). After exposure to various different compounds and a certain incubation time <em>C. elegans</em> nematode offspring where counted to determine toxicity of the compounds. The data is supplied in a excel file (link seen below).</p>
-<p><a href="https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows/raw/main/data/CE.LIQ.FLOW.062_Tidydata.xlsx" class="uri">https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows/raw/main/data/CE.LIQ.FLOW.062_Tidydata.xlsx</a></p>
+<p>First we will look at a case analysis of a <em>C. elegans</em> plate experiment. The data for this experiment was kindly supplied by J. Louter (INT/ILC). After exposure to various different compounds and a certain incubation time <em>C. elegans</em> nematode offspring where counted to determine toxicity of the compounds. The data is supplied in a excel file <a href="https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows/raw/main/data/CE.LIQ.FLOW.062_Tidydata.xlsx">Data Link</a>.</p>
 <p>While looking at the data a number of things popped up. The compound unit values aren’t all the same. The values for the controls are listed as being ‘pct’, we will plot them in the same graph to see the comparison for nematode offspring between the treated and control groups. This wil allow us to make a guess at the efficacy of the compounds in question. S-medium and Ethanol are the controls in this study. Ethanol with a concentration of 1.5 pct is the positive control, Medium-S is the negative control with a concentration of 0.0 pct and lastly Ethanol with a concentration of 0.5 pct is the control vehicle A. To better illustrate the position of the values in the graph a set amount of jitter is added, 0.5 in the width and none in height, just to pull apart the points for better visualization. All the y-axis values remain thus unchanged and seeing as the concentration values are the same within groups it should not disturb the data.</p>
 <div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <p>Looking at the graph we can estimate that there might be a correlation between less offspring being counted on trated colonies of <em>C. Elegans</em> with higher concentrations of Naphtalene, 2,6-diisopropylnaphthalene, decane and Ethanol. To continue and test our assumption the data will be normalized and plotted again using a min-max scaling. This will allow us to better look at the the different compounds compared to each other.</p>
@@ -123,34 +121,6 @@
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>

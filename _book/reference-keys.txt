@@ -1,5 +1,3 @@
-eq:binom
-thm:tri
 welcome
 about-me
 example-analysis-c.-elegans-experiment
@@ -10,10 +8,10 @@ guerrilla-analytics
 footnotes-and-citations
 footnotes
 citations
-blocks
-equations
-theorems-and-proofs
-callout-blocks
+projects
+noldus-project
+the-application
+example-graphs
 sharing-your-book
 publishing
 pages
