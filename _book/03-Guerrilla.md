@@ -158,33 +158,21 @@ The path shown below is longer than necessary when working from a server or gith
 ```r
 fs::dir_tree(here::here(""))
 #> C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/Website/lunareclipse.github.io
-#> +-- 01-celegans.md
-#> +-- 01-celegans.Rmd
-#> +-- 01-celegans_files
-#> |   \-- figure-html
-#> |       +-- unnamed-chunk-2-1.png
-#> |       \-- unnamed-chunk-3-1.png
+#> +-- 01-intro.md
+#> +-- 01-intro.Rmd
 #> +-- 01-intro_files
 #> |   \-- figure-html
 #> |       +-- unnamed-chunk-2-1.png
 #> |       \-- unnamed-chunk-3-1.png
-#> +-- 02-cross-refs_files
-#> |   \-- figure-html
-#> |       \-- nice-fig-1.png
 #> +-- 02-peer_revieuw.md
 #> +-- 02-peer_revieuw.Rmd
 #> +-- 02-peer_revieuw_files
 #> |   \-- figure-html
 #> |       \-- unnamed-chunk-4-1.png
-#> +-- 03-Guerrilla.md
 #> +-- 03-Guerrilla.Rmd
-#> +-- 04-citations.md
 #> +-- 04-citations.Rmd
-#> +-- 05-blocks.md
 #> +-- 05-blocks.Rmd
-#> +-- 06-share.md
 #> +-- 06-share.Rmd
-#> +-- 07-references.md
 #> +-- 07-references.Rmd
 #> +-- bibliography_portfolio
 #> |   +-- bibliography_portfolio.bib
@@ -215,22 +203,16 @@ fs::dir_tree(here::here(""))
 #> |   \-- inputdata.csv
 #> +-- index.md
 #> +-- index.Rmd
-#> +-- lunareclipse.github.io.html
-#> +-- lunareclipse.github.io.md
 #> +-- lunareclipse.github.io.rds
 #> +-- lunareclipse.github.io.Rproj
 #> +-- packages.bib
 #> +-- preamble.tex
 #> +-- README.md
+#> +-- render359890f5710.rds
 #> +-- render77d072fa6f84.rds
-#> +-- render7b4c4fc765d0.rds
 #> +-- style.css
 #> +-- _book
 #> |   +-- 01-celegans.md
-#> |   +-- 01-celegans_files
-#> |   |   \-- figure-html
-#> |   |       +-- unnamed-chunk-2-1.png
-#> |   |       \-- unnamed-chunk-3-1.png
 #> |   +-- 01-intro.md
 #> |   +-- 01-intro_files
 #> |   |   \-- figure-html
@@ -241,9 +223,6 @@ fs::dir_tree(here::here(""))
 #> |   |   \-- figure-html
 #> |   |       \-- nice-fig-1.png
 #> |   +-- 02-peer_revieuw.md
-#> |   +-- 02-peer_revieuw_files
-#> |   |   \-- figure-html
-#> |   |       \-- unnamed-chunk-4-1.png
 #> |   +-- 03-Guerrilla.md
 #> |   +-- 03-parts.md
 #> |   +-- 04-citations.md
