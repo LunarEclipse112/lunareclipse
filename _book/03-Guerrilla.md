@@ -208,7 +208,7 @@ fs::dir_tree(here::here(""))
 #> +-- preamble.tex
 #> +-- README.md
 #> +-- render2c783334165a.rds
-#> +-- render759c68215866.rds
+#> +-- render759c459f256e.rds
 #> +-- render77d072fa6f84.rds
 #> +-- style.css
 #> +-- _book
