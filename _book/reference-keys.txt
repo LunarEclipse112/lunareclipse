@@ -4,8 +4,7 @@ eq:binom
 thm:tri
 welcome
 about-me
-hello-bookdown
-a-section
+example-analysis-c.-elegans-experiment
 cross
 chapters-and-sub-chapters
 captioned-figures-and-tables

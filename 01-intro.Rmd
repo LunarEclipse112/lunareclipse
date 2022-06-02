@@ -1,11 +1,88 @@
-# Hello bookdown 
+# Example analysis *C. Elegans* experiment
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+```
 
-## A section
 
-All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
 
-### An unnumbered section {-}
+First we will look at a case analysis of a *C. elegans* plate experiment. The data for this experiment was kindly supplied by J. Louter (INT/ILC). After exposure to various different compounds and a certain incubation time *C. elegans* nematode offspring where counted to determine toxicity of the compounds. The data is supplied in a excel file (link seen below). 
 
-Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
+https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows/raw/main/data/CE.LIQ.FLOW.062_Tidydata.xlsx
+
+While looking at the data a number of things popped up. The compound unit values aren't all the same. The values for the controls are listed as being 'pct', we will plot them in the same graph to see the comparison for nematode offspring between the treated and control groups. This wil allow us to make a guess at the efficacy of the compounds in question. S-medium and Ethanol are the controls in this study. Ethanol with a concentration of 1.5 pct is the positive control, Medium-S is the  negative control with a concentration of 0.0 pct and lastly Ethanol with a concentration of 0.5 pct is the control vehicle A. To better illustrate the position of the values in the graph a set amount of jitter is added, 0.5 in the width and none in height, just to pull apart the points for better visualization. All the y-axis values remain thus unchanged and seeing as the concentration values are the same within groups it should not disturb the data.   
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# download link for the  data: https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows/raw/main/data/CE.LIQ.FLOW.062_Tidydata.xlsx
+
+# First we inspect and select the valuable data to start to interpret it. 
+raw_data_ce <- read_excel("C:/Users/31642/Downloads/CE.LIQ.FLOW.062_Tidydata.xlsx", sheet = "expParameters")
+# We isolate some interesting columns to start to look at the data
+celegans <- raw_data_ce %>% select(c("RawData", "compName", "compConcentration", "compUnit", "expType"))
+
+celegans$compName <- as.factor(celegans$compName)
+celegans$compConcentration <- as.double(celegans$compConcentration)
+celegans$compUnit <- as.factor(celegans$compUnit)
+# Out of curiosity we filter out the non nM listed compound units to see what they are
+#celegans %>% filter(!compUnit == "nM") %>% group_by(compName)
+#celegans
+# And prepare the data to be plotted 
+raw_conc_graph <- celegans %>% group_by(compConcentration, compName, expType, compUnit) %>% summarise(mean_RawData = mean(RawData, na.rm = TRUE), stdev = sd(RawData, na.rm =TRUE))
+# Check the data one last time and filter the controls for additional explanation
+#raw_conc_graph
+
+# And plot it to show the offspring counted after incubation and exposure to different concentrations of compounds
+celegans %>% ggplot(aes(x = compConcentration, y = RawData)) + 
+  geom_point(aes(color = compName, 
+                shape = compName), 
+             position = position_jitter(width = 0.5,
+                                        height = NULL,
+                                        seed = NA)) +
+             
+               theme(axis.text.x = element_text(size = 10)) +
+  scale_x_sqrt() +
+  labs(title = "Nemoatode offspring after exposure to different compound concentrations",
+       subtitle = "Jitter is added to better visualise the data",
+       x = "Compound concentration (nM)",
+       y = "Counted nematode offspring (count)")
+```
+
+Looking at the graph we can estimate that there might be a correlation between less offspring being counted on trated colonies of *C. Elegans* with higher concentrations of Naphtalene, 2,6-diisopropylnaphthalene, decane and Ethanol. To continue and test our assumption the data will be normalized and plotted again using a min-max scaling. This will allow us to better look at the the different compounds compared to each other. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# First we will make a function to normalize the data between 0 and 1
+vect <- celegans %>% select(RawData, compConcentration, compName) %>% filter(RawData >= 0)
+
+min_max_scaling <- function(x) {
+  (x - min(x)) / (max(x) - min(x))
+}
+# We change the vector in to a data frame and mutate it with the celegens data to ensure the relevant data is there
+scaling <- min_max_scaling(x = vect$RawData) %>% as.data.frame(row.names = NULL)
+norm_data_ce <- mutate(vect, scaling) 
+colnames(norm_data_ce) <- c("RawData", "compConcentration", "compName", "normData")
+##### Now we will calculate the means and plot these to make a readable graph
+#norm_conc_graph <- norm_data_ce %>% group_by(compConcentration, compName) %>%  summarise(mean_normData = mean(normData), stdev = sd(normData, na.rm = TRUE))
+
+# And plot the data to truly visualize it 
+norm_data_ce %>% ggplot(aes(x = compConcentration, y = normData)) + 
+  geom_point(aes(color = compName, 
+                shape = compName),
+             position = position_jitter(width = 0.5,
+                                        height = NULL,
+                                        seed = NA)) +
+  #geom_errorbar(aes(ymin = mean_normData-stdev, ymax = mean_normData+stdev), width = .1) +
+               theme(axis.text.x = element_text(size = 10)) +
+  scale_x_sqrt() +
+  labs(title = "Nemoatode offspring after exposure to different compound concentrations",
+       subtitle = "Jitter is added to better visualise the data",
+       x = "Compound concentration (nM)",
+       y = "Counted nematode offspring (min-maxed norm.)")
+
+```
+
+Based on the last graph we are able to say there might be a correlation between the higher dosage of the different compounds (not controls, except the positive control) and the reduced offspring in the different *C. elegans* populations counted.
+
