@@ -1,18 +1,29 @@
-# Footnotes and citations 
-
-## Footnotes
-
-Footnotes are put inside the square brackets after a caret `^[]`. Like this one ^[This is a footnote.]. 
-
-## Citations
-
-Reference items in your bibliography file(s) using `@key`.
-
-For example, we are using the **bookdown** package [@R-bookdown] (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and **knitr** [@xie2015] (this citation was added manually in an external file book.bib). 
-Note that the `.bib` files need to be listed in the index.Rmd with the YAML `bibliography` key.
+# Looking ahead
 
 
-The `bs4_book` theme makes footnotes appear inline when you click on them. In this example book, we added `csl: chicago-fullnote-bibliography.csl` to the `index.Rmd` YAML, and include the `.csl` file. To download a new style, we recommend: https://www.zotero.org/styles/
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
 
 
-The RStudio Visual Markdown Editor can also make it easier to insert citations: <https://rstudio.github.io/visual-markdown-editing/#/citations>
+To demonstrate my ability to learn new skills and continue to develop myself I will try to learn as much as I can in four days about single cell next generation sequencing. 
+
+I chose this skill because NGS is something that I find very interesting and NGS from a single cell sounds awesome. 
+
+### Plan
+
+First a small overview of how I want to structure my 4 days to make sure I best make use of the time. By the end of it I can hopefully run a analysis, or part of one that isn't too complicated. To this end I will need to read up about it and search for usable data used in research to try and mimic what they have done. Hopefully in the future this will allow me to beter develop the skills needed to run my own analysis on Single Cell NGS data. 
+
+```{r, echo=FALSE}
+daynum <- c("Day 1", "Day 2", "Day 3","Day 4")
+activity <- c("Reading about single cell NGS and looking for research articles where this has been used for analysis", "Trying to get everything to work to mimic the analysis found in the article", "Continue with the reproduction of the article analysis untill done", "Write a report on what I have learned and things I need to learn more about, a what's next secion let's say")
+status <- c("NOT DONE")
+
+table <- data.frame(daynum, activity, status)
+knitr::kable(table, "pipe", col.name = c("Day Number", "Activity to do", "Completion"), align = "l" )
+
+
+```
+
+### Day 1 

@@ -15,3 +15,6 @@ example-graphs
 references
 pages
 references-1
+looking-ahead
+plan
+day-1
