@@ -5,9 +5,9 @@ open-peer-review
 teaching-anxiety-stress-and-resilience-during-the-covid-19-pandemic
 monitoring-trends-and-differences-in-covid-19-case-fatality-rates-using-decomposition-methods-contributions-of-age-structure-and-age-specific-fatality
 guerrilla-analytics
-footnotes-and-citations
-footnotes
-citations
+looking-ahead
+plan
+day-1
 projects
 noldus-project
 the-application
@@ -15,6 +15,3 @@ example-graphs
 references
 pages
 references-1
-looking-ahead
-plan
-day-1
