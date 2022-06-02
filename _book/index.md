@@ -1,15 +1,13 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "Portfolio"
+author: "Lunar Eclipse"
 date: "2022-06-02"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: "./bibliography_portfolio/bibliography_portfolio.bib"
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::bs4_book,
-  set in the _output.yml file.
+  This is my portfolio. Its also my first website hosted from github and netlify. I hope you enjoy!
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
