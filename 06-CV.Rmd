@@ -1,3 +1,5 @@
 # Resume
 
-![This is my resume](./cv.pdf)
+Most likely if you are here you already received my C.V. but in case you haven't here it is. 
+
+![The resume](./cv.pdf){width=100%}
