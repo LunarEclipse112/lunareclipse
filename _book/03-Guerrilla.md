@@ -172,6 +172,7 @@ fs::dir_tree(here::here(""))
 #> +-- 03-Guerrilla.Rmd
 #> +-- 04-looking_ahead.Rmd
 #> +-- 05-projects.Rmd
+#> +-- 06-CV.knit.md
 #> +-- 06-CV.Rmd
 #> +-- 07-references.Rmd
 #> +-- bibliography_portfolio
@@ -195,7 +196,8 @@ fs::dir_tree(here::here(""))
 #> |           \-- Sathyanesan et al. - 2018 - Neonatal brain injury causes cerebellar learning d.pdf
 #> +-- book.bib
 #> +-- chicago-fullnote-bibliography.csl
-#> +-- cv.pdf
+#> +-- code
+#> |   \-- cv.html
 #> +-- data
 #> |   +-- baseline_excess_pclm_5.csv
 #> |   +-- data_cv.R
@@ -206,14 +208,15 @@ fs::dir_tree(here::here(""))
 #> +-- index.Rmd
 #> +-- lunareclipse.github.io.rds
 #> +-- lunareclipse.github.io.Rproj
+#> +-- markdowns
+#> |   \-- cv.pdf
 #> +-- packages.bib
 #> +-- preamble.tex
 #> +-- README.md
 #> +-- render2c783334165a.rds
-#> +-- render38f8128b7e0f.rds
+#> +-- render38f8ce9139a.rds
 #> +-- render77d072fa6f84.rds
 #> +-- style.css
-#> +-- test.html
 #> +-- _book
 #> |   +-- 01-celegans.md
 #> |   +-- 01-intro.md
