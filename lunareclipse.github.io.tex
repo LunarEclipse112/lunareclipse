@@ -1,0 +1,416 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt,a4paper,]{awesome-cv}
+
+% Configure page margins with geometry
+\usepackage{geometry}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\colorlet{awesome}{awesome-red}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\name{}{}
+
+
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+\usepackage{booktabs}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%------------------------------------------------------------------------------
+
+
+
+% Pandoc CSL macros
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+\makecvfooter
+  {2022-06-03}
+    {~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%------------------------------------------------------------------------------
+
+
+
+\hypertarget{welcome}{%
+\chapter{Welcome!}\label{welcome}}
+
+Hi! And welcome, this is my portfolio. It is a collection of different
+skills I posses and a way to show what I can do in a data analysis
+context. Each page contains a different group of skills and stands alone
+in its presentation. Also good to know is that this is of course, an
+ongoing process.
+
+\hypertarget{about-me}{%
+\section{About Me}\label{about-me}}
+
+I am a student of the university of applied sciences Utrecht. I have
+great passion for biology and data analysis. A work enviorment where I
+can implement both those interests is a dream job for me. With my
+biology background and data analysis knowledge I can be a bridge between
+lab analysts and data scientists. I am a transgender nonbinary
+individual, This means I go by they/them (die/diens of hen/hun). Usually
+this isn't something I place too much importance on, I just live my life
+like anyone else but it might have some implications in the future
+regarding out of the blue surgeries. I don't expect this to happen in
+the following year but just in case I do feel like my future employer
+should be informed about this.
+
+\hypertarget{example-analysis-c.-elegans-experiment}{%
+\chapter{\texorpdfstring{Example analysis \emph{C. Elegans}
+experiment}{Example analysis C. Elegans experiment}}\label{example-analysis-c.-elegans-experiment}}
+
+First we will look at a case analysis of a \emph{C. elegans} plate
+experiment. The data for this experiment was kindly supplied by J.
+Louter (INT/ILC). After exposure to various different compounds and a
+certain incubation time \emph{C. elegans} nematode offspring where
+counted to determine toxicity of the compounds. The data is supplied in
+a excel file
+\href{https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows/raw/main/data/CE.LIQ.FLOW.062_Tidydata.xlsx}{Data
+Link}.
+
+While looking at the data a number of things popped up. The compound
+unit values aren't all the same. The values for the controls are listed
+as being `pct', we will plot them in the same graph to see the
+comparison for nematode offspring between the treated and control
+groups. This wil allow us to make a guess at the efficacy of the
+compounds in question. S-medium and Ethanol are the controls in this
+study. Ethanol with a concentration of 1.5 pct is the positive control,
+Medium-S is the negative control with a concentration of 0.0 pct and
+lastly Ethanol with a concentration of 0.5 pct is the control vehicle A.
+To better illustrate the position of the values in the graph a set
+amount of jitter is added, 0.5 in the width and none in height, just to
+pull apart the points for better visualization. All the y-axis values
+remain thus unchanged and seeing as the concentration values are the
+same within groups it should not disturb the data.
+
+Looking at the graph we can estimate that there might be a correlation
+between less offspring being counted on trated colonies of \emph{C.
+Elegans} with higher concentrations of Naphtalene,
+2,6-diisopropylnaphthalene, decane and Ethanol. To continue and test our
+assumption the data will be normalized and plotted again using a min-max
+scaling. This will allow us to better look at the the different
+compounds compared to each other.
+
+Based on the last graph we are able to say there might be a correlation
+between the higher dosage of the different compounds (not controls,
+except the positive control) and the reduced offspring in the different
+\emph{C. elegans} populations counted.
+
+\hypertarget{open-peer-review}{%
+\chapter{Open Peer Review}\label{open-peer-review}}
+
+Placeholder
+
+\hypertarget{teaching-anxiety-stress-and-resilience-during-the-covid-19-pandemic}{%
+\subsection{Teaching anxiety, stress and resilience during the COVID-19
+pandemic}\label{teaching-anxiety-stress-and-resilience-during-the-covid-19-pandemic}}
+
+\hypertarget{monitoring-trends-and-differences-in-covid-19-case-fatality-rates-using-decomposition-methods-contributions-of-age-structure-and-age-specific-fatality}{%
+\subsection{Monitoring trends and differences in COVID-19 case-fatality
+rates using decomposition methods: Contributions of age structure and
+age-specific
+fatality}\label{monitoring-trends-and-differences-in-covid-19-case-fatality-rates-using-decomposition-methods-contributions-of-age-structure-and-age-specific-fatality}}
+
+\hypertarget{guerrilla-analytics}{%
+\chapter{Guerrilla Analytics}\label{guerrilla-analytics}}
+
+Placeholder
+
+\hypertarget{looking-ahead}{%
+\chapter{Looking ahead}\label{looking-ahead}}
+
+To demonstrate my ability to learn new skills and continue to develop
+myself I will try to learn as much as I can in four days about single
+cell next generation sequencing.
+
+I chose this skill because NGS is something that I find very interesting
+and NGS from a single cell sounds awesome.
+
+\hypertarget{plan}{%
+\subsection{Plan}\label{plan}}
+
+First a small overview of how I want to structure my 4 days to make sure
+I best make use of the time. By the end of it I can hopefully run a
+analysis, or part of one that isn't too complicated. To this end I will
+need to read up about it and search for usable data used in research to
+try and mimic what they have done. Hopefully in the future this will
+allow me to beter develop the skills needed to run my own analysis on
+Single Cell NGS data.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0846}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.8308}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0846}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Day Number
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Activity to do
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Completion
+\end{minipage} \\
+\midrule
+\endhead
+Day 1 & Reading about single cell NGS and looking for research articles
+where this has been used for analysis & NOT DONE \\
+Day 2 & Trying to get everything to work to mimic the analysis found in
+the article & NOT DONE \\
+Day 3 & Continue with the reproduction of the article analysis untill
+done & NOT DONE \\
+Day 4 & Write a report on what I have learned and things I need to learn
+more about, a what's next secion let's say & NOT DONE \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{day-1}{%
+\subsection{Day 1}\label{day-1}}
+
+\hypertarget{projects}{%
+\chapter{Projects}\label{projects}}
+
+\hypertarget{noldus-project}{%
+\section{Noldus project}\label{noldus-project}}
+
+With Noldus Inc.~(Noldus \textbar{} {Advance} your behavioral research
+(n.d.). In \emph{Noldus \textbar{} Advance your behavioral research}.
+https://www.noldus.com.) and the University of Applied sciences Utrecht
+\href{https://www.hu.nl/}{(website HU)} I worked in a team of 5 to
+create a shiny app to help analyse data acquired from one of their
+research products: The Erasmus Ladder. The Erasmus Ladder is a setup
+that consists of a horizontal ladder to determine differences in
+behavior of mice by recording steps made on a selection of sensors.
+Variations in the amount of steps made and the type of steps that are
+made by mice can be recorded very accurately which allows for
+statistical analysis to determine differences between groups.
+
+\hypertarget{the-application}{%
+\subsection{The application}\label{the-application}}
+
+Our application analyses data acquired from the Erasmus Ladder and plots
+exploratory and publication ready graphs together with statistical
+analysis for researchers to more easily interpret their results. One of
+the challenges in creating the application was figuring out what kind of
+data is interesting to researchers. By reading articles using the device
+and speaking to researchers in the field we made a selection of
+publication ready graph functions that read in data formatted by the
+Erasmus ladder. we also made a selection of exploratory graphs meant to
+help researches get an overview of their data by showing some basic
+information like the amount of mice used, the different groups of mice,
+etc. and some graphs that portray an overview of things like the
+different types of steps mice made of different groups.
+
+\hypertarget{example-graphs}{%
+\subsection{Example graphs}\label{example-graphs}}
+
+As examples of what data is interesting for research purposes we looked
+at a selection of different articles. For us the most important criteria
+for the articles was the use of the Erasmus ladder and we were mostly
+interested in how they interpreted the data from it. The type of graphs
+used and how they portrayed the data are very important for us to base
+decisions on what graphs we want our application to produce based on
+input data. One of the first graphs I found very interesting provides a
+clear visual on the variances of steps made by different groups of mice
+Vinueza Veloz, M. F., Zhou, K., Bosman, L. W. J., Potters, J.-W.,
+Negrello, M., Seepers, R. M., Strydis, C., Koekkoek, S. K. E., \& De
+Zeeuw, C. I. (2015). Cerebellar control of gait and interlimb
+coordination. \emph{Brain Struct Funct}, \emph{220}(6), 3513--3536.
+\url{https://doi.org/10.1007/s00429-014-0870-1}. In the graph there are
+two different groups of mice, one with a Purkinje cell deficiency (Pcd)
+and one control group that make runs crossing the Erasmus ladder. As
+each step is recorded the type of steps is determined based on the
+distance traveled. On page 3517 (Fig. 3) of the article we can observe a
+difference in variation of the steps used which might be caused due to
+the Purkinje cell deficiency. Versions of step type graphs plotted
+against the session can also be found in research Sathyanesan, A., \&
+Gallo, V. (2019). Cerebellar contribution to locomotor behavior: {A}
+neurodevelopmental perspective. \emph{Neurobiology of Learning and
+Memory}, \emph{165}, 106861.
+\url{https://doi.org/10.1016/j.nlm.2018.04.016} Sathyanesan, A., Kundu,
+S., Abbah, J., \& Gallo, V. (2018). Neonatal brain injury causes
+cerebellar learning deficits and {Purkinje} cell dysfunction. \emph{Nat
+Commun}, \emph{9}(1), 3235.
+\url{https://doi.org/10.1038/s41467-018-05656-w}. The graphs depict a
+decrease in variation of steps that are used by the control groups in
+time. This might be caused by the mice learning to cross the bridge more
+efficiently. A different type of graph which looked at the reaction of
+mice to the different ques to guide the mice on and off the device. This
+research Vinueza Veloz, M. F., Buijsen, R. A. M., Willemsen, R., Cupido,
+A., Bosman, L. W. J., Koekkoek, S. K. E., Potters, J. W., Oostra, B. A.,
+\& De Zeeuw, C. I. (2012). The effect of an {mGluR5} inhibitor on
+procedural memory and avoidance discrimination impairments in
+{\emph{Fmr1}} {KO} mice. \emph{Genes, Brain and Behavior}, \emph{11}(3),
+325--331. \url{https://doi.org/10.1111/j.1601-183X.2011.00763.x} gave us
+a fresh look at the data and helped guide our decisions to what data
+might be seen as relevant.
+
+We also looked at other types of cerebellum research Schonewille, M.,
+Gao, Z., Boele, H.-J., Vinueza Veloz, M. F., Amerika, W. E., Šimek, A.
+A. M., De Jeu, M. T., Steinberg, J. P., Takamiya, K., Hoebeek, F. E.,
+Linden, D. J., Huganir, R. L., \& De Zeeuw, C. I. (2011). Reevaluating
+the {Role} of {LTD} in {Cerebellar Motor Learning}. \emph{Neuron},
+\emph{70}(1), 43--50. \url{https://doi.org/10.1016/j.neuron.2011.02.044}
+and how they selected data to better answer research questions. Although
+mostly not very applicable in our project it did give some insight in
+how slight differences can be.
+
+\hypertarget{resume}{%
+\chapter{Resume}\label{resume}}
+
+Most likely if you are here you already received my C.V. but in case you
+haven't here it is.
+
+\hypertarget{references}{%
+\chapter{References}\label{references}}
+
+\hypertarget{pages}{%
+\section{404 pages}\label{pages}}
+
+By default, users will be directed to a 404 page if they try to access a
+webpage that cannot be found.
+
+\hypertarget{references-1}{%
+\section{References}\label{references-1}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-noauthor_noldus_nodate}{}}%
+\CSLLeftMargin{1. }
+\CSLRightInline{Noldus \textbar{} {Advance} your behavioral research.
+(n.d.). In \emph{Noldus \textbar{} Advance your behavioral research}.
+https://www.noldus.com.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-vinueza_veloz_cerebellar_2015}{}}%
+\CSLLeftMargin{2. }
+\CSLRightInline{Vinueza Veloz, M. F., Zhou, K., Bosman, L. W. J.,
+Potters, J.-W., Negrello, M., Seepers, R. M., Strydis, C., Koekkoek, S.
+K. E., \& De Zeeuw, C. I. (2015). Cerebellar control of gait and
+interlimb coordination. \emph{Brain Struct Funct}, \emph{220}(6),
+3513--3536. \url{https://doi.org/10.1007/s00429-014-0870-1}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-sathyanesan_cerebellar_2019}{}}%
+\CSLLeftMargin{3. }
+\CSLRightInline{Sathyanesan, A., \& Gallo, V. (2019). Cerebellar
+contribution to locomotor behavior: {A} neurodevelopmental perspective.
+\emph{Neurobiology of Learning and Memory}, \emph{165}, 106861.
+\url{https://doi.org/10.1016/j.nlm.2018.04.016}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-sathyanesan_neonatal_2018}{}}%
+\CSLLeftMargin{4. }
+\CSLRightInline{Sathyanesan, A., Kundu, S., Abbah, J., \& Gallo, V.
+(2018). Neonatal brain injury causes cerebellar learning deficits and
+{Purkinje} cell dysfunction. \emph{Nat Commun}, \emph{9}(1), 3235.
+\url{https://doi.org/10.1038/s41467-018-05656-w}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-vinueza_veloz_effect_2012}{}}%
+\CSLLeftMargin{5. }
+\CSLRightInline{Vinueza Veloz, M. F., Buijsen, R. A. M., Willemsen, R.,
+Cupido, A., Bosman, L. W. J., Koekkoek, S. K. E., Potters, J. W.,
+Oostra, B. A., \& De Zeeuw, C. I. (2012). The effect of an {mGluR5}
+inhibitor on procedural memory and avoidance discrimination impairments
+in {\emph{Fmr1}} {KO} mice. \emph{Genes, Brain and Behavior},
+\emph{11}(3), 325--331.
+\url{https://doi.org/10.1111/j.1601-183X.2011.00763.x}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-schonewille_reevaluating_2011}{}}%
+\CSLLeftMargin{6. }
+\CSLRightInline{Schonewille, M., Gao, Z., Boele, H.-J., Vinueza Veloz,
+M. F., Amerika, W. E., Šimek, A. A. M., De Jeu, M. T., Steinberg, J. P.,
+Takamiya, K., Hoebeek, F. E., Linden, D. J., Huganir, R. L., \& De
+Zeeuw, C. I. (2011). Reevaluating the {Role} of {LTD} in {Cerebellar
+Motor Learning}. \emph{Neuron}, \emph{70}(1), 43--50.
+\url{https://doi.org/10.1016/j.neuron.2011.02.044}}
+
+\end{CSLReferences}
+
+
+
+\end{document}

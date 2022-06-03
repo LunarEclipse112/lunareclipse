@@ -172,9 +172,9 @@ fs::dir_tree(here::here(""))
 #> +-- 03-Guerrilla.Rmd
 #> +-- 04-looking_ahead.Rmd
 #> +-- 05-projects.Rmd
-#> +-- 06-CV.knit.md
 #> +-- 06-CV.Rmd
 #> +-- 07-references.Rmd
+#> +-- awesome-cv.cls
 #> +-- bibliography_portfolio
 #> |   +-- bibliography_portfolio.bib
 #> |   \-- files
@@ -195,26 +195,65 @@ fs::dir_tree(here::here(""))
 #> |       \-- 9
 #> |           \-- Sathyanesan et al. - 2018 - Neonatal brain injury causes cerebellar learning d.pdf
 #> +-- book.bib
-#> +-- chicago-fullnote-bibliography.csl
 #> +-- code
 #> |   \-- cv.html
+#> +-- cv
+#> |   \-- cv.pdf
 #> +-- data
 #> |   +-- baseline_excess_pclm_5.csv
 #> |   +-- data_cv.R
 #> |   +-- Dudel_et_al_CFR_Decomposition.xlsx
 #> |   +-- Excel_spreadsheets_decomposition.xlsx
 #> |   \-- inputdata.csv
+#> +-- fonts
+#> |   +-- FontAwesome.ttf
+#> |   +-- Roboto-Bold.ttf
+#> |   +-- Roboto-BoldItalic.ttf
+#> |   +-- Roboto-Italic.ttf
+#> |   +-- Roboto-Light.ttf
+#> |   +-- Roboto-LightItalic.ttf
+#> |   +-- Roboto-Medium.ttf
+#> |   +-- Roboto-MediumItalic.ttf
+#> |   +-- Roboto-Regular.ttf
+#> |   +-- Roboto-Thin.ttf
+#> |   \-- Roboto-ThinItalic.ttf
 #> +-- index.md
 #> +-- index.Rmd
+#> +-- libs
+#> |   +-- bootstrap-4.6.0
+#> |   |   +-- bootstrap.bundle.min.js
+#> |   |   +-- bootstrap.bundle.min.js.map
+#> |   |   +-- bootstrap.min.css
+#> |   |   \-- fonts
+#> |   |       \-- bootstrap
+#> |   |           +-- glyphicons-halflings-regular.eot
+#> |   |           +-- glyphicons-halflings-regular.svg
+#> |   |           +-- glyphicons-halflings-regular.ttf
+#> |   |           +-- glyphicons-halflings-regular.woff
+#> |   |           \-- glyphicons-halflings-regular.woff2
+#> |   +-- bs3compat-0.3.1
+#> |   |   +-- bs3compat.js
+#> |   |   +-- tabs.js
+#> |   |   \-- transition.js
+#> |   +-- bs4_book-1.0.0
+#> |   |   +-- bs4_book.css
+#> |   |   \-- bs4_book.js
+#> |   \-- jquery-3.6.0
+#> |       +-- jquery-3.6.0.js
+#> |       +-- jquery-3.6.0.min.js
+#> |       \-- jquery-3.6.0.min.map
+#> +-- lunareclipse.github.io.html
+#> +-- lunareclipse.github.io.log
+#> +-- lunareclipse.github.io.md
 #> +-- lunareclipse.github.io.rds
 #> +-- lunareclipse.github.io.Rproj
-#> +-- markdowns
-#> |   \-- cv.pdf
+#> +-- lunareclipse.github.io.tex
 #> +-- packages.bib
 #> +-- preamble.tex
 #> +-- README.md
+#> +-- render22f046016ceb.rds
 #> +-- render2c783334165a.rds
-#> +-- render38f8ce9139a.rds
+#> +-- render38f8996637d.rds
 #> +-- render77d072fa6f84.rds
 #> +-- style.css
 #> +-- _book
@@ -273,6 +312,8 @@ fs::dir_tree(here::here(""))
 #> |   |   \-- jquery-3.6.0
 #> |   |       \-- jquery-3.6.0.min.js
 #> |   +-- looking-ahead.html
+#> |   +-- markdowns
+#> |   |   \-- cv.pdf
 #> |   +-- open-peer-review.html
 #> |   +-- parts.html
 #> |   +-- projects.html
