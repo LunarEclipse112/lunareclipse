@@ -1,15 +1,15 @@
 --- 
 title: "Portfolio"
 author: "Lunar Eclipse"
-date: "2022-06-02"
+date: "2022-06-03"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: "./bibliography_portfolio/bibliography_portfolio.bib"
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
   This is my portfolio. Its also my first website hosted from github and netlify. I hope you enjoy!
-biblio-style: apalike
-csl: chicago-fullnote-bibliography.csl
+#biblio-style: apalike
+#csl: chicago-fullnote-bibliography.csl
 ---
 
 # Welcome!

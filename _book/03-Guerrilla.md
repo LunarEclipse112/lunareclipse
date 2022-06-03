@@ -210,9 +210,10 @@ fs::dir_tree(here::here(""))
 #> +-- preamble.tex
 #> +-- README.md
 #> +-- render2c783334165a.rds
-#> +-- render5ac332ef78.rds
+#> +-- render38f8128b7e0f.rds
 #> +-- render77d072fa6f84.rds
 #> +-- style.css
+#> +-- test.html
 #> +-- _book
 #> |   +-- 01-celegans.md
 #> |   +-- 01-intro.md
@@ -234,12 +235,14 @@ fs::dir_tree(here::here(""))
 #> |   +-- 04-looking_ahead.md
 #> |   +-- 05-blocks.md
 #> |   +-- 05-projects.md
+#> |   +-- 06-CV.md
 #> |   +-- 06-references.md
 #> |   +-- 06-share.md
 #> |   +-- 07-references.md
 #> |   +-- 404.html
 #> |   +-- blocks.html
 #> |   +-- cross.html
+#> |   +-- cv.pdf
 #> |   +-- example-analysis-c.-elegans-experiment.html
 #> |   +-- footnotes-and-citations.html
 #> |   +-- guerrilla-analytics.html
@@ -272,6 +275,7 @@ fs::dir_tree(here::here(""))
 #> |   +-- projects.html
 #> |   +-- references-1.html
 #> |   +-- references.html
+#> |   +-- resume.html
 #> |   +-- search.json
 #> |   +-- sharing-your-book.html
 #> |   \-- style.css
