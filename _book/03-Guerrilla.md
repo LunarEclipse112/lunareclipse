@@ -169,11 +169,18 @@ fs::dir_tree(here::here(""))
 #> +-- 02-peer_revieuw_files
 #> |   \-- figure-html
 #> |       \-- unnamed-chunk-4-1.png
+#> +-- 03-Guerrilla.md
 #> +-- 03-Guerrilla.Rmd
+#> +-- 04-looking_ahead.md
 #> +-- 04-looking_ahead.Rmd
+#> +-- 05-projects.md
 #> +-- 05-projects.Rmd
+#> +-- 06-CV.md
 #> +-- 06-CV.Rmd
-#> +-- 07-references.Rmd
+#> +-- 07-sql.knit.md
+#> +-- 07-sql_databases.knit.md
+#> +-- 07-sql_databases.Rmd
+#> +-- 08-references.Rmd
 #> +-- awesome-cv.cls
 #> +-- bibliography_portfolio
 #> |   +-- bibliography_portfolio.bib
@@ -202,8 +209,16 @@ fs::dir_tree(here::here(""))
 #> +-- data
 #> |   +-- baseline_excess_pclm_5.csv
 #> |   +-- data_cv.R
+#> |   +-- dengue_data.csv
+#> |   +-- dengue_tidy.csv
+#> |   +-- dengue_tidy.rds
 #> |   +-- Dudel_et_al_CFR_Decomposition.xlsx
 #> |   +-- Excel_spreadsheets_decomposition.xlsx
+#> |   +-- flu_data.csv
+#> |   +-- flu_tidy.csv
+#> |   +-- flu_tidy.rds
+#> |   +-- gapdat_tidy.csv
+#> |   +-- gapdat_tidy.rds
 #> |   \-- inputdata.csv
 #> +-- fonts
 #> |   +-- FontAwesome.ttf
@@ -219,41 +234,16 @@ fs::dir_tree(here::here(""))
 #> |   \-- Roboto-ThinItalic.ttf
 #> +-- index.md
 #> +-- index.Rmd
-#> +-- libs
-#> |   +-- bootstrap-4.6.0
-#> |   |   +-- bootstrap.bundle.min.js
-#> |   |   +-- bootstrap.bundle.min.js.map
-#> |   |   +-- bootstrap.min.css
-#> |   |   \-- fonts
-#> |   |       \-- bootstrap
-#> |   |           +-- glyphicons-halflings-regular.eot
-#> |   |           +-- glyphicons-halflings-regular.svg
-#> |   |           +-- glyphicons-halflings-regular.ttf
-#> |   |           +-- glyphicons-halflings-regular.woff
-#> |   |           \-- glyphicons-halflings-regular.woff2
-#> |   +-- bs3compat-0.3.1
-#> |   |   +-- bs3compat.js
-#> |   |   +-- tabs.js
-#> |   |   \-- transition.js
-#> |   +-- bs4_book-1.0.0
-#> |   |   +-- bs4_book.css
-#> |   |   \-- bs4_book.js
-#> |   \-- jquery-3.6.0
-#> |       +-- jquery-3.6.0.js
-#> |       +-- jquery-3.6.0.min.js
-#> |       \-- jquery-3.6.0.min.map
-#> +-- lunareclipse.github.io.html
 #> +-- lunareclipse.github.io.log
-#> +-- lunareclipse.github.io.md
 #> +-- lunareclipse.github.io.rds
 #> +-- lunareclipse.github.io.Rproj
 #> +-- lunareclipse.github.io.tex
 #> +-- packages.bib
 #> +-- preamble.tex
 #> +-- README.md
-#> +-- render22f046016ceb.rds
 #> +-- render2c783334165a.rds
 #> +-- render38f8996637d.rds
+#> +-- render537868272ec7.rds
 #> +-- render77d072fa6f84.rds
 #> +-- style.css
 #> +-- _book
@@ -284,6 +274,8 @@ fs::dir_tree(here::here(""))
 #> |   +-- 404.html
 #> |   +-- blocks.html
 #> |   +-- cross.html
+#> |   +-- cv
+#> |   |   \-- cv.pdf
 #> |   +-- cv.pdf
 #> |   +-- example-analysis-c.-elegans-experiment.html
 #> |   +-- footnotes-and-citations.html

@@ -72,7 +72,8 @@
 <li><a class="" href="looking-ahead.html"><span class="header-section-number">5</span> Looking ahead</a></li>
 <li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
 <li><a class="" href="resume.html"><span class="header-section-number">7</span> Resume</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">8</span> References</a></li>
+<li><a class="" href="relational-databases.html"><span class="header-section-number">8</span> Relational Databases</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">9</span> References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -240,11 +241,18 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; +-- 02-peer_revieuw_files</span>
 <span class="co">#&gt; |   \-- figure-html</span>
 <span class="co">#&gt; |       \-- unnamed-chunk-4-1.png</span>
+<span class="co">#&gt; +-- 03-Guerrilla.md</span>
 <span class="co">#&gt; +-- 03-Guerrilla.Rmd</span>
+<span class="co">#&gt; +-- 04-looking_ahead.md</span>
 <span class="co">#&gt; +-- 04-looking_ahead.Rmd</span>
+<span class="co">#&gt; +-- 05-projects.md</span>
 <span class="co">#&gt; +-- 05-projects.Rmd</span>
+<span class="co">#&gt; +-- 06-CV.md</span>
 <span class="co">#&gt; +-- 06-CV.Rmd</span>
-<span class="co">#&gt; +-- 07-references.Rmd</span>
+<span class="co">#&gt; +-- 07-sql.knit.md</span>
+<span class="co">#&gt; +-- 07-sql_databases.knit.md</span>
+<span class="co">#&gt; +-- 07-sql_databases.Rmd</span>
+<span class="co">#&gt; +-- 08-references.Rmd</span>
 <span class="co">#&gt; +-- awesome-cv.cls</span>
 <span class="co">#&gt; +-- bibliography_portfolio</span>
 <span class="co">#&gt; |   +-- bibliography_portfolio.bib</span>
@@ -273,8 +281,16 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; +-- data</span>
 <span class="co">#&gt; |   +-- baseline_excess_pclm_5.csv</span>
 <span class="co">#&gt; |   +-- data_cv.R</span>
+<span class="co">#&gt; |   +-- dengue_data.csv</span>
+<span class="co">#&gt; |   +-- dengue_tidy.csv</span>
+<span class="co">#&gt; |   +-- dengue_tidy.rds</span>
 <span class="co">#&gt; |   +-- Dudel_et_al_CFR_Decomposition.xlsx</span>
 <span class="co">#&gt; |   +-- Excel_spreadsheets_decomposition.xlsx</span>
+<span class="co">#&gt; |   +-- flu_data.csv</span>
+<span class="co">#&gt; |   +-- flu_tidy.csv</span>
+<span class="co">#&gt; |   +-- flu_tidy.rds</span>
+<span class="co">#&gt; |   +-- gapdat_tidy.csv</span>
+<span class="co">#&gt; |   +-- gapdat_tidy.rds</span>
 <span class="co">#&gt; |   \-- inputdata.csv</span>
 <span class="co">#&gt; +-- fonts</span>
 <span class="co">#&gt; |   +-- FontAwesome.ttf</span>
@@ -290,41 +306,16 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   \-- Roboto-ThinItalic.ttf</span>
 <span class="co">#&gt; +-- index.md</span>
 <span class="co">#&gt; +-- index.Rmd</span>
-<span class="co">#&gt; +-- libs</span>
-<span class="co">#&gt; |   +-- bootstrap-4.6.0</span>
-<span class="co">#&gt; |   |   +-- bootstrap.bundle.min.js</span>
-<span class="co">#&gt; |   |   +-- bootstrap.bundle.min.js.map</span>
-<span class="co">#&gt; |   |   +-- bootstrap.min.css</span>
-<span class="co">#&gt; |   |   \-- fonts</span>
-<span class="co">#&gt; |   |       \-- bootstrap</span>
-<span class="co">#&gt; |   |           +-- glyphicons-halflings-regular.eot</span>
-<span class="co">#&gt; |   |           +-- glyphicons-halflings-regular.svg</span>
-<span class="co">#&gt; |   |           +-- glyphicons-halflings-regular.ttf</span>
-<span class="co">#&gt; |   |           +-- glyphicons-halflings-regular.woff</span>
-<span class="co">#&gt; |   |           \-- glyphicons-halflings-regular.woff2</span>
-<span class="co">#&gt; |   +-- bs3compat-0.3.1</span>
-<span class="co">#&gt; |   |   +-- bs3compat.js</span>
-<span class="co">#&gt; |   |   +-- tabs.js</span>
-<span class="co">#&gt; |   |   \-- transition.js</span>
-<span class="co">#&gt; |   +-- bs4_book-1.0.0</span>
-<span class="co">#&gt; |   |   +-- bs4_book.css</span>
-<span class="co">#&gt; |   |   \-- bs4_book.js</span>
-<span class="co">#&gt; |   \-- jquery-3.6.0</span>
-<span class="co">#&gt; |       +-- jquery-3.6.0.js</span>
-<span class="co">#&gt; |       +-- jquery-3.6.0.min.js</span>
-<span class="co">#&gt; |       \-- jquery-3.6.0.min.map</span>
-<span class="co">#&gt; +-- lunareclipse.github.io.html</span>
 <span class="co">#&gt; +-- lunareclipse.github.io.log</span>
-<span class="co">#&gt; +-- lunareclipse.github.io.md</span>
 <span class="co">#&gt; +-- lunareclipse.github.io.rds</span>
 <span class="co">#&gt; +-- lunareclipse.github.io.Rproj</span>
 <span class="co">#&gt; +-- lunareclipse.github.io.tex</span>
 <span class="co">#&gt; +-- packages.bib</span>
 <span class="co">#&gt; +-- preamble.tex</span>
 <span class="co">#&gt; +-- README.md</span>
-<span class="co">#&gt; +-- render22f046016ceb.rds</span>
 <span class="co">#&gt; +-- render2c783334165a.rds</span>
 <span class="co">#&gt; +-- render38f8996637d.rds</span>
+<span class="co">#&gt; +-- render537868272ec7.rds</span>
 <span class="co">#&gt; +-- render77d072fa6f84.rds</span>
 <span class="co">#&gt; +-- style.css</span>
 <span class="co">#&gt; +-- _book</span>
@@ -355,6 +346,8 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   +-- 404.html</span>
 <span class="co">#&gt; |   +-- blocks.html</span>
 <span class="co">#&gt; |   +-- cross.html</span>
+<span class="co">#&gt; |   +-- cv</span>
+<span class="co">#&gt; |   |   \-- cv.pdf</span>
 <span class="co">#&gt; |   +-- cv.pdf</span>
 <span class="co">#&gt; |   +-- example-analysis-c.-elegans-experiment.html</span>
 <span class="co">#&gt; |   +-- footnotes-and-citations.html</span>
@@ -426,7 +419,7 @@ The path shown below is longer than necessary when working from a server or gith
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2022-06-03.</p>
+    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2022-06-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

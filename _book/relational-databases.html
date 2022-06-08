@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Relational Databases | Portfolio</title>
+<meta name="author" content="Lunar Eclipse">
+<meta name="description" content="Working with relational databases means in many cases having to communicate using SQL. To pull and store data is very important and here follows a small demonstration on how this can be done. At...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Relational Databases | Portfolio">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Working with relational databases means in many cases having to communicate using SQL. To pull and store data is very important and here follows a small demonstration on how this can be done. At...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Relational Databases | Portfolio">
+<meta name="twitter:description" content="Working with relational databases means in many cases having to communicate using SQL. To pull and store data is very important and here follows a small demonstration on how this can be done. At...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Portfolio</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="example-analysis-c.-elegans-experiment.html"><span class="header-section-number">2</span> Example analysis C. Elegans experiment</a></li>
+<li><a class="" href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></li>
+<li><a class="" href="guerrilla-analytics.html"><span class="header-section-number">4</span> Guerrilla Analytics</a></li>
+<li><a class="" href="looking-ahead.html"><span class="header-section-number">5</span> Looking ahead</a></li>
+<li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
+<li><a class="" href="resume.html"><span class="header-section-number">7</span> Resume</a></li>
+<li><a class="active" href="relational-databases.html"><span class="header-section-number">8</span> Relational Databases</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">9</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/LunarEclipse112/lunareclipse.github.io">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="relational-databases" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Relational Databases<a class="anchor" aria-label="anchor" href="#relational-databases"><i class="fas fa-link"></i></a>
+</h1>
+<p>Working with relational databases means in many cases having to communicate using SQL. To pull and store data is very important and here follows a small demonstration on how this can be done.</p>
+<p>At first we start by loading in the required data for this short analysis. We use data from gapminder, a data set from the dslabs package and we use the dengue and flu data sets.
+After loading in the data we need to make it tidy to make it easier to work with in R. It will also make it allot easier to work with when we compare the data and load it in into DBeaver using SQL.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">############ Load in Data ##############################################</span>
+<span class="co">## Gapminder data from the dslabs package</span>
+  <span class="va">gapdat</span> <span class="op">&lt;-</span> <span class="va">gapminder</span>
+  <span class="va">gapdata_tidy</span> <span class="op">&lt;-</span> <span class="va">gapminder</span>
+<span class="co">## Dengue en flu data </span>
+  <span class="va">dengue_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/dengue_data.csv"</span><span class="op">)</span>, skip <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+  <span class="va">flu_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/flu_data.csv"</span><span class="op">)</span>, skip <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="co">########################################################################</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">############################## Tidy Data ################################</span>
+
+<span class="co">## Gapminder data looks very tidy so no changes there except for the year column, that needs to become Date</span>
+  <span class="va">gapdata_tidy</span><span class="op">$</span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">gapdata_tidy</span><span class="op">$</span><span class="va">year</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">gapdat</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"country"</span>, <span class="st">"Date"</span>, <span class="st">"infant_mortality"</span>, <span class="st">"life_expectancy"</span>, <span class="st">"fertility"</span>, <span class="st">"population"</span>, <span class="st">"gdp"</span>, <span class="st">"continent"</span>, <span class="st">"region"</span><span class="op">)</span>
+
+<span class="co">## flu data tidy:</span>
+  <span class="va">flu_data_tidy</span> <span class="op">&lt;-</span> <span class="va">flu_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span>,
+                                             names_to <span class="op">=</span> <span class="st">"country"</span>,
+                                             values_to <span class="op">=</span> <span class="st">"count_cases"</span><span class="op">)</span> 
+  <span class="co">## dengue data tidy:</span>
+  <span class="va">dengue_data_tidy</span> <span class="op">&lt;-</span> <span class="va">dengue_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span>,
+                                             names_to <span class="op">=</span> <span class="st">"country"</span>,
+                                             values_to <span class="op">=</span> <span class="st">"values"</span><span class="op">)</span> </code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">########################### Export the Data ############################</span>
+
+<span class="co">## Now we are going to write off the tidy data sets as csv and rds to export them later into the database</span>
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">gapdat_tidy</span>, path <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/gapdat_tidy.csv"</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">flu_data_tidy</span>, path <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/flu_tidy.csv"</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">dengue_data_tidy</span>, path <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/dengue_tidy.csv"</span><span class="op">)</span><span class="op">)</span>
+  
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">write_rds</a></span><span class="op">(</span><span class="va">gapdat_tidy</span>, path <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/gapdat_tidy.rds"</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">write_rds</a></span><span class="op">(</span><span class="va">flu_data_tidy</span>, path <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/flu_tidy.rds"</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">write_rds</a></span><span class="op">(</span><span class="va">dengue_data_tidy</span>, path <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/dengue_tidy.rds"</span><span class="op">)</span><span class="op">)</span>
+
+  </code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="relational-databases.html#cb8-1" aria-hidden="true" tabindex="-1"></a>## <span class="kw">In</span> DBeaver we now make a <span class="kw">new</span> <span class="kw">database</span> <span class="kw">to</span> <span class="kw">store</span> <span class="kw">the</span> <span class="kw">data</span></span>
+<span id="cb8-2"><a href="relational-databases.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">DATABASE</span> fludata;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Then we connect to the database</span>
+<span class="va">con</span> <span class="op">&lt;-</span> <span class="fu">dbConnect</span><span class="op">(</span><span class="fu">RPostgres</span><span class="fu">::</span><span class="fu"><a href="https://rpostgres.r-dbi.org/reference/Postgres.html">Postgres</a></span><span class="op">(</span><span class="op">)</span>, 
+                 dbname <span class="op">=</span> <span class="st">"fludata"</span>, 
+                 host<span class="op">=</span><span class="st">"localhost"</span>, 
+                 port<span class="op">=</span><span class="st">"5432"</span>, 
+                 user<span class="op">=</span><span class="st">"postgres"</span>, 
+                 password<span class="op">=</span><span class="st">"warLUNA112!"</span><span class="op">)</span> 
+
+<span class="co">## And create new tables with the data frames we made earlier</span>
+<span class="fu">dbWriteTable</span><span class="op">(</span><span class="va">con</span>, <span class="st">"flu_data"</span>, <span class="va">flu_data_tidy</span><span class="op">)</span>
+<span class="fu">dbWriteTable</span><span class="op">(</span><span class="va">con</span>, <span class="st">"dengue_data"</span>, <span class="va">dengue_data_tidy</span><span class="op">)</span>
+<span class="fu">dbWriteTable</span><span class="op">(</span><span class="va">con</span>, <span class="st">"gapminder_data"</span>, <span class="va">gapdat_tidy</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="relational-databases.html#cb10-1" aria-hidden="true" tabindex="-1"></a>## <span class="cf">Then</span> <span class="kw">in</span> SQL we define <span class="kw">the</span> <span class="kw">primary</span> keys <span class="kw">of</span> <span class="kw">the</span> <span class="kw">tables</span> (<span class="dt">Date</span> <span class="kw">and</span> country)</span>
+<span id="cb10-2"><a href="relational-databases.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">alter</span> <span class="kw">table</span> <span class="kw">public</span>.flu_data </span>
+<span id="cb10-3"><a href="relational-databases.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">add</span> <span class="kw">constraint</span> PK_flu_data <span class="kw">primary</span> <span class="kw">key</span> (<span class="dt">Date</span>, country);</span>
+<span id="cb10-4"><a href="relational-databases.html#cb10-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-5"><a href="relational-databases.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">alter</span> <span class="kw">table</span> <span class="kw">public</span>.dengue_data </span>
+<span id="cb10-6"><a href="relational-databases.html#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">add</span> <span class="kw">constraint</span> PK_dengue_data <span class="kw">primary</span> <span class="kw">key</span> (<span class="dt">Date</span>, country);</span>
+<span id="cb10-7"><a href="relational-databases.html#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="relational-databases.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">alter</span> <span class="kw">table</span> <span class="kw">public</span>.gapminer_data </span>
+<span id="cb10-9"><a href="relational-databases.html#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">add</span> <span class="kw">constraint</span> PK_gapminder_data <span class="kw">primary</span> <span class="kw">key</span> (<span class="dt">Date</span>, country);</span>
+<span id="cb10-10"><a href="relational-databases.html#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="relational-databases.html#cb10-11" aria-hidden="true" tabindex="-1"></a>## <span class="kw">And</span> we inspect <span class="kw">the</span> <span class="kw">data</span> <span class="kw">from</span> <span class="kw">the</span> <span class="kw">table</span> flu_data <span class="kw">to</span> <span class="kw">check</span> <span class="cf">if</span> <span class="kw">all</span> went well</span>
+<span id="cb10-12"><a href="relational-databases.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> flu_data;</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">######################## Inspect the Data ######################################</span>
+<span class="co">## Now that the data has been stored in the database we can inspect it in R using the connection made</span>
+
+<span class="co"># Shows the tables</span>
+<span class="fu">dbListTables</span><span class="op">(</span><span class="va">con</span><span class="op">)</span>
+
+<span class="co"># Shows the table of gaminder_data</span>
+<span class="fu">dbGetQuery</span><span class="op">(</span><span class="va">con</span>, <span class="st">'SELECT * FROM gapminder_data'</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">####################### Modify the gapminder data ##############################</span>
+<span class="co"># Next we want to join the 3 data frames together based on the year and country columns</span>
+<span class="co">## flu data tidy:</span>
+  <span class="va">flu_data_tidy</span> <span class="op">&lt;-</span> <span class="va">flu_data_tidy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">Date</span>, into <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"year"</span>, <span class="st">"Month"</span>, <span class="st">"Day"</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span>
+<span class="co">## dengue data tidy:</span>
+  <span class="va">dengue_data_tidy</span> <span class="op">&lt;-</span> <span class="va">dengue_data_tidy</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">Date</span>, into <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"year"</span>, <span class="st">"Month"</span>, <span class="st">"Day"</span><span class="op">)</span>, sep <span class="op">=</span><span class="st">"-"</span><span class="op">)</span>
+    
+<span class="va">sic</span> <span class="op">&lt;-</span> <span class="va">dengue_data_tidy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">flu_data_tidy</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"year"</span>,<span class="st">"country"</span>, <span class="st">"Day"</span>, <span class="st">"Month"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">merged_dat</span> <span class="op">&lt;-</span> <span class="va">sic</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">gapdata_tidy</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"country"</span>, <span class="st">"year"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>To finish we will plot a few simple graphs to show a bit about the data that was merged.</p>
+<p><img src="07-sql_databases_files/figure-html/unnamed-chunk-10-1.png" width="672"><img src="07-sql_databases_files/figure-html/unnamed-chunk-10-2.png" width="672"><img src="07-sql_databases_files/figure-html/unnamed-chunk-10-3.png" width="672"></p>
+
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="resume.html"><span class="header-section-number">7</span> Resume</a></div>
+<div class="next"><a href="references.html"><span class="header-section-number">9</span> References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#relational-databases"><span class="header-section-number">8</span> Relational Databases</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/LunarEclipse112/lunareclipse.github.io/blob/master/07-sql_databases.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/LunarEclipse112/lunareclipse.github.io/edit/master/07-sql_databases.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2022-06-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
