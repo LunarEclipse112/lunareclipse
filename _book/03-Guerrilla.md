@@ -151,183 +151,102 @@ fs::dir_tree(here::here("daur2/"))
 
 ```
 
-Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos. It was run trough a linux server. In this next example we can see the structure of this project, which is my portfolio project. It is organized in the same structure format but on my own pc. This allows easier access compared to a server designed to learn and run by my learning institution. 
+Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos. It was run trough a linux server. In this next example we can see the structure of this project, which is my portfolio project (Not the bookdown project of my portfolio witch is linked trough this website!). It is organized in the same structure format but on my own pc. This allows easier access compared to a server designed to learn and run by my learning institution. 
 The path shown below is longer than necessary when working from a server or github project. 
 
 
 ```r
 fs::dir_tree(here::here(""))
-#> C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/Website/lunareclipse.github.io
-#> +-- 01-intro.Rmd
-#> +-- 01-intro_files
-#> |   \-- figure-html
-#> |       +-- unnamed-chunk-2-1.png
-#> |       \-- unnamed-chunk-3-1.png
-#> +-- 02-peer_revieuw.Rmd
-#> +-- 02-peer_revieuw_files
-#> |   \-- figure-html
-#> |       \-- unnamed-chunk-4-1.png
-#> +-- 03-Guerrilla.Rmd
-#> +-- 04-looking_ahead.Rmd
-#> +-- 05-projects.Rmd
-#> +-- 06-CV.Rmd
-#> +-- 07-sql.knit.md
-#> +-- 07-sql_databases.Rmd
-#> +-- 07-sql_databases_files
-#> |   \-- figure-html
-#> |       +-- unnamed-chunk-10-1.png
-#> |       +-- unnamed-chunk-10-2.png
-#> |       \-- unnamed-chunk-10-3.png
-#> +-- 08-references.Rmd
-#> +-- awesome-cv.cls
-#> +-- bibliography_portfolio
-#> |   +-- bibliography_portfolio.bib
-#> |   \-- files
-#> |       +-- 11
-#> |       |   \-- Sathyanesan and Gallo - 2019 - Cerebellar contribution to locomotor behavior A n.pdf
-#> |       +-- 13
-#> |       |   \-- Dudel et al. - Monitoring trends and differences in COVID-19 case.pdf
-#> |       +-- 15
-#> |       |   \-- Delgado-Gallegos et al. - 2021 - Teaching Anxiety, Stress and Resilience During the.pdf
-#> |       +-- 18
-#> |       |   \-- www.noldus.com.html
-#> |       +-- 3
-#> |       |   \-- Vinueza Veloz et al. - 2012 - The effect of an mGluR5 inhibitor on procedural me.pdf
-#> |       +-- 5
-#> |       |   \-- Schonewille et al. - 2011 - Reevaluating the Role of LTD in Cerebellar Motor L.pdf
-#> |       +-- 7
-#> |       |   \-- Vinueza Veloz et al. - 2015 - Cerebellar control of gait and interlimb coordinat.pdf
-#> |       \-- 9
-#> |           \-- Sathyanesan et al. - 2018 - Neonatal brain injury causes cerebellar learning d.pdf
-#> +-- book.bib
-#> +-- code
-#> |   \-- cv.html
-#> +-- cv
-#> |   \-- cv.pdf
-#> +-- data
-#> |   +-- baseline_excess_pclm_5.csv
-#> |   +-- data_cv.R
-#> |   +-- dengue_data.csv
-#> |   +-- dengue_tidy.csv
-#> |   +-- dengue_tidy.rds
-#> |   +-- Dudel_et_al_CFR_Decomposition.xlsx
-#> |   +-- Excel_spreadsheets_decomposition.xlsx
-#> |   +-- flu_data.csv
-#> |   +-- flu_tidy.csv
-#> |   +-- flu_tidy.rds
-#> |   +-- gapdat_tidy.csv
-#> |   +-- gapdat_tidy.rds
-#> |   \-- inputdata.csv
-#> +-- fonts
-#> |   +-- FontAwesome.ttf
-#> |   +-- Roboto-Bold.ttf
-#> |   +-- Roboto-BoldItalic.ttf
-#> |   +-- Roboto-Italic.ttf
-#> |   +-- Roboto-Light.ttf
-#> |   +-- Roboto-LightItalic.ttf
-#> |   +-- Roboto-Medium.ttf
-#> |   +-- Roboto-MediumItalic.ttf
-#> |   +-- Roboto-Regular.ttf
-#> |   +-- Roboto-Thin.ttf
-#> |   \-- Roboto-ThinItalic.ttf
-#> +-- index.Rmd
-#> +-- lunareclipse.github.io.log
-#> +-- lunareclipse.github.io.rds
-#> +-- lunareclipse.github.io.Rproj
-#> +-- lunareclipse.github.io.tex
-#> +-- packages.bib
-#> +-- preamble.tex
-#> +-- README.md
-#> +-- render2c783334165a.rds
-#> +-- render38f8996637d.rds
-#> +-- render537810ea1c67.rds
-#> +-- render77d072fa6f84.rds
-#> +-- style.css
-#> +-- _book
-#> |   +-- 01-celegans.md
-#> |   +-- 01-intro.md
-#> |   +-- 01-intro_files
-#> |   |   \-- figure-html
-#> |   |       +-- unnamed-chunk-2-1.png
-#> |   |       \-- unnamed-chunk-3-1.png
-#> |   +-- 02-cross-refs.md
-#> |   +-- 02-cross-refs_files
-#> |   |   \-- figure-html
-#> |   |       \-- nice-fig-1.png
-#> |   +-- 02-peer_revieuw.md
-#> |   +-- 02-peer_revieuw_files
-#> |   |   \-- figure-html
-#> |   |       \-- unnamed-chunk-4-1.png
-#> |   +-- 03-Guerrilla.md
-#> |   +-- 03-parts.md
-#> |   +-- 04-citations.md
-#> |   +-- 04-looking_ahead.md
-#> |   +-- 05-blocks.md
-#> |   +-- 05-projects.md
-#> |   +-- 06-CV.md
-#> |   +-- 06-references.md
-#> |   +-- 06-share.md
-#> |   +-- 07-references.md
-#> |   +-- 07-sql_databases.md
-#> |   +-- 07-sql_databases_files
-#> |   |   \-- figure-html
-#> |   |       +-- unnamed-chunk-10-1.png
-#> |   |       +-- unnamed-chunk-10-2.png
-#> |   |       \-- unnamed-chunk-10-3.png
-#> |   +-- 08-references.md
-#> |   +-- 404.html
-#> |   +-- blocks.html
-#> |   +-- cross.html
-#> |   +-- cv
-#> |   |   \-- cv.pdf
-#> |   +-- cv.pdf
-#> |   +-- example-analysis-c.-elegans-experiment.html
-#> |   +-- footnotes-and-citations.html
-#> |   +-- guerrilla-analytics.html
-#> |   +-- hello-bookdown.html
-#> |   +-- index.html
-#> |   +-- index.md
-#> |   +-- libs
-#> |   |   +-- bootstrap-4.6.0
-#> |   |   |   +-- bootstrap.bundle.min.js
-#> |   |   |   +-- bootstrap.min.css
-#> |   |   |   \-- fonts
-#> |   |   |       \-- bootstrap
-#> |   |   |           +-- glyphicons-halflings-regular.eot
-#> |   |   |           +-- glyphicons-halflings-regular.svg
-#> |   |   |           +-- glyphicons-halflings-regular.ttf
-#> |   |   |           +-- glyphicons-halflings-regular.woff
-#> |   |   |           \-- glyphicons-halflings-regular.woff2
-#> |   |   +-- bs3compat-0.3.1
-#> |   |   |   +-- bs3compat.js
-#> |   |   |   +-- tabs.js
-#> |   |   |   \-- transition.js
-#> |   |   +-- bs4_book-1.0.0
-#> |   |   |   +-- bs4_book.css
-#> |   |   |   \-- bs4_book.js
-#> |   |   \-- jquery-3.6.0
-#> |   |       \-- jquery-3.6.0.min.js
-#> |   +-- looking-ahead.html
-#> |   +-- markdowns
-#> |   |   \-- cv.pdf
-#> |   +-- open-peer-review.html
-#> |   +-- parts.html
-#> |   +-- projects.html
-#> |   +-- reference-keys.txt
-#> |   +-- references-1.html
-#> |   +-- references.html
-#> |   +-- relational-databases.html
-#> |   +-- resume.html
-#> |   +-- search.json
-#> |   +-- sharing-your-book.html
-#> |   \-- style.css
-#> +-- _bookdown.yml
-#> +-- _bookdown_files
-#> +-- _common.R
-#> \-- _output.yml
+
+C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/dsbf2_workflows_portfolio/Portfolio
++-- bibliography_portfolio
+|   +-- bibliography_portfolio.bib
+|   \-- files
+|       +-- 11
+|       |   \-- Sathyanesan and Gallo - 2019 - Cerebellar contribution to locomotor behavior A n.pdf
+|       +-- 13
+|       |   \-- Dudel et al. - Monitoring trends and differences in COVID-19 case.pdf
+|       +-- 15
+|       |   \-- Delgado-Gallegos et al. - 2021 - Teaching Anxiety, Stress and Resilience During the.pdf
+|       +-- 18
+|       |   \-- www.noldus.com.html
+|       +-- 3
+|       |   \-- Vinueza Veloz et al. - 2012 - The effect of an mGluR5 inhibitor on procedural me.pdf
+|       +-- 5
+|       |   \-- Schonewille et al. - 2011 - Reevaluating the Role of LTD in Cerebellar Motor L.pdf
+|       +-- 7
+|       |   \-- Vinueza Veloz et al. - 2015 - Cerebellar control of gait and interlimb coordinat.pdf
+|       \-- 9
+|           \-- Sathyanesan et al. - 2018 - Neonatal brain injury causes cerebellar learning d.pdf
++-- code
+|   +-- 00_functions.R
+|   +-- 01_input.R
+|   +-- 02_analysis.R
+|   +-- 03_excess.R
+|   +-- Fig_1.R
+|   +-- guerrilla_tactics.R
+|   +-- pdftopng.R
+|   \-- Tests.R
++-- data
+|   +-- baseline_excess_pclm_5.csv
+|   +-- data_cv.R
+|   +-- dengue_data.csv
+|   +-- dengue_tidy.csv
+|   +-- dengue_tidy.rds
+|   +-- Dudel_et_al_CFR_Decomposition.xlsx
+|   +-- Excel_spreadsheets_decomposition.xlsx
+|   +-- flu_data.csv
+|   +-- flu_tidy.csv
+|   +-- flu_tidy.rds
+|   +-- gapdat_tidy.csv
+|   +-- gapdat_tidy.rds
+|   \-- inputdata.csv
++-- output
+|   +-- AppendixTab1.xlsx
+|   +-- AppendixTab2.xlsx
+|   +-- AppendixTab3.xlsx
+|   +-- AppendixTab4.xlsx
+|   +-- AppendixTab5.xlsx
+|   +-- AppendixTab6.xlsx
+|   +-- Fig_1.jpg
+|   +-- Table2.xlsx
+|   +-- Table3.xlsx
+|   \-- thumbnail_IMG_7494.jpg
++-- Portfolio.Rproj
++-- README.txt
+\-- Rmarkdowns
+    +-- awesome-cv.cls
+    +-- fonts
+    |   +-- FontAwesome.ttf
+    |   +-- Roboto-Bold.ttf
+    |   +-- Roboto-BoldItalic.ttf
+    |   +-- Roboto-Italic.ttf
+    |   +-- Roboto-Light.ttf
+    |   +-- Roboto-LightItalic.ttf
+    |   +-- Roboto-Medium.ttf
+    |   +-- Roboto-MediumItalic.ttf
+    |   +-- Roboto-Regular.ttf
+    |   +-- Roboto-Thin.ttf
+    |   \-- Roboto-ThinItalic.ttf
+    +-- portfolio_opdracht1.html
+    +-- portfolio_opdracht1_1.html
+    +-- portfolio_opdracht1_1.Rmd
+    +-- portfolio_opdracht1_2.html
+    +-- portfolio_opdracht1_2.Rmd
+    +-- portfolio_opdracht2.html
+    +-- Portfolio_opdracht2.Rmd
+    +-- Portfolio_opdracht3.html
+    +-- Portfolio_opdracht3_1.pdf
+    +-- Portfolio_opdracht3_1.Rmd
+    +-- Portfolio_opdracht3_2.html
+    +-- Portfolio_opdracht3_2.Rmd
+    +-- Portfolio_opdracht5.html
+    +-- Portfolio_opdracht5.Rmd
+    +-- Portfolio_opdracht7.html
+    \-- Portfolio_opdracht7.Rmd
 ```
 
-Next we will be looking at the Metadata from the Portfolio project. Listed below is content of the README file to show more information about the files in the project. 
+Next we will be looking at the README from the Portfolio project. Listed below is content of the README file to show more information about the files in the project. You can also just look at the README linked in the Github link. That one is a little bit easier to read. 
 
 
 ```r
