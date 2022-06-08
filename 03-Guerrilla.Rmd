@@ -166,8 +166,7 @@ fs::dir_tree(here::here(""))
 Next we will be looking at the Metadata from the Portfolio project. Listed below is content of the README file to show more information about the files in the project. 
 
 ```{r}
-here::here("/README.md")
-
+read_file(here::here("README.md"))
 
 ```
 

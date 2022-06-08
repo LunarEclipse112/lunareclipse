@@ -158,28 +158,26 @@ The path shown below is longer than necessary when working from a server or gith
 ```r
 fs::dir_tree(here::here(""))
 #> C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/Website/lunareclipse.github.io
-#> +-- 01-intro.md
 #> +-- 01-intro.Rmd
 #> +-- 01-intro_files
 #> |   \-- figure-html
 #> |       +-- unnamed-chunk-2-1.png
 #> |       \-- unnamed-chunk-3-1.png
-#> +-- 02-peer_revieuw.md
 #> +-- 02-peer_revieuw.Rmd
 #> +-- 02-peer_revieuw_files
 #> |   \-- figure-html
 #> |       \-- unnamed-chunk-4-1.png
-#> +-- 03-Guerrilla.md
 #> +-- 03-Guerrilla.Rmd
-#> +-- 04-looking_ahead.md
 #> +-- 04-looking_ahead.Rmd
-#> +-- 05-projects.md
 #> +-- 05-projects.Rmd
-#> +-- 06-CV.md
 #> +-- 06-CV.Rmd
 #> +-- 07-sql.knit.md
-#> +-- 07-sql_databases.knit.md
 #> +-- 07-sql_databases.Rmd
+#> +-- 07-sql_databases_files
+#> |   \-- figure-html
+#> |       +-- unnamed-chunk-10-1.png
+#> |       +-- unnamed-chunk-10-2.png
+#> |       \-- unnamed-chunk-10-3.png
 #> +-- 08-references.Rmd
 #> +-- awesome-cv.cls
 #> +-- bibliography_portfolio
@@ -232,7 +230,6 @@ fs::dir_tree(here::here(""))
 #> |   +-- Roboto-Regular.ttf
 #> |   +-- Roboto-Thin.ttf
 #> |   \-- Roboto-ThinItalic.ttf
-#> +-- index.md
 #> +-- index.Rmd
 #> +-- lunareclipse.github.io.log
 #> +-- lunareclipse.github.io.rds
@@ -243,7 +240,7 @@ fs::dir_tree(here::here(""))
 #> +-- README.md
 #> +-- render2c783334165a.rds
 #> +-- render38f8996637d.rds
-#> +-- render537868272ec7.rds
+#> +-- render537810ea1c67.rds
 #> +-- render77d072fa6f84.rds
 #> +-- style.css
 #> +-- _book
@@ -271,6 +268,13 @@ fs::dir_tree(here::here(""))
 #> |   +-- 06-references.md
 #> |   +-- 06-share.md
 #> |   +-- 07-references.md
+#> |   +-- 07-sql_databases.md
+#> |   +-- 07-sql_databases_files
+#> |   |   \-- figure-html
+#> |   |       +-- unnamed-chunk-10-1.png
+#> |   |       +-- unnamed-chunk-10-2.png
+#> |   |       \-- unnamed-chunk-10-3.png
+#> |   +-- 08-references.md
 #> |   +-- 404.html
 #> |   +-- blocks.html
 #> |   +-- cross.html
@@ -309,8 +313,10 @@ fs::dir_tree(here::here(""))
 #> |   +-- open-peer-review.html
 #> |   +-- parts.html
 #> |   +-- projects.html
+#> |   +-- reference-keys.txt
 #> |   +-- references-1.html
 #> |   +-- references.html
+#> |   +-- relational-databases.html
 #> |   +-- resume.html
 #> |   +-- search.json
 #> |   +-- sharing-your-book.html
@@ -325,7 +331,7 @@ Next we will be looking at the Metadata from the Portfolio project. Listed below
 
 
 ```r
-here::here("/README.md")
-#> [1] "/README.md"
+read_file(here::here("README.md"))
+#> [1] "# lunareclipse.github.io\r\n\r\nThis repository contains my portfolio. It is ment to showcase my skills in data analysis. My goal is to be able to present to a future employer what it is I can do and such this portfolio will change greatly over time. As of now I am very much in the beginning of my journey and looking for an internship to hown my skills in a certain direction. For me my interest lies especially in next generation sequencing. I have worked on some NGS projects trough my university and I very much like how it goes hand in hand with understanding the biology of organisms to better interpret the results. \r\nIn this project most of the coding is done in R, with a little bit of Bash, CSS, YML and HTML on the side."
 ```
 

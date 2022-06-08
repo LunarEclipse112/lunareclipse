@@ -64,17 +64,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
-<li><a class="" href="example-analysis-c.-elegans-experiment.html"><span class="header-section-number">2</span> Example analysis C. Elegans experiment</a></li>
-<li><a class="" href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></li>
-<li><a class="active" href="guerrilla-analytics.html"><span class="header-section-number">4</span> Guerrilla Analytics</a></li>
-<li><a class="" href="looking-ahead.html"><span class="header-section-number">5</span> Looking ahead</a></li>
-<li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
-<li><a class="" href="resume.html"><span class="header-section-number">7</span> Resume</a></li>
-<li><a class="" href="relational-databases.html"><span class="header-section-number">8</span> Relational Databases</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">9</span> References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 4</span> Guerrilla Analytics</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/LunarEclipse112/lunareclipse.github.io">View book source <i class="fab fa-github"></i></a></p>
@@ -87,171 +77,169 @@
 </h1>
 <p>While working together in groups using github or alone on ones own <em>in silico</em> interface it is of great importance to keep a consistent and organized structure to more easily find data or code. On one hand it is crucial to avoid confusion on version usage (v4_file instead of latestlateslatest_file) by having established how files and data will be named in a README.txt file and further explanation in a METADATA file. On the other hand it makes writing code to edit, analyse and plot data much easier because the path to data and files is fixed. Guerrilla analytics is all about reproducibility and allows for anyone to quickly understand what the files and data contain and helps analysts write easier code by not deepening the file locations.</p>
 <p>A short example of a set up of this type is shown below. I organized one of my courses in the guerrilla analytics format to better explain the structure. It is very easy to work with and I very much enjoy looking at a well organized project.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="guerrilla-analytics.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using this command we can get the structure of our file organisation </span></span>
-<span id="cb2-2"><a href="guerrilla-analytics.html#cb2-2" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"daur2/"</span>))</span>
-<span id="cb2-3"><a href="guerrilla-analytics.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="guerrilla-analytics.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>home<span class="sc">/</span><span class="dv">1686589</span><span class="sc">/</span>daur2<span class="sc">/</span></span>
-<span id="cb2-5"><a href="guerrilla-analytics.html#cb2-5" aria-hidden="true" tabindex="-1"></a>├── rna_seq_ipsc</span>
-<span id="cb2-6"><a href="guerrilla-analytics.html#cb2-6" aria-hidden="true" tabindex="-1"></a>│   ├── README.txt</span>
-<span id="cb2-7"><a href="guerrilla-analytics.html#cb2-7" aria-hidden="true" tabindex="-1"></a>│   ├── code</span>
-<span id="cb2-8"><a href="guerrilla-analytics.html#cb2-8" aria-hidden="true" tabindex="-1"></a>│   │   └── Input.R</span>
-<span id="cb2-9"><a href="guerrilla-analytics.html#cb2-9" aria-hidden="true" tabindex="-1"></a>│   ├── data</span>
-<span id="cb2-10"><a href="guerrilla-analytics.html#cb2-10" aria-hidden="true" tabindex="-1"></a>│   ├── rnaseq_ipsc.Rmd</span>
-<span id="cb2-11"><a href="guerrilla-analytics.html#cb2-11" aria-hidden="true" tabindex="-1"></a>│   └── rnaseq_ipsc.html</span>
-<span id="cb2-12"><a href="guerrilla-analytics.html#cb2-12" aria-hidden="true" tabindex="-1"></a>├── rnaseq_airway</span>
-<span id="cb2-13"><a href="guerrilla-analytics.html#cb2-13" aria-hidden="true" tabindex="-1"></a>│   ├── README.txt</span>
-<span id="cb2-14"><a href="guerrilla-analytics.html#cb2-14" aria-hidden="true" tabindex="-1"></a>│   ├── code</span>
-<span id="cb2-15"><a href="guerrilla-analytics.html#cb2-15" aria-hidden="true" tabindex="-1"></a>│   │   ├── input.R</span>
-<span id="cb2-16"><a href="guerrilla-analytics.html#cb2-16" aria-hidden="true" tabindex="-1"></a>│   │   └── namen.txt</span>
-<span id="cb2-17"><a href="guerrilla-analytics.html#cb2-17" aria-hidden="true" tabindex="-1"></a>│   ├── data</span>
-<span id="cb2-18"><a href="guerrilla-analytics.html#cb2-18" aria-hidden="true" tabindex="-1"></a>│   │   ├── airway_sampledata.csv</span>
-<span id="cb2-19"><a href="guerrilla-analytics.html#cb2-19" aria-hidden="true" tabindex="-1"></a>│   │   ├── bam</span>
-<span id="cb2-20"><a href="guerrilla-analytics.html#cb2-20" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508.bam</span>
-<span id="cb2-21"><a href="guerrilla-analytics.html#cb2-21" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508.bam.indel.vcf</span>
-<span id="cb2-22"><a href="guerrilla-analytics.html#cb2-22" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508.bam.summary</span>
-<span id="cb2-23"><a href="guerrilla-analytics.html#cb2-23" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509.bam</span>
-<span id="cb2-24"><a href="guerrilla-analytics.html#cb2-24" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509.bam.indel.vcf</span>
-<span id="cb2-25"><a href="guerrilla-analytics.html#cb2-25" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509.bam.summary</span>
-<span id="cb2-26"><a href="guerrilla-analytics.html#cb2-26" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512.bam</span>
-<span id="cb2-27"><a href="guerrilla-analytics.html#cb2-27" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512.bam.indel.vcf</span>
-<span id="cb2-28"><a href="guerrilla-analytics.html#cb2-28" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512.bam.summary</span>
-<span id="cb2-29"><a href="guerrilla-analytics.html#cb2-29" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513.bam</span>
-<span id="cb2-30"><a href="guerrilla-analytics.html#cb2-30" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513.bam.indel.vcf</span>
-<span id="cb2-31"><a href="guerrilla-analytics.html#cb2-31" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513.bam.summary</span>
-<span id="cb2-32"><a href="guerrilla-analytics.html#cb2-32" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516.bam</span>
-<span id="cb2-33"><a href="guerrilla-analytics.html#cb2-33" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516.bam.indel.vcf</span>
-<span id="cb2-34"><a href="guerrilla-analytics.html#cb2-34" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516.bam.summary</span>
-<span id="cb2-35"><a href="guerrilla-analytics.html#cb2-35" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517.bam</span>
-<span id="cb2-36"><a href="guerrilla-analytics.html#cb2-36" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517.bam.indel.vcf</span>
-<span id="cb2-37"><a href="guerrilla-analytics.html#cb2-37" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517.bam.summary</span>
-<span id="cb2-38"><a href="guerrilla-analytics.html#cb2-38" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520.bam</span>
-<span id="cb2-39"><a href="guerrilla-analytics.html#cb2-39" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520.bam.indel.vcf</span>
-<span id="cb2-40"><a href="guerrilla-analytics.html#cb2-40" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520.bam.summary</span>
-<span id="cb2-41"><a href="guerrilla-analytics.html#cb2-41" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521.bam</span>
-<span id="cb2-42"><a href="guerrilla-analytics.html#cb2-42" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521.bam.indel.vcf</span>
-<span id="cb2-43"><a href="guerrilla-analytics.html#cb2-43" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521.bam.summary</span>
-<span id="cb2-44"><a href="guerrilla-analytics.html#cb2-44" aria-hidden="true" tabindex="-1"></a>│   │   │   └── alignment_statistics.rds</span>
-<span id="cb2-45"><a href="guerrilla-analytics.html#cb2-45" aria-hidden="true" tabindex="-1"></a>│   │   ├── counts</span>
-<span id="cb2-46"><a href="guerrilla-analytics.html#cb2-46" aria-hidden="true" tabindex="-1"></a>│   │   │   └── read_counts.rds</span>
-<span id="cb2-47"><a href="guerrilla-analytics.html#cb2-47" aria-hidden="true" tabindex="-1"></a>│   │   ├── fastq</span>
-<span id="cb2-48"><a href="guerrilla-analytics.html#cb2-48" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_1.fastq.gz</span>
-<span id="cb2-49"><a href="guerrilla-analytics.html#cb2-49" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_2.fastq.gz</span>
-<span id="cb2-50"><a href="guerrilla-analytics.html#cb2-50" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_1.fastq.gz</span>
-<span id="cb2-51"><a href="guerrilla-analytics.html#cb2-51" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_2.fastq.gz</span>
-<span id="cb2-52"><a href="guerrilla-analytics.html#cb2-52" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_1.fastq.gz</span>
-<span id="cb2-53"><a href="guerrilla-analytics.html#cb2-53" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_2.fastq.gz</span>
-<span id="cb2-54"><a href="guerrilla-analytics.html#cb2-54" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513.fastq.gz</span>
-<span id="cb2-55"><a href="guerrilla-analytics.html#cb2-55" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_1.fastq.gz</span>
-<span id="cb2-56"><a href="guerrilla-analytics.html#cb2-56" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_2.fastq.gz</span>
-<span id="cb2-57"><a href="guerrilla-analytics.html#cb2-57" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516.fastq.gz</span>
-<span id="cb2-58"><a href="guerrilla-analytics.html#cb2-58" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_1.fastq.gz</span>
-<span id="cb2-59"><a href="guerrilla-analytics.html#cb2-59" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_2.fastq.gz</span>
-<span id="cb2-60"><a href="guerrilla-analytics.html#cb2-60" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_1.fastq.gz</span>
-<span id="cb2-61"><a href="guerrilla-analytics.html#cb2-61" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_2.fastq.gz</span>
-<span id="cb2-62"><a href="guerrilla-analytics.html#cb2-62" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520.fastq.gz</span>
-<span id="cb2-63"><a href="guerrilla-analytics.html#cb2-63" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_1.fastq.gz</span>
-<span id="cb2-64"><a href="guerrilla-analytics.html#cb2-64" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_2.fastq.gz</span>
-<span id="cb2-65"><a href="guerrilla-analytics.html#cb2-65" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521.fastq.gz</span>
-<span id="cb2-66"><a href="guerrilla-analytics.html#cb2-66" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_1.fastq.gz</span>
-<span id="cb2-67"><a href="guerrilla-analytics.html#cb2-67" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_2.fastq.gz</span>
-<span id="cb2-68"><a href="guerrilla-analytics.html#cb2-68" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── fastq_dump_downloader.sh</span>
-<span id="cb2-69"><a href="guerrilla-analytics.html#cb2-69" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── fastqc.sh</span>
-<span id="cb2-70"><a href="guerrilla-analytics.html#cb2-70" aria-hidden="true" tabindex="-1"></a>│   │   │   └── refgenome_downloader.sh</span>
-<span id="cb2-71"><a href="guerrilla-analytics.html#cb2-71" aria-hidden="true" tabindex="-1"></a>│   │   ├── fastqc_output</span>
-<span id="cb2-72"><a href="guerrilla-analytics.html#cb2-72" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_1_fastqc.html</span>
-<span id="cb2-73"><a href="guerrilla-analytics.html#cb2-73" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_1_fastqc.zip</span>
-<span id="cb2-74"><a href="guerrilla-analytics.html#cb2-74" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_2_fastqc.html</span>
-<span id="cb2-75"><a href="guerrilla-analytics.html#cb2-75" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_2_fastqc.zip</span>
-<span id="cb2-76"><a href="guerrilla-analytics.html#cb2-76" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_1_fastqc.html</span>
-<span id="cb2-77"><a href="guerrilla-analytics.html#cb2-77" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_1_fastqc.zip</span>
-<span id="cb2-78"><a href="guerrilla-analytics.html#cb2-78" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_2_fastqc.html</span>
-<span id="cb2-79"><a href="guerrilla-analytics.html#cb2-79" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_2_fastqc.zip</span>
-<span id="cb2-80"><a href="guerrilla-analytics.html#cb2-80" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_1_fastqc.html</span>
-<span id="cb2-81"><a href="guerrilla-analytics.html#cb2-81" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_1_fastqc.zip</span>
-<span id="cb2-82"><a href="guerrilla-analytics.html#cb2-82" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_2_fastqc.html</span>
-<span id="cb2-83"><a href="guerrilla-analytics.html#cb2-83" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_2_fastqc.zip</span>
-<span id="cb2-84"><a href="guerrilla-analytics.html#cb2-84" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_1_fastqc.html</span>
-<span id="cb2-85"><a href="guerrilla-analytics.html#cb2-85" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_1_fastqc.zip</span>
-<span id="cb2-86"><a href="guerrilla-analytics.html#cb2-86" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_2_fastqc.html</span>
-<span id="cb2-87"><a href="guerrilla-analytics.html#cb2-87" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_2_fastqc.zip</span>
-<span id="cb2-88"><a href="guerrilla-analytics.html#cb2-88" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_fastqc.html</span>
-<span id="cb2-89"><a href="guerrilla-analytics.html#cb2-89" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_fastqc.zip</span>
-<span id="cb2-90"><a href="guerrilla-analytics.html#cb2-90" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_1_fastqc.html</span>
-<span id="cb2-91"><a href="guerrilla-analytics.html#cb2-91" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_1_fastqc.zip</span>
-<span id="cb2-92"><a href="guerrilla-analytics.html#cb2-92" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_2_fastqc.html</span>
-<span id="cb2-93"><a href="guerrilla-analytics.html#cb2-93" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_2_fastqc.zip</span>
-<span id="cb2-94"><a href="guerrilla-analytics.html#cb2-94" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_fastqc.html</span>
-<span id="cb2-95"><a href="guerrilla-analytics.html#cb2-95" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_fastqc.zip</span>
-<span id="cb2-96"><a href="guerrilla-analytics.html#cb2-96" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_1_fastqc.html</span>
-<span id="cb2-97"><a href="guerrilla-analytics.html#cb2-97" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_1_fastqc.zip</span>
-<span id="cb2-98"><a href="guerrilla-analytics.html#cb2-98" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_2_fastqc.html</span>
-<span id="cb2-99"><a href="guerrilla-analytics.html#cb2-99" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_2_fastqc.zip</span>
-<span id="cb2-100"><a href="guerrilla-analytics.html#cb2-100" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_1_fastqc.html</span>
-<span id="cb2-101"><a href="guerrilla-analytics.html#cb2-101" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_1_fastqc.zip</span>
-<span id="cb2-102"><a href="guerrilla-analytics.html#cb2-102" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_2_fastqc.html</span>
-<span id="cb2-103"><a href="guerrilla-analytics.html#cb2-103" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_2_fastqc.zip</span>
-<span id="cb2-104"><a href="guerrilla-analytics.html#cb2-104" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_fastqc.html</span>
-<span id="cb2-105"><a href="guerrilla-analytics.html#cb2-105" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_fastqc.zip</span>
-<span id="cb2-106"><a href="guerrilla-analytics.html#cb2-106" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_1_fastqc.html</span>
-<span id="cb2-107"><a href="guerrilla-analytics.html#cb2-107" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_1_fastqc.zip</span>
-<span id="cb2-108"><a href="guerrilla-analytics.html#cb2-108" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_2_fastqc.html</span>
-<span id="cb2-109"><a href="guerrilla-analytics.html#cb2-109" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_2_fastqc.zip</span>
-<span id="cb2-110"><a href="guerrilla-analytics.html#cb2-110" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_fastqc.html</span>
-<span id="cb2-111"><a href="guerrilla-analytics.html#cb2-111" aria-hidden="true" tabindex="-1"></a>│   │   │   └── SRR1039521_fastqc.zip</span>
-<span id="cb2-112"><a href="guerrilla-analytics.html#cb2-112" aria-hidden="true" tabindex="-1"></a>│   │   ├── hg38_genome</span>
-<span id="cb2-113"><a href="guerrilla-analytics.html#cb2-113" aria-hidden="true" tabindex="-1"></a>│   │   │   └── GRCh38.primary_assembly.genome.fa</span>
-<span id="cb2-114"><a href="guerrilla-analytics.html#cb2-114" aria-hidden="true" tabindex="-1"></a>│   │   └── hg38_index</span>
-<span id="cb2-115"><a href="guerrilla-analytics.html#cb2-115" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.<span class="fl">00.</span>b.array</span>
-<span id="cb2-116"><a href="guerrilla-analytics.html#cb2-116" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.<span class="fl">00.</span>b.tab</span>
-<span id="cb2-117"><a href="guerrilla-analytics.html#cb2-117" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.files</span>
-<span id="cb2-118"><a href="guerrilla-analytics.html#cb2-118" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.log</span>
-<span id="cb2-119"><a href="guerrilla-analytics.html#cb2-119" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.reads</span>
-<span id="cb2-120"><a href="guerrilla-analytics.html#cb2-120" aria-hidden="true" tabindex="-1"></a>│   │       ├── subread<span class="sc">-</span>index<span class="sc">-</span>sam<span class="dv">-186134</span><span class="sc">-</span>meVx1N</span>
-<span id="cb2-121"><a href="guerrilla-analytics.html#cb2-121" aria-hidden="true" tabindex="-1"></a>│   │       └── subread<span class="sc">-</span>index<span class="sc">-</span>sam<span class="dv">-193622</span><span class="sc">-</span>AYN0aX</span>
-<span id="cb2-122"><a href="guerrilla-analytics.html#cb2-122" aria-hidden="true" tabindex="-1"></a>│   ├── rna_seq.Rmd</span>
-<span id="cb2-123"><a href="guerrilla-analytics.html#cb2-123" aria-hidden="true" tabindex="-1"></a>│   └── rna_seq.html</span>
-<span id="cb2-124"><a href="guerrilla-analytics.html#cb2-124" aria-hidden="true" tabindex="-1"></a>└── rnaseq_onecut</span>
-<span id="cb2-125"><a href="guerrilla-analytics.html#cb2-125" aria-hidden="true" tabindex="-1"></a>    ├── README.txt</span>
-<span id="cb2-126"><a href="guerrilla-analytics.html#cb2-126" aria-hidden="true" tabindex="-1"></a>    ├── Rmarkdown</span>
-<span id="cb2-127"><a href="guerrilla-analytics.html#cb2-127" aria-hidden="true" tabindex="-1"></a>    │   ├── rnaseq_eind.Rmd</span>
-<span id="cb2-128"><a href="guerrilla-analytics.html#cb2-128" aria-hidden="true" tabindex="-1"></a>    │   ├── rnaseq_eind.html</span>
-<span id="cb2-129"><a href="guerrilla-analytics.html#cb2-129" aria-hidden="true" tabindex="-1"></a>    │   ├── rnaseq_eind.log</span>
-<span id="cb2-130"><a href="guerrilla-analytics.html#cb2-130" aria-hidden="true" tabindex="-1"></a>    │   ├── rnaseq_eind.tex</span>
-<span id="cb2-131"><a href="guerrilla-analytics.html#cb2-131" aria-hidden="true" tabindex="-1"></a>    │   ├── v1_Eindopdracht.Rmd</span>
-<span id="cb2-132"><a href="guerrilla-analytics.html#cb2-132" aria-hidden="true" tabindex="-1"></a>    │   └── v2_Eindopdracht.Rmd</span>
-<span id="cb2-133"><a href="guerrilla-analytics.html#cb2-133" aria-hidden="true" tabindex="-1"></a>    ├── code</span>
-<span id="cb2-134"><a href="guerrilla-analytics.html#cb2-134" aria-hidden="true" tabindex="-1"></a>    ├── data</span>
-<span id="cb2-135"><a href="guerrilla-analytics.html#cb2-135" aria-hidden="true" tabindex="-1"></a>    └── output</span>
-<span id="cb2-136"><a href="guerrilla-analytics.html#cb2-136" aria-hidden="true" tabindex="-1"></a>        ├── 6_volcano_plot<span class="fl">-1.</span>png</span>
-<span id="cb2-137"><a href="guerrilla-analytics.html#cb2-137" aria-hidden="true" tabindex="-1"></a>        ├── perbase_SRR7866699.png</span>
-<span id="cb2-138"><a href="guerrilla-analytics.html#cb2-138" aria-hidden="true" tabindex="-1"></a>        └── perseq_SRR7866699.png</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="guerrilla-analytics.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using this command we can get the structure of our file organisation </span></span>
+<span id="cb1-2"><a href="guerrilla-analytics.html#cb1-2" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"daur2/"</span>))</span>
+<span id="cb1-3"><a href="guerrilla-analytics.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="guerrilla-analytics.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>home<span class="sc">/</span><span class="dv">1686589</span><span class="sc">/</span>daur2<span class="sc">/</span></span>
+<span id="cb1-5"><a href="guerrilla-analytics.html#cb1-5" aria-hidden="true" tabindex="-1"></a>├── rna_seq_ipsc</span>
+<span id="cb1-6"><a href="guerrilla-analytics.html#cb1-6" aria-hidden="true" tabindex="-1"></a>│   ├── README.txt</span>
+<span id="cb1-7"><a href="guerrilla-analytics.html#cb1-7" aria-hidden="true" tabindex="-1"></a>│   ├── code</span>
+<span id="cb1-8"><a href="guerrilla-analytics.html#cb1-8" aria-hidden="true" tabindex="-1"></a>│   │   └── Input.R</span>
+<span id="cb1-9"><a href="guerrilla-analytics.html#cb1-9" aria-hidden="true" tabindex="-1"></a>│   ├── data</span>
+<span id="cb1-10"><a href="guerrilla-analytics.html#cb1-10" aria-hidden="true" tabindex="-1"></a>│   ├── rnaseq_ipsc.Rmd</span>
+<span id="cb1-11"><a href="guerrilla-analytics.html#cb1-11" aria-hidden="true" tabindex="-1"></a>│   └── rnaseq_ipsc.html</span>
+<span id="cb1-12"><a href="guerrilla-analytics.html#cb1-12" aria-hidden="true" tabindex="-1"></a>├── rnaseq_airway</span>
+<span id="cb1-13"><a href="guerrilla-analytics.html#cb1-13" aria-hidden="true" tabindex="-1"></a>│   ├── README.txt</span>
+<span id="cb1-14"><a href="guerrilla-analytics.html#cb1-14" aria-hidden="true" tabindex="-1"></a>│   ├── code</span>
+<span id="cb1-15"><a href="guerrilla-analytics.html#cb1-15" aria-hidden="true" tabindex="-1"></a>│   │   ├── input.R</span>
+<span id="cb1-16"><a href="guerrilla-analytics.html#cb1-16" aria-hidden="true" tabindex="-1"></a>│   │   └── namen.txt</span>
+<span id="cb1-17"><a href="guerrilla-analytics.html#cb1-17" aria-hidden="true" tabindex="-1"></a>│   ├── data</span>
+<span id="cb1-18"><a href="guerrilla-analytics.html#cb1-18" aria-hidden="true" tabindex="-1"></a>│   │   ├── airway_sampledata.csv</span>
+<span id="cb1-19"><a href="guerrilla-analytics.html#cb1-19" aria-hidden="true" tabindex="-1"></a>│   │   ├── bam</span>
+<span id="cb1-20"><a href="guerrilla-analytics.html#cb1-20" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508.bam</span>
+<span id="cb1-21"><a href="guerrilla-analytics.html#cb1-21" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508.bam.indel.vcf</span>
+<span id="cb1-22"><a href="guerrilla-analytics.html#cb1-22" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508.bam.summary</span>
+<span id="cb1-23"><a href="guerrilla-analytics.html#cb1-23" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509.bam</span>
+<span id="cb1-24"><a href="guerrilla-analytics.html#cb1-24" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509.bam.indel.vcf</span>
+<span id="cb1-25"><a href="guerrilla-analytics.html#cb1-25" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509.bam.summary</span>
+<span id="cb1-26"><a href="guerrilla-analytics.html#cb1-26" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512.bam</span>
+<span id="cb1-27"><a href="guerrilla-analytics.html#cb1-27" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512.bam.indel.vcf</span>
+<span id="cb1-28"><a href="guerrilla-analytics.html#cb1-28" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512.bam.summary</span>
+<span id="cb1-29"><a href="guerrilla-analytics.html#cb1-29" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513.bam</span>
+<span id="cb1-30"><a href="guerrilla-analytics.html#cb1-30" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513.bam.indel.vcf</span>
+<span id="cb1-31"><a href="guerrilla-analytics.html#cb1-31" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513.bam.summary</span>
+<span id="cb1-32"><a href="guerrilla-analytics.html#cb1-32" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516.bam</span>
+<span id="cb1-33"><a href="guerrilla-analytics.html#cb1-33" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516.bam.indel.vcf</span>
+<span id="cb1-34"><a href="guerrilla-analytics.html#cb1-34" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516.bam.summary</span>
+<span id="cb1-35"><a href="guerrilla-analytics.html#cb1-35" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517.bam</span>
+<span id="cb1-36"><a href="guerrilla-analytics.html#cb1-36" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517.bam.indel.vcf</span>
+<span id="cb1-37"><a href="guerrilla-analytics.html#cb1-37" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517.bam.summary</span>
+<span id="cb1-38"><a href="guerrilla-analytics.html#cb1-38" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520.bam</span>
+<span id="cb1-39"><a href="guerrilla-analytics.html#cb1-39" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520.bam.indel.vcf</span>
+<span id="cb1-40"><a href="guerrilla-analytics.html#cb1-40" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520.bam.summary</span>
+<span id="cb1-41"><a href="guerrilla-analytics.html#cb1-41" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521.bam</span>
+<span id="cb1-42"><a href="guerrilla-analytics.html#cb1-42" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521.bam.indel.vcf</span>
+<span id="cb1-43"><a href="guerrilla-analytics.html#cb1-43" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521.bam.summary</span>
+<span id="cb1-44"><a href="guerrilla-analytics.html#cb1-44" aria-hidden="true" tabindex="-1"></a>│   │   │   └── alignment_statistics.rds</span>
+<span id="cb1-45"><a href="guerrilla-analytics.html#cb1-45" aria-hidden="true" tabindex="-1"></a>│   │   ├── counts</span>
+<span id="cb1-46"><a href="guerrilla-analytics.html#cb1-46" aria-hidden="true" tabindex="-1"></a>│   │   │   └── read_counts.rds</span>
+<span id="cb1-47"><a href="guerrilla-analytics.html#cb1-47" aria-hidden="true" tabindex="-1"></a>│   │   ├── fastq</span>
+<span id="cb1-48"><a href="guerrilla-analytics.html#cb1-48" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_1.fastq.gz</span>
+<span id="cb1-49"><a href="guerrilla-analytics.html#cb1-49" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_2.fastq.gz</span>
+<span id="cb1-50"><a href="guerrilla-analytics.html#cb1-50" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_1.fastq.gz</span>
+<span id="cb1-51"><a href="guerrilla-analytics.html#cb1-51" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_2.fastq.gz</span>
+<span id="cb1-52"><a href="guerrilla-analytics.html#cb1-52" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_1.fastq.gz</span>
+<span id="cb1-53"><a href="guerrilla-analytics.html#cb1-53" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_2.fastq.gz</span>
+<span id="cb1-54"><a href="guerrilla-analytics.html#cb1-54" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513.fastq.gz</span>
+<span id="cb1-55"><a href="guerrilla-analytics.html#cb1-55" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_1.fastq.gz</span>
+<span id="cb1-56"><a href="guerrilla-analytics.html#cb1-56" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_2.fastq.gz</span>
+<span id="cb1-57"><a href="guerrilla-analytics.html#cb1-57" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516.fastq.gz</span>
+<span id="cb1-58"><a href="guerrilla-analytics.html#cb1-58" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_1.fastq.gz</span>
+<span id="cb1-59"><a href="guerrilla-analytics.html#cb1-59" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_2.fastq.gz</span>
+<span id="cb1-60"><a href="guerrilla-analytics.html#cb1-60" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_1.fastq.gz</span>
+<span id="cb1-61"><a href="guerrilla-analytics.html#cb1-61" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_2.fastq.gz</span>
+<span id="cb1-62"><a href="guerrilla-analytics.html#cb1-62" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520.fastq.gz</span>
+<span id="cb1-63"><a href="guerrilla-analytics.html#cb1-63" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_1.fastq.gz</span>
+<span id="cb1-64"><a href="guerrilla-analytics.html#cb1-64" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_2.fastq.gz</span>
+<span id="cb1-65"><a href="guerrilla-analytics.html#cb1-65" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521.fastq.gz</span>
+<span id="cb1-66"><a href="guerrilla-analytics.html#cb1-66" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_1.fastq.gz</span>
+<span id="cb1-67"><a href="guerrilla-analytics.html#cb1-67" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_2.fastq.gz</span>
+<span id="cb1-68"><a href="guerrilla-analytics.html#cb1-68" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── fastq_dump_downloader.sh</span>
+<span id="cb1-69"><a href="guerrilla-analytics.html#cb1-69" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── fastqc.sh</span>
+<span id="cb1-70"><a href="guerrilla-analytics.html#cb1-70" aria-hidden="true" tabindex="-1"></a>│   │   │   └── refgenome_downloader.sh</span>
+<span id="cb1-71"><a href="guerrilla-analytics.html#cb1-71" aria-hidden="true" tabindex="-1"></a>│   │   ├── fastqc_output</span>
+<span id="cb1-72"><a href="guerrilla-analytics.html#cb1-72" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_1_fastqc.html</span>
+<span id="cb1-73"><a href="guerrilla-analytics.html#cb1-73" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_1_fastqc.zip</span>
+<span id="cb1-74"><a href="guerrilla-analytics.html#cb1-74" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_2_fastqc.html</span>
+<span id="cb1-75"><a href="guerrilla-analytics.html#cb1-75" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039508_2_fastqc.zip</span>
+<span id="cb1-76"><a href="guerrilla-analytics.html#cb1-76" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_1_fastqc.html</span>
+<span id="cb1-77"><a href="guerrilla-analytics.html#cb1-77" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_1_fastqc.zip</span>
+<span id="cb1-78"><a href="guerrilla-analytics.html#cb1-78" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_2_fastqc.html</span>
+<span id="cb1-79"><a href="guerrilla-analytics.html#cb1-79" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039509_2_fastqc.zip</span>
+<span id="cb1-80"><a href="guerrilla-analytics.html#cb1-80" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_1_fastqc.html</span>
+<span id="cb1-81"><a href="guerrilla-analytics.html#cb1-81" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_1_fastqc.zip</span>
+<span id="cb1-82"><a href="guerrilla-analytics.html#cb1-82" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_2_fastqc.html</span>
+<span id="cb1-83"><a href="guerrilla-analytics.html#cb1-83" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039512_2_fastqc.zip</span>
+<span id="cb1-84"><a href="guerrilla-analytics.html#cb1-84" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_1_fastqc.html</span>
+<span id="cb1-85"><a href="guerrilla-analytics.html#cb1-85" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_1_fastqc.zip</span>
+<span id="cb1-86"><a href="guerrilla-analytics.html#cb1-86" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_2_fastqc.html</span>
+<span id="cb1-87"><a href="guerrilla-analytics.html#cb1-87" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_2_fastqc.zip</span>
+<span id="cb1-88"><a href="guerrilla-analytics.html#cb1-88" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_fastqc.html</span>
+<span id="cb1-89"><a href="guerrilla-analytics.html#cb1-89" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039513_fastqc.zip</span>
+<span id="cb1-90"><a href="guerrilla-analytics.html#cb1-90" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_1_fastqc.html</span>
+<span id="cb1-91"><a href="guerrilla-analytics.html#cb1-91" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_1_fastqc.zip</span>
+<span id="cb1-92"><a href="guerrilla-analytics.html#cb1-92" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_2_fastqc.html</span>
+<span id="cb1-93"><a href="guerrilla-analytics.html#cb1-93" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_2_fastqc.zip</span>
+<span id="cb1-94"><a href="guerrilla-analytics.html#cb1-94" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_fastqc.html</span>
+<span id="cb1-95"><a href="guerrilla-analytics.html#cb1-95" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039516_fastqc.zip</span>
+<span id="cb1-96"><a href="guerrilla-analytics.html#cb1-96" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_1_fastqc.html</span>
+<span id="cb1-97"><a href="guerrilla-analytics.html#cb1-97" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_1_fastqc.zip</span>
+<span id="cb1-98"><a href="guerrilla-analytics.html#cb1-98" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_2_fastqc.html</span>
+<span id="cb1-99"><a href="guerrilla-analytics.html#cb1-99" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039517_2_fastqc.zip</span>
+<span id="cb1-100"><a href="guerrilla-analytics.html#cb1-100" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_1_fastqc.html</span>
+<span id="cb1-101"><a href="guerrilla-analytics.html#cb1-101" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_1_fastqc.zip</span>
+<span id="cb1-102"><a href="guerrilla-analytics.html#cb1-102" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_2_fastqc.html</span>
+<span id="cb1-103"><a href="guerrilla-analytics.html#cb1-103" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_2_fastqc.zip</span>
+<span id="cb1-104"><a href="guerrilla-analytics.html#cb1-104" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_fastqc.html</span>
+<span id="cb1-105"><a href="guerrilla-analytics.html#cb1-105" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039520_fastqc.zip</span>
+<span id="cb1-106"><a href="guerrilla-analytics.html#cb1-106" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_1_fastqc.html</span>
+<span id="cb1-107"><a href="guerrilla-analytics.html#cb1-107" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_1_fastqc.zip</span>
+<span id="cb1-108"><a href="guerrilla-analytics.html#cb1-108" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_2_fastqc.html</span>
+<span id="cb1-109"><a href="guerrilla-analytics.html#cb1-109" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_2_fastqc.zip</span>
+<span id="cb1-110"><a href="guerrilla-analytics.html#cb1-110" aria-hidden="true" tabindex="-1"></a>│   │   │   ├── SRR1039521_fastqc.html</span>
+<span id="cb1-111"><a href="guerrilla-analytics.html#cb1-111" aria-hidden="true" tabindex="-1"></a>│   │   │   └── SRR1039521_fastqc.zip</span>
+<span id="cb1-112"><a href="guerrilla-analytics.html#cb1-112" aria-hidden="true" tabindex="-1"></a>│   │   ├── hg38_genome</span>
+<span id="cb1-113"><a href="guerrilla-analytics.html#cb1-113" aria-hidden="true" tabindex="-1"></a>│   │   │   └── GRCh38.primary_assembly.genome.fa</span>
+<span id="cb1-114"><a href="guerrilla-analytics.html#cb1-114" aria-hidden="true" tabindex="-1"></a>│   │   └── hg38_index</span>
+<span id="cb1-115"><a href="guerrilla-analytics.html#cb1-115" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.<span class="fl">00.</span>b.array</span>
+<span id="cb1-116"><a href="guerrilla-analytics.html#cb1-116" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.<span class="fl">00.</span>b.tab</span>
+<span id="cb1-117"><a href="guerrilla-analytics.html#cb1-117" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.files</span>
+<span id="cb1-118"><a href="guerrilla-analytics.html#cb1-118" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.log</span>
+<span id="cb1-119"><a href="guerrilla-analytics.html#cb1-119" aria-hidden="true" tabindex="-1"></a>│   │       ├── hg38_index.reads</span>
+<span id="cb1-120"><a href="guerrilla-analytics.html#cb1-120" aria-hidden="true" tabindex="-1"></a>│   │       ├── subread<span class="sc">-</span>index<span class="sc">-</span>sam<span class="dv">-186134</span><span class="sc">-</span>meVx1N</span>
+<span id="cb1-121"><a href="guerrilla-analytics.html#cb1-121" aria-hidden="true" tabindex="-1"></a>│   │       └── subread<span class="sc">-</span>index<span class="sc">-</span>sam<span class="dv">-193622</span><span class="sc">-</span>AYN0aX</span>
+<span id="cb1-122"><a href="guerrilla-analytics.html#cb1-122" aria-hidden="true" tabindex="-1"></a>│   ├── rna_seq.Rmd</span>
+<span id="cb1-123"><a href="guerrilla-analytics.html#cb1-123" aria-hidden="true" tabindex="-1"></a>│   └── rna_seq.html</span>
+<span id="cb1-124"><a href="guerrilla-analytics.html#cb1-124" aria-hidden="true" tabindex="-1"></a>└── rnaseq_onecut</span>
+<span id="cb1-125"><a href="guerrilla-analytics.html#cb1-125" aria-hidden="true" tabindex="-1"></a>    ├── README.txt</span>
+<span id="cb1-126"><a href="guerrilla-analytics.html#cb1-126" aria-hidden="true" tabindex="-1"></a>    ├── Rmarkdown</span>
+<span id="cb1-127"><a href="guerrilla-analytics.html#cb1-127" aria-hidden="true" tabindex="-1"></a>    │   ├── rnaseq_eind.Rmd</span>
+<span id="cb1-128"><a href="guerrilla-analytics.html#cb1-128" aria-hidden="true" tabindex="-1"></a>    │   ├── rnaseq_eind.html</span>
+<span id="cb1-129"><a href="guerrilla-analytics.html#cb1-129" aria-hidden="true" tabindex="-1"></a>    │   ├── rnaseq_eind.log</span>
+<span id="cb1-130"><a href="guerrilla-analytics.html#cb1-130" aria-hidden="true" tabindex="-1"></a>    │   ├── rnaseq_eind.tex</span>
+<span id="cb1-131"><a href="guerrilla-analytics.html#cb1-131" aria-hidden="true" tabindex="-1"></a>    │   ├── v1_Eindopdracht.Rmd</span>
+<span id="cb1-132"><a href="guerrilla-analytics.html#cb1-132" aria-hidden="true" tabindex="-1"></a>    │   └── v2_Eindopdracht.Rmd</span>
+<span id="cb1-133"><a href="guerrilla-analytics.html#cb1-133" aria-hidden="true" tabindex="-1"></a>    ├── code</span>
+<span id="cb1-134"><a href="guerrilla-analytics.html#cb1-134" aria-hidden="true" tabindex="-1"></a>    ├── data</span>
+<span id="cb1-135"><a href="guerrilla-analytics.html#cb1-135" aria-hidden="true" tabindex="-1"></a>    └── output</span>
+<span id="cb1-136"><a href="guerrilla-analytics.html#cb1-136" aria-hidden="true" tabindex="-1"></a>        ├── 6_volcano_plot<span class="fl">-1.</span>png</span>
+<span id="cb1-137"><a href="guerrilla-analytics.html#cb1-137" aria-hidden="true" tabindex="-1"></a>        ├── perbase_SRR7866699.png</span>
+<span id="cb1-138"><a href="guerrilla-analytics.html#cb1-138" aria-hidden="true" tabindex="-1"></a>        └── perseq_SRR7866699.png</span></code></pre></div>
 <p>Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos. It was run trough a linux server. In this next example we can see the structure of this project, which is my portfolio project. It is organized in the same structure format but on my own pc. This allows easier access compared to a server designed to learn and run by my learning institution.
 The path shown below is longer than necessary when working from a server or github project.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html">dir_tree</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/Website/lunareclipse.github.io</span>
-<span class="co">#&gt; +-- 01-intro.md</span>
 <span class="co">#&gt; +-- 01-intro.Rmd</span>
 <span class="co">#&gt; +-- 01-intro_files</span>
 <span class="co">#&gt; |   \-- figure-html</span>
 <span class="co">#&gt; |       +-- unnamed-chunk-2-1.png</span>
 <span class="co">#&gt; |       \-- unnamed-chunk-3-1.png</span>
-<span class="co">#&gt; +-- 02-peer_revieuw.md</span>
 <span class="co">#&gt; +-- 02-peer_revieuw.Rmd</span>
 <span class="co">#&gt; +-- 02-peer_revieuw_files</span>
 <span class="co">#&gt; |   \-- figure-html</span>
 <span class="co">#&gt; |       \-- unnamed-chunk-4-1.png</span>
-<span class="co">#&gt; +-- 03-Guerrilla.md</span>
 <span class="co">#&gt; +-- 03-Guerrilla.Rmd</span>
-<span class="co">#&gt; +-- 04-looking_ahead.md</span>
 <span class="co">#&gt; +-- 04-looking_ahead.Rmd</span>
-<span class="co">#&gt; +-- 05-projects.md</span>
 <span class="co">#&gt; +-- 05-projects.Rmd</span>
-<span class="co">#&gt; +-- 06-CV.md</span>
 <span class="co">#&gt; +-- 06-CV.Rmd</span>
 <span class="co">#&gt; +-- 07-sql.knit.md</span>
-<span class="co">#&gt; +-- 07-sql_databases.knit.md</span>
 <span class="co">#&gt; +-- 07-sql_databases.Rmd</span>
+<span class="co">#&gt; +-- 07-sql_databases_files</span>
+<span class="co">#&gt; |   \-- figure-html</span>
+<span class="co">#&gt; |       +-- unnamed-chunk-10-1.png</span>
+<span class="co">#&gt; |       +-- unnamed-chunk-10-2.png</span>
+<span class="co">#&gt; |       \-- unnamed-chunk-10-3.png</span>
 <span class="co">#&gt; +-- 08-references.Rmd</span>
 <span class="co">#&gt; +-- awesome-cv.cls</span>
 <span class="co">#&gt; +-- bibliography_portfolio</span>
@@ -304,7 +292,6 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   +-- Roboto-Regular.ttf</span>
 <span class="co">#&gt; |   +-- Roboto-Thin.ttf</span>
 <span class="co">#&gt; |   \-- Roboto-ThinItalic.ttf</span>
-<span class="co">#&gt; +-- index.md</span>
 <span class="co">#&gt; +-- index.Rmd</span>
 <span class="co">#&gt; +-- lunareclipse.github.io.log</span>
 <span class="co">#&gt; +-- lunareclipse.github.io.rds</span>
@@ -315,7 +302,7 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; +-- README.md</span>
 <span class="co">#&gt; +-- render2c783334165a.rds</span>
 <span class="co">#&gt; +-- render38f8996637d.rds</span>
-<span class="co">#&gt; +-- render537868272ec7.rds</span>
+<span class="co">#&gt; +-- render537810ea1c67.rds</span>
 <span class="co">#&gt; +-- render77d072fa6f84.rds</span>
 <span class="co">#&gt; +-- style.css</span>
 <span class="co">#&gt; +-- _book</span>
@@ -343,6 +330,13 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   +-- 06-references.md</span>
 <span class="co">#&gt; |   +-- 06-share.md</span>
 <span class="co">#&gt; |   +-- 07-references.md</span>
+<span class="co">#&gt; |   +-- 07-sql_databases.md</span>
+<span class="co">#&gt; |   +-- 07-sql_databases_files</span>
+<span class="co">#&gt; |   |   \-- figure-html</span>
+<span class="co">#&gt; |   |       +-- unnamed-chunk-10-1.png</span>
+<span class="co">#&gt; |   |       +-- unnamed-chunk-10-2.png</span>
+<span class="co">#&gt; |   |       \-- unnamed-chunk-10-3.png</span>
+<span class="co">#&gt; |   +-- 08-references.md</span>
 <span class="co">#&gt; |   +-- 404.html</span>
 <span class="co">#&gt; |   +-- blocks.html</span>
 <span class="co">#&gt; |   +-- cross.html</span>
@@ -381,8 +375,10 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; |   +-- open-peer-review.html</span>
 <span class="co">#&gt; |   +-- parts.html</span>
 <span class="co">#&gt; |   +-- projects.html</span>
+<span class="co">#&gt; |   +-- reference-keys.txt</span>
 <span class="co">#&gt; |   +-- references-1.html</span>
 <span class="co">#&gt; |   +-- references.html</span>
+<span class="co">#&gt; |   +-- relational-databases.html</span>
 <span class="co">#&gt; |   +-- resume.html</span>
 <span class="co">#&gt; |   +-- search.json</span>
 <span class="co">#&gt; |   +-- sharing-your-book.html</span>
@@ -392,22 +388,21 @@ The path shown below is longer than necessary when working from a server or gith
 <span class="co">#&gt; +-- _common.R</span>
 <span class="co">#&gt; \-- _output.yml</span></code></pre></div>
 <p>Next we will be looking at the Metadata from the Portfolio project. Listed below is content of the README file to show more information about the files in the project.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"/README.md"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/README.md"</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/read_file.html">read_file</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"README.md"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "# lunareclipse.github.io\r\n\r\nThis repository contains my portfolio. It is ment to showcase my skills in data analysis. My goal is to be able to present to a future employer what it is I can do and such this portfolio will change greatly over time. As of now I am very much in the beginning of my journey and looking for an internship to hown my skills in a certain direction. For me my interest lies especially in next generation sequencing. I have worked on some NGS projects trough my university and I very much like how it goes hand in hand with understanding the biology of organisms to better interpret the results. \r\nIn this project most of the coding is done in R, with a little bit of Bash, CSS, YML and HTML on the side."</span></code></pre></div>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></div>
-<div class="next"><a href="looking-ahead.html"><span class="header-section-number">5</span> Looking ahead</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#guerrilla-analytics"><span class="header-section-number">4</span> Guerrilla Analytics</a></li></ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/LunarEclipse112/lunareclipse.github.io/blob/master/03-Guerrilla.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/LunarEclipse112/lunareclipse.github.io/edit/master/03-Guerrilla.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
