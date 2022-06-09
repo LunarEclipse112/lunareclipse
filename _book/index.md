@@ -1,13 +1,17 @@
 --- 
 title: "Portfolio"
 author: "Lunar Eclipse"
-date: "2022-06-08"
+date: "2022-06-09"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: "./bibliography_portfolio/bibliography_portfolio.bib"
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
   This is my portfolio. Its also my first website hosted from github and netlify. I hope you enjoy!
+params:
+  date_from: "2022-01-23"
+  date_until: "2022-07-23"
+  country: "Netherlands"
 ---
 
 # Welcome!

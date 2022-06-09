@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 Parameters | Portfolio</title>
+<meta name="author" content="Lunar Eclipse">
+<meta name="description" content="In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta property="og:title" content="Chapter 9 Parameters | Portfolio">
+<meta property="og:type" content="book">
+<meta property="og:description" content="In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 Parameters | Portfolio">
+<meta name="twitter:description" content="In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Portfolio</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="example-analysis-c.-elegans-experiment.html"><span class="header-section-number">2</span> Example analysis C. Elegans experiment</a></li>
+<li><a class="" href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></li>
+<li><a class="" href="guerrilla-analytics.html"><span class="header-section-number">4</span> Guerrilla Analytics</a></li>
+<li><a class="" href="looking-ahead.html"><span class="header-section-number">5</span> Looking ahead</a></li>
+<li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
+<li><a class="" href="resume.html"><span class="header-section-number">7</span> Resume</a></li>
+<li><a class="" href="relational-databases.html"><span class="header-section-number">8</span> Relational Databases</a></li>
+<li><a class="active" href="parameters.html"><span class="header-section-number">9</span> Parameters</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">10</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/LunarEclipse112/lunareclipse.github.io">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="parameters" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Parameters<a class="anchor" aria-label="anchor" href="#parameters"><i class="fas fa-link"></i></a>
+</h1>
+<p>In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate graphs, one showing the COVID-19 related cases in a specified month of a year in a country and the other the COVID-19 related deaths in a specified month of a year in a country. To this end we will make the parameters customisable to the month, year and country the graphs are supposed to show.</p>
+<p>Parameters are defined in the yaml header of Rmarkdown documents and can be used just like any variable in the code. One great advantage is that they can be customized on the fly to change function output. In this case we defined three parameters:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Paramater Name</th>
+<th>Param Input</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>date_from:</td>
+<td>“2022-01-23”</td>
+</tr>
+<tr class="even">
+<td>date_until:</td>
+<td>“2022-07-23”</td>
+</tr>
+<tr class="odd">
+<td>country:</td>
+<td>“Netherlands”</td>
+</tr>
+</tbody>
+</table></div>
+<p>We can change them in to any date combinations we want and any country as long as it has data in our input data the code will work. This makes it work as-though we wrote a function of the code with custom input but then our function is the complete Rmarkdown file. Very handy indeed.</p>
+<p>This page will show all the code so you can take a look at how the parameters are used in it. You can find the parameters used as variables: params$parameter_name</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">###################### Load in the Data ########################################</span>
+
+<span class="co">## First lets load in the Data kindly supplied by the ECDC. </span>
+  <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/covid_data.csv"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co">######################## Data wrangling ########################################</span>
+<span class="co">## Now we are going to change the date data type to date instead of chr.</span>
+  <span class="va">data</span><span class="op">$</span><span class="va">dateRep</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">dateRep</span>, <span class="st">"%d/%m/%Y"</span><span class="op">)</span>
+
+<span class="co">############################# Graphs ###########################################</span>
+
+<span class="co">## Because the data is already tidy enough we don't need to wrangle further and can simply start plotting the graphs we want.</span>
+  
+<span class="co"># Graph #1, the amount of covid-19 cases in a selected country for a selected period of time</span>
+  <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">month</span>, <span class="va">year</span>, <span class="va">day</span>, <span class="va">cases</span>, <span class="va">countriesAndTerritories</span>, <span class="va">dateRep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dateRep</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">date_from</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">dateRep</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">date_until</span><span class="op">)</span>, <span class="va">countriesAndTerritories</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">dateRep</span>, y<span class="op">=</span><span class="va">cases</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">countriesAndTerritories</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Covid-19 Cases in"</span>, <span class="va">params</span><span class="op">$</span><span class="va">country</span><span class="op">)</span>,
+         subtitle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">date_from</span>, <span class="va">params</span><span class="op">$</span><span class="va">date_until</span><span class="op">)</span>,
+         x<span class="op">=</span> <span class="st">"Date"</span>,
+         y<span class="op">=</span> <span class="st">"Number of Cases"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"turquoise3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="08-parameters_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Graph #2, The amount of covid-19 Deaths in a selected country for a selected period of time. If I didn't work with parameters I would have build a function for these two graphs seeing as they are very similar in code. </span>
+  <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">month</span>, <span class="va">year</span>, <span class="va">day</span>, <span class="va">deaths</span>, <span class="va">countriesAndTerritories</span>, <span class="va">dateRep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dateRep</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">date_from</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">dateRep</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">date_until</span><span class="op">)</span>, <span class="va">countriesAndTerritories</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">dateRep</span>, y<span class="op">=</span><span class="va">deaths</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">countriesAndTerritories</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Covid-19 Deaths in"</span>, <span class="va">params</span><span class="op">$</span><span class="va">country</span><span class="op">)</span>,
+         subtitle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">params</span><span class="op">$</span><span class="va">date_from</span>, <span class="va">params</span><span class="op">$</span><span class="va">date_until</span><span class="op">)</span>,
+         x<span class="op">=</span> <span class="st">"Date"</span>,
+         y<span class="op">=</span> <span class="st">"Number of Deaths"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values<span class="op">=</span><span class="st">"turquoise4"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="08-parameters_files/figure-html/unnamed-chunk-2-2.png" width="672"></div>
+<p>Parameters are great to work with and save time when you want to only change small things about code that has already been used before. I personally prefer writing good functions and reusing them but parameters are a great tool to apply aswell.</p>
+
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="relational-databases.html"><span class="header-section-number">8</span> Relational Databases</a></div>
+<div class="next"><a href="references.html"><span class="header-section-number">10</span> References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#parameters"><span class="header-section-number">9</span> Parameters</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/LunarEclipse112/lunareclipse.github.io/blob/master/08-parameters.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/LunarEclipse112/lunareclipse.github.io/edit/master/08-parameters.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2022-06-09.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
