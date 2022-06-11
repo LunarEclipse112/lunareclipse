@@ -7,7 +7,10 @@ monitoring-trends-and-differences-in-covid-19-case-fatality-rates-using-decompos
 guerrilla-analytics
 looking-ahead
 plan
-day-1
+next-generation-sequencing
+single-cell-next-generation-sequencing
+scatac-seq
+snapatac
 projects
 noldus-project
 the-application

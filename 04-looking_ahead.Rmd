@@ -1,3 +1,4 @@
+
 # Looking ahead
 
 
@@ -18,7 +19,7 @@ First a small overview of how I want to structure my 4 days to make sure I best 
 ```{r, echo=FALSE}
 daynum <- c("Day 1", "Day 2", "Day 3","Day 4")
 activity <- c("Reading about single cell NGS and looking for research articles where this has been used for analysis", "Trying to get everything to work to mimic the analysis found in the article", "Continue with the reproduction of the article analysis untill done", "Write a report on what I have learned and things I need to learn more about, a what's next secion let's say")
-status <- c("NOT DONE")
+status <- c("DONE", "NOT DONE", "NOT DONE", "NOT DONE")
 
 table <- data.frame(daynum, activity, status)
 knitr::kable(table, "pipe", col.name = c("Day Number", "Activity to do", "Completion"), align = "l" )
@@ -26,4 +27,23 @@ knitr::kable(table, "pipe", col.name = c("Day Number", "Activity to do", "Comple
 
 ```
 
-### Day 1 
+### Next generation sequencing
+
+Next generation sequencing (NGS) or massively parallel sequencing is a technology which allows for fast and precise sequencing of DNA or cDNA. This is done by parallel sequencing of a very high number of DNA (or cDNA) fragments and provides high depth and much insight into genomes of organisms or can be used to explore gen expression in a single organism. With bioinformatic analysis the data acquired can be put together to form a complete genome or give insight in to cellular activity of an organism (https://ep.bmj.com/content/edpract/98/6/236.full.pdf). The technology has brought many different advances in science and is now being looked at to be implemented in the diagnostics field as a noninvasive tool to diagnose infectious diseases in immunocompromised hosts (https://f1000research.com/articles/8-1194).
+
+Although the technology is very impressive and very useful for a wide range of applications (https://ep.bmj.com/content/edpract/98/6/236.full.pdf) it has a significant drawback. While a picture can be formed when looking at RNA expression in tissue or type specific cells it's always clouded due to the interference of different cells in the same "sample". By design NGS utilizes a very large amount of cDNA fragments that need to be analysed *in silico*
+ to align the fragments to a reference genome and gain information about the genes expressed. The problem arises when one wants to more accurately look at how much a certain gene was expressed. Due to differences in cellular expression between cells the accuracy of determination of gene expression will always be limited. Two cells of the same type might be producing different quantities of RNA that is used measured in the NGS analysis (as cDNA) but these differences can't be retraced because each run utilizes cDNA fragments from multiple cells. As a solution to this problem (among others) is to run a differential gene expression analysis (DGE). The DGA analysis provides information about the statistical difference in expressed genes based on a probability value. It is a reliable method to find the *Log2 fold changes* which quite accurately calculate an answer to the how much question of the problem. Another solution is single cell next generation sequencing which also provides answers to this problem. 
+ 
+### Single cell next generation sequencing
+
+Single cell transcriptomics is used to characterize cell states (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6687398/). Ranging from gene expression and spatial transcriptomics to chromatine accesibility and immunophenotyping scRNA-seq technology has a broad spectrum of applications, each with their own strengths and weaknesses. Most measure only a very specific aspect of cellular identity posing a clear need to use the information acquired from one analysis to strengthen the conclusion of another. 
+
+### scATAC-seq
+
+Single cell NGS has been used in research to better understand the developmental programs encoded in the linear genome sequence (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7910485/). Single cell NGS can also be used to identify the *cis*-elements in organisms and specific cell types. Cell type is established due to regulation of spatiotemporal gene expression programs (https://pubmed.ncbi.nlm.nih.gov/22955616/). These interact with sequence specific transcription factors and *cis-*regulatory sequences in a cell-type specific manner. Due to sensitivity to nucleases and transposases when active there have been different methods developed to find de *cis*-elements in organisms and specific cell types. Chromatine accesability methods are for example scTHIS-seq (single-cell transposome hypersensitive site sequencing) or scATAC-seq. In scATA-seq or single-cell ATAC-seq analysis allows for profiling of chromatine accessibility from hundreds of thousands cells in a single experiment (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7910485/). 
+ 
+Current methods often require the use of linear dimensionality reduction on a cell matrix of thousands of dimensions. Scaling this to millions of cells is a huge challenge. In addition scATAC-seq datasets do not posses the same level of sensitivity as scRNA-seq. To overcome the limitations a single nucleus analysis pipeline for ATAC-seq-SnapATAC (https://github.com/r3fang/SnapATAC/blob/master/README.md) has been proposed which I will be trying out here.
+
+### SnapATAC
+
+As posed before I will now be trying out the package SnapATAC on a provided dataset 10X (by the same author). 

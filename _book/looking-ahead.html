@@ -109,7 +109,7 @@
 <tr class="odd">
 <td align="left">Day 1</td>
 <td align="left">Reading about single cell NGS and looking for research articles where this has been used for analysis</td>
-<td align="left">NOT DONE</td>
+<td align="left">DONE</td>
 </tr>
 <tr class="even">
 <td align="left">Day 2</td>
@@ -129,10 +129,32 @@
 </tbody>
 </table></div>
 </div>
-<div id="day-1" class="section level3" number="5.0.2">
+<div id="next-generation-sequencing" class="section level3" number="5.0.2">
 <h3>
-<span class="header-section-number">5.0.2</span> Day 1<a class="anchor" aria-label="anchor" href="#day-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.0.2</span> Next generation sequencing<a class="anchor" aria-label="anchor" href="#next-generation-sequencing"><i class="fas fa-link"></i></a>
 </h3>
+<p>Next generation sequencing (NGS) or massively parallel sequencing is a technology which allows for fast and precise sequencing of DNA or cDNA. This is done by parallel sequencing of a very high number of DNA (or cDNA) fragments and provides high depth and much insight into genomes of organisms or can be used to explore gen expression in a single organism. With bioinformatic analysis the data acquired can be put together to form a complete genome or give insight in to cellular activity of an organism (<a href="https://ep.bmj.com/content/edpract/98/6/236.full.pdf" class="uri">https://ep.bmj.com/content/edpract/98/6/236.full.pdf</a>). The technology has brought many different advances in science and is now being looked at to be implemented in the diagnostics field as a noninvasive tool to diagnose infectious diseases in immunocompromised hosts (<a href="https://f1000research.com/articles/8-1194" class="uri">https://f1000research.com/articles/8-1194</a>).</p>
+<p>Although the technology is very impressive and very useful for a wide range of applications (<a href="https://ep.bmj.com/content/edpract/98/6/236.full.pdf" class="uri">https://ep.bmj.com/content/edpract/98/6/236.full.pdf</a>) it has a significant drawback. While a picture can be formed when looking at RNA expression in tissue or type specific cells it’s always clouded due to the interference of different cells in the same “sample”. By design NGS utilizes a very large amount of cDNA fragments that need to be analysed <em>in silico</em>
+to align the fragments to a reference genome and gain information about the genes expressed. The problem arises when one wants to more accurately look at how much a certain gene was expressed. Due to differences in cellular expression between cells the accuracy of determination of gene expression will always be limited. Two cells of the same type might be producing different quantities of RNA that is used measured in the NGS analysis (as cDNA) but these differences can’t be retraced because each run utilizes cDNA fragments from multiple cells. As a solution to this problem (among others) is to run a differential gene expression analysis (DGE). The DGA analysis provides information about the statistical difference in expressed genes based on a probability value. It is a reliable method to find the <em>Log2 fold changes</em> which quite accurately calculate an answer to the how much question of the problem. Another solution is single cell next generation sequencing which also provides answers to this problem.</p>
+</div>
+<div id="single-cell-next-generation-sequencing" class="section level3" number="5.0.3">
+<h3>
+<span class="header-section-number">5.0.3</span> Single cell next generation sequencing<a class="anchor" aria-label="anchor" href="#single-cell-next-generation-sequencing"><i class="fas fa-link"></i></a>
+</h3>
+<p>Single cell transcriptomics is used to characterize cell states (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6687398/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6687398/</a>). Ranging from gene expression and spatial transcriptomics to chromatine accesibility and immunophenotyping scRNA-seq technology has a broad spectrum of applications, each with their own strengths and weaknesses. Most measure only a very specific aspect of cellular identity posing a clear need to use the information acquired from one analysis to strengthen the conclusion of another.</p>
+</div>
+<div id="scatac-seq" class="section level3" number="5.0.4">
+<h3>
+<span class="header-section-number">5.0.4</span> scATAC-seq<a class="anchor" aria-label="anchor" href="#scatac-seq"><i class="fas fa-link"></i></a>
+</h3>
+<p>Single cell NGS has been used in research to better understand the developmental programs encoded in the linear genome sequence (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7910485/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7910485/</a>). Single cell NGS can also be used to identify the <em>cis</em>-elements in organisms and specific cell types. Cell type is established due to regulation of spatiotemporal gene expression programs (<a href="https://pubmed.ncbi.nlm.nih.gov/22955616/" class="uri">https://pubmed.ncbi.nlm.nih.gov/22955616/</a>). These interact with sequence specific transcription factors and <em>cis-</em>regulatory sequences in a cell-type specific manner. Due to sensitivity to nucleases and transposases when active there have been different methods developed to find de <em>cis</em>-elements in organisms and specific cell types. Chromatine accesability methods are for example scTHIS-seq (single-cell transposome hypersensitive site sequencing) or scATAC-seq. In scATA-seq or single-cell ATAC-seq analysis allows for profiling of chromatine accessibility from hundreds of thousands cells in a single experiment (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7910485/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7910485/</a>).</p>
+<p>Current methods often require the use of linear dimensionality reduction on a cell matrix of thousands of dimensions. Scaling this to millions of cells is a huge challenge. In addition scATAC-seq datasets do not posses the same level of sensitivity as scRNA-seq. To overcome the limitations a single nucleus analysis pipeline for ATAC-seq-SnapATAC (<a href="https://github.com/r3fang/SnapATAC/blob/master/README.md" class="uri">https://github.com/r3fang/SnapATAC/blob/master/README.md</a>) has been proposed which I will be trying out here.</p>
+</div>
+<div id="snapatac" class="section level3" number="5.0.5">
+<h3>
+<span class="header-section-number">5.0.5</span> SnapATAC<a class="anchor" aria-label="anchor" href="#snapatac"><i class="fas fa-link"></i></a>
+</h3>
+<p>As posed before I will now be trying out the package SnapATAC on a provided dataset 10X (by the same author).</p>
 
 </div>
 </div>
@@ -144,7 +166,10 @@
       <ul class="nav navbar-nav"><li>
 <a class="nav-link" href="#looking-ahead"><span class="header-section-number">5</span> Looking ahead</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#plan"><span class="header-section-number">5.0.1</span> Plan</a></li>
-<li><a class="nav-link" href="#day-1"><span class="header-section-number">5.0.2</span> Day 1</a></li>
+<li><a class="nav-link" href="#next-generation-sequencing"><span class="header-section-number">5.0.2</span> Next generation sequencing</a></li>
+<li><a class="nav-link" href="#single-cell-next-generation-sequencing"><span class="header-section-number">5.0.3</span> Single cell next generation sequencing</a></li>
+<li><a class="nav-link" href="#scatac-seq"><span class="header-section-number">5.0.4</span> scATAC-seq</a></li>
+<li><a class="nav-link" href="#snapatac"><span class="header-section-number">5.0.5</span> SnapATAC</a></li>
 </ul>
 </li></ul>
 
@@ -163,7 +188,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2022-06-10.</p>
+    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2022-06-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
