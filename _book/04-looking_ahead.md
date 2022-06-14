@@ -40,4 +40,5 @@ Current methods often require the use of linear dimensionality reduction on a ce
 
 ### SnapATAC
 
-As posed before I will now be trying out the package SnapATAC on a provided dataset 10X (by the same author). 
+As posed before I will now be trying out the package SnapATAC on a provided dataset 10X (by the same author). The package runs in python so this will take more time than the expected 4 days but that's not a very big deal. 
+
