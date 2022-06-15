@@ -4,6 +4,7 @@
 
 
 
+## Single Cell NGS
 
 To demonstrate my ability to learn new skills and continue to develop myself I will try to learn as much as I can in four days about single cell next generation sequencing. 
 
@@ -11,15 +12,15 @@ I chose this skill because NGS is something that I find very interesting and NGS
 
 ### Plan
 
-First a small overview of how I want to structure my 4 days to make sure I best make use of the time. By the end of it I can hopefully run a analysis, or part of one that isn't too complicated. To this end I will need to read up about it and search for usable data used in research to try and mimic what they have done. Hopefully in the future this will allow me to beter develop the skills needed to run my own analysis on Single Cell NGS data. 
+First a small overview of how I want to structure my 4 days to make sure I best make use of the time. By the end of it I can hopefully run a analysis, or part of one that isn't too complicated. To this end I will need to read up about it and search for usable data used in research to try and mimic what they have done. Hopefully in the future this will allow me to better develop the skills needed to run my own analysis on Single Cell NGS data. 
 
 
-|Day Number |Activity to do                                                                                              |Completion    |
-|:----------|:-----------------------------------------------------------------------------------------------------------|:-------------|
-|Day 1      |Reading about single cell NGS and looking for research articles where this has been used for analysis       |DONE          |
-|Day 2      |Trying to get everything to work to mimic the analysis found in the article                                 |WORKING ON IT |
-|Day 3      |Continue with the reproduction of the article analysis untill done                                          |NOT DONE      |
-|Day 4      |Write a report on what I have learned and things I need to learn more about, a what's next secion let's say |NOT DONE      |
+|Day Number |Activity to do                                                                                              |Completion |
+|:----------|:-----------------------------------------------------------------------------------------------------------|:----------|
+|Day 1      |Reading about single cell NGS and looking for research articles where this has been used for analysis       |DONE       |
+|Day 2, 3   |Trying to get everything to work to mimic an analysis found in the article                                  |DONE       |
+|Day 4      |Continue with the reproduction of the article analysis untill done                                          |DONE       |
+|Day 5      |Write a report on what I have learned and things I need to learn more about, a what's next secion let's say |DONE       |
 
 ### Next generation sequencing
 
@@ -36,9 +37,208 @@ Single cell transcriptomics is used to characterize cell states (@stuart_compreh
 
 Single cell NGS has been used in research to better understand the developmental programs encoded in the linear genome sequence (@fang_comprehensive_2021). Single cell NGS can also be used to identify the *cis*-elements in organisms and specific cell types. Cell type is established due to regulation of spatiotemporal gene expression programs (@the_encode_project_consortium_integrated_2012). These interact with sequence specific transcription factors and *cis-*regulatory sequences in a cell-type specific manner. Due to sensitivity to nucleases and transposases when active there have been different methods developed to find de *cis*-elements in organisms and specific cell types. Chromatine accesability methods are for example scTHIS-seq (single-cell transposome hypersensitive site sequencing) or scATAC-seq. In scATA-seq or single-cell ATAC-seq analysis allows for profiling of chromatine accessibility from hundreds of thousands cells in a single experiment (@fang_comprehensive_2021). 
  
-Current methods often require the use of linear dimensionality reduction on a cell matrix of thousands of dimensions. Scaling this to millions of cells is a huge challenge. In addition scATAC-seq datasets do not posses the same level of sensitivity as scRNA-seq. To overcome the limitations a single nucleus analysis pipeline for ATAC-seq-SnapATAC [Git-hub link](https://github.com/kaizhang/SnapATAC2) has been proposed which I will be trying out here.
+Current methods often require the use of linear dimensionality reduction on a cell matrix of thousands of dimensions. Scaling this to millions of cells is a huge challenge. In addition scATAC-seq datasets do not posses the same level of sensitivity as scRNA-seq. To overcome the limitations a single nucleus analysis pipeline for [ATAC-seq-SnapATAC](https://github.com/r3fang/SnapATAC/blob/master/README.md) has been proposed which I will be trying out here.
 
 ### SnapATAC
 
-As posed before I will now be trying out the package SnapATAC on a provided dataset 10X (by the same author). The package runs in python so this will take more time than the expected 4 days but that's not a very big deal. 
+As posed before I will now be trying out the package SnapATAC on a provided dataset 10X (by the same author). The package runs in python so this will take more time than the expected 4 days but that’s not a very big deal.
 
+### Python in R
+
+To use python code chunks in Rmarkdown I downloaded the reticulate package. This chunk below is running python.
+
+
+```python
+
+print("Hello World")
+#> Hello World
+```
+
+Now to download the SnapATAC2 package we will need pip or maybe Anaconda. I am not yet sure what is the better option so I am trying to get Anaconda in my environment so I can maybe download the package and run it trough Rstudio. I am also trying to get it to install with pip, which should be easier I think.
+Sadly using pip has not worked. I can get pip to install packages just fine but SnapAtac2 doesn't want to install. I checked the issues on the github page of the package and found that the rust and anndate package would be able to help so I downloaded them both but still nothing. I also read that snapatac2 hadn't been tested for windows but that was an older message so maybe that's not the issue. Lets proceed as if it is supposed to work and see if we can get it to do so. 
+With pip failing we are left with Anaconda. Let's try do download a simple package first to see if it works properly. To check if anaconda works we installed the numpy package. The download was successful but downloading snapatac2 did not. It's time to look for a different package, I would prefer to find one for R, I am more comfortable working with R packages and I have limited time.  
+
+### CellWalkR
+
+The next package I found is CellWalkR. [CellWalkR](https://github.com/PFPrzytycki/CellWalkR/blob/master/examples/CellWalkR_Vignette.md) is a package to combine scATAC-seq data with labels and other epigenetic data. We will be using the data linked in the vignette which has been pre processed with ArchR. We will also install ArchR for future use. 
+
+
+```r
+# Package requires devtools and BiocManager
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+# Then install Archr
+devtools::install_github("GreenleafLab/ArchR", ref="master", repos = BiocManager::repositories())
+# Lastly install the dependencies
+library(ArchR)
+ArchR::installExtraPackages()
+```
+
+The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-8) article (@ziffra_single-cell_2021). I won't go into depth about the article just now. For now we are just going to collect the data and follow the vignette tutorial. 
+
+
+```r
+### Load in the Data ###########################################################
+  library(ArchR)
+  downloadSampleData("vignette_data")
+#> [1] "vignette_data"
+#> [1] "vignette_data"
+  ATACMat <- Matrix::readMM("vignette_data/SamplePeakMat.mtx")
+  peaks <- as(data.table::fread("vignette_data/SamplePeaks.txt", header = FALSE)$V1, "GRanges")
+
+### Define Label Nodes #########################################################
+
+  pathToLabels <- system.file("extdata", "SampleMarkers1.txt", package = "CellWalkR")
+  labelGenes <- data.table::fread(pathToLabels)
+
+# Check the labeling data. It has to have at least two columns
+  head(labelGenes)
+#>    entrez  cluster   avg_diff
+#> 1:  10299 RG-early -1.2297890
+#> 2:   6167 RG-early  0.2546596
+#> 3:  11168 RG-early  0.2570446
+#> 4:   8760 RG-early -0.2578798
+#> 5:   8503 RG-early  0.2613031
+#> 6:  10208 RG-early  0.2618003
+  
+### Building a Network #########################################################
+  
+# Next we compute cell-to-cell similarity in order to build edges in the cell-to-cell proportion of the graph
+  
+  cellEdges <- computeCellSim(ATACMat)
+  
+# Check cellEdges 
+  cellEdges[1:5,1:5]
+#> 5 x 5 sparse Matrix of class "dgCMatrix"
+#>                                                            
+#> [1,] 1.00000000 0.11338151 0.15001705 0.09244314 0.09813385
+#> [2,] 0.11338151 1.00000000 0.14950372 0.08130564 0.09035017
+#> [3,] 0.15001705 0.14950372 1.00000000 0.08960442 0.11350499
+#> [4,] 0.09244314 0.08130564 0.08960442 1.00000000 0.06237177
+#> [5,] 0.09813385 0.09035017 0.11350499 0.06237177 1.00000000
+  
+### Computing Label-Cell Edges #################################################
+  
+# Now we need to define which genomic regions correspond to which genes. We’ll use hg38 with Entrez identifiers in this example, using full gene bodies
+  regions <- getRegions(geneBody = TRUE, genome = "hg38", names = "Entrez")
+# Check it
+  head(regions)
+#> GRanges object with 6 ranges and 1 metadata column:
+#>             seqnames            ranges strand |     gene_id
+#>                <Rle>         <IRanges>  <Rle> | <character>
+#>           1    chr19 58362552-58364751      - |           1
+#>          10     chr8 18389282-18391481      + |          10
+#>         100    chr20 44652034-44654233      - |         100
+#>        1000    chr18 28176931-28179130      - |        1000
+#>   100009613    chr11 70075234-70077433      - |   100009613
+#>   100009667    chr10 68010663-68012862      - |   100009667
+#>   -------
+#>   seqinfo: 595 sequences (1 circular) from hg38 genome
+# Now we map between this data and the peaks
+  ATACGenePeak <- mapPeaksToGenes(labelGenes, ATACMat, peaks, regions)
+  labelEdges <- computeLabelEdges(labelGenes, ATACMat, ATACGenePeak)
+# Check it
+  head(labelEdges)
+#>      RG-early        oRG        tRG         vRG    RG-div1
+#> [1,]        0 0.04201235 0.04275655 0.019920365 0.05198877
+#> [2,]        0 0.03108851 0.02250872 0.008458454 0.03121237
+#> [3,]        0 0.02902324 0.02383554 0.008164892 0.03279098
+#> [4,]        0 0.03035606 0.01968420 0.009663494 0.03510777
+#> [5,]        0 0.02334971 0.02856838 0.005171970 0.03755360
+#> [6,]        0 0.03310487 0.02331299 0.008916823 0.03410891
+#>         RG-div2
+#> [1,] 0.04404968
+#> [2,] 0.02986432
+#> [3,] 0.03135008
+#> [4,] 0.02916076
+#> [5,] 0.03137661
+#> [6,] 0.03400801
+  
+### Tuning Label Edges #########################################################
+  
+# We now have cell-to-cell edges and label-to-cell edges, we don’t know how to correctly weight the two relative to each other. The tuneEdgeWeights method will run CellWalker across a range of possible parameters and compute cell homogeneity for each
+  labelEdgesList <- list(labelEdges)
+  
+  edgeWeights <- tuneEdgeWeights(cellEdges, 
+                              labelEdgesList, 
+                              labelEdgeOpts = 10^seq(1,7,1), 
+                              sampleDepth = 1000)
+# Check it
+  head(edgeWeights[order(edgeWeights$cellHomogeneity, decreasing = TRUE),])
+#>    Var1 cellHomogeneity
+#> 5 1e+05     -0.03307957
+#> 3 1e+03     -0.03629337
+#> 4 1e+04     -0.03909935
+#> 7 1e+07     -0.04053223
+#> 6 1e+06     -0.04411236
+#> 2 1e+02     -0.23630441
+
+### Making a cellWalk Object ###################################################
+
+# Now we generate a cellWalk object with the above tuned edge weight parameter
+  cellWalk <- walkCells(cellEdges, 
+                     labelEdgesList, 
+                     labelEdgeWeights = 1e+07)
+  
+### Adding Filters #############################################################
+
+# We may have some bulk epigenetic data that can help filter down which peaks are relevant to our analysis. We can tune weights on each filter to determine how significant it is to our data. For our example we have H3K4me3 data which indicates active promoters. Thus we apply this filter permissively (setting filterOut=FALSE) and at the whole gene level (filterGene=TRUE) rather than just to overlapping peaks. We can make a new cellWalk object using this filter:
+  
+  # labelEdges <- computeLabelEdges(labelGenes, 
+  #                              ATACMat, 
+  #                              ATACGenePeak,
+  #                              filters = filters, 
+  #                              filterWeights = c(1),
+  #                              filterOut = c(FALSE),
+  #                              filterGene = c(TRUE),
+  #                              regions = regions)
+  # labelEdgesList <- list(labelEdges)
+  # cellWalk <- walkCells(cellEdges, 
+  #                    labelEdgesList, 
+  #                    labelEdgeWeights = 1e+07)
+
+### Downstream Analysis ########################################################
+
+# Once we have a cellWalk object we can use it for downstream analysis
+  
+# The label threshold determines the minimum influence score a cell must get to be considered labeled
+  cellWalk <- findUncertainLabels(cellWalk, labelThreshold = 0, plot = TRUE)
+```
+
+<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+
+```r
+
+# We can also directly examine label similarity by considering label-to-label influence
+  cellWalk <- clusterLabels(cellWalk,  plot = TRUE)
+```
+
+<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-2.png" width="672" />
+
+```
+#> NULL
+  
+  cellWalk <- plotCells(cellWalk, labelThreshold = 0, seed = 1)
+```
+
+<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-3.png" width="672" />
+
+```r
+    
+# It is also possible to plot how strongly a single label influences each cell in the embedding
+  cellWalk <- plotCells(cellWalk, cellTypes = c("RG-div2"), seed = 1)
+```
+
+<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-4.png" width="672" />
+
+```r
+  
+# Furthermore, to analyze rare cell types, it can be helpful to only plot a subset of of all labels
+  cellWalk <- plotCells(cellWalk, cellTypes = c("RG-early","tRG","vRG"), labelThreshold = 0, seed = 1)
+```
+
+<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-5.png" width="672" />
+
+### What's Next
+
+As my next steps I would like to keep trying to get SnapAtac to work and also try the Cellwalker package with another research to actually run an analysis. As of now my time is done but I will continue to work on this subject as I find it very Interesting but from now on it will have a page of it's own in my portfolio. 
+I learned a great deal about what scRNA-seq is but I am still barely scratching the surface. Most of the things I come across are rather new and I need a lot of time to read up. 
