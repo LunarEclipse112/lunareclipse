@@ -40,7 +40,7 @@ raw_conc_graph <- celegans %>% group_by(compConcentration, compName, expType, co
 celegans %>% ggplot(aes(x = compConcentration, y = RawData)) + 
   geom_point(aes(color = compName, 
                 shape = compName), 
-             position = position_jitter(width = 0.5,
+             position = position_jitter(width = 0.1,
                                         height = NULL,
                                         seed = NA)) +
              
@@ -72,7 +72,7 @@ colnames(norm_data_ce) <- c("RawData", "compConcentration", "compName", "normDat
 norm_data_ce %>% ggplot(aes(x = compConcentration, y = normData)) + 
   geom_point(aes(color = compName, 
                 shape = compName),
-             position = position_jitter(width = 0.5,
+             position = position_jitter(width = 0.1,
                                         height = NULL,
                                         seed = NA)) +
   #geom_errorbar(aes(ymin = mean_normData-stdev, ymax = mean_normData+stdev), width = .1) +
