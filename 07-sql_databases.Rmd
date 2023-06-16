@@ -74,8 +74,7 @@ con <- dbConnect(RPostgres::Postgres(),
                  dbname = "fludata", 
                  host="localhost", 
                  port="5432", 
-                 user="postgres", 
-                 password="warLUNA112!") 
+                 user="postgres") 
 
 ## And create new tables with the data frames we made earlier
 dbWriteTable(con, "flu_data", flu_data_tidy)
