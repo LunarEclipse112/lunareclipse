@@ -165,12 +165,12 @@ The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-
 # Check it
   head(edgeWeights[order(edgeWeights$cellHomogeneity, decreasing = TRUE),])
 #>    Var1 cellHomogeneity
-#> 4 1e+04     -0.02789777
-#> 5 1e+05     -0.03954104
-#> 7 1e+07     -0.04022707
-#> 6 1e+06     -0.05134244
-#> 3 1e+03     -0.06223973
-#> 2 1e+02     -0.23520271
+#> 4 1e+04     -0.02123435
+#> 5 1e+05     -0.02153081
+#> 7 1e+07     -0.02637162
+#> 6 1e+06     -0.03703620
+#> 3 1e+03     -0.05844438
+#> 2 1e+02     -0.27902273
 
 ### Making a cellWalk Object ###################################################
 

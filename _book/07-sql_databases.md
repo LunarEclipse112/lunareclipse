@@ -63,21 +63,6 @@ CREATE DATABASE fludata;
 ```
 
 
-```r
-## Then we connect to the database
-con <- dbConnect(RPostgres::Postgres(), 
-                 dbname = "fludata", 
-                 host="localhost", 
-                 port="5432", 
-                 user="postgres", 
-                 password="warLUNA112!") 
-
-## And create new tables with the data frames we made earlier
-dbWriteTable(con, "flu_data", flu_data_tidy)
-dbWriteTable(con, "dengue_data", dengue_data_tidy)
-dbWriteTable(con, "gapminder_data", gapdat_tidy)
-
-```
 
 
 ```sql

@@ -165,9 +165,9 @@ to align the fragments to a reference genome and gain information about the gene
 <span class="header-section-number">5.1.6</span> Python in R<a class="anchor" aria-label="anchor" href="#python-in-r"><i class="fas fa-link"></i></a>
 </h3>
 <p>To use python code chunks in Rmarkdown I downloaded the reticulate package. This chunk below is running python.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="looking-ahead.html#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="looking-ahead.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span>
-<span id="cb5-3"><a href="looking-ahead.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Hello World</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="looking-ahead.html#cb5-1" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="looking-ahead.html#cb5-2" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span>
+<span id="cb5-3"><a href="looking-ahead.html#cb5-3" tabindex="-1"></a><span class="co">#&gt; Hello World</span></span></code></pre></div>
 <p>Now to download the SnapATAC2 package we will need pip or maybe Anaconda. I am not yet sure what is the better option so I am trying to get Anaconda in my environment so I can maybe download the package and run it trough Rstudio. I am also trying to get it to install with pip, which should be easier I think.
 Sadly using pip has not worked. I can get pip to install packages just fine but SnapAtac2 doesn’t want to install. I checked the issues on the github page of the package and found that the rust and anndate package would be able to help so I downloaded them both but still nothing. I also read that snapatac2 hadn’t been tested for windows but that was an older message so maybe that’s not the issue. Lets proceed as if it is supposed to work and see if we can get it to do so.
 With pip failing we are left with Anaconda. Let’s try do download a simple package first to see if it works properly. To check if anaconda works we installed the numpy package. The download was successful but downloading snapatac2 did not. It’s time to look for a different package, I would prefer to find one for R, I am more comfortable working with R packages and I have limited time.</p>
@@ -275,12 +275,12 @@ With pip failing we are left with Anaconda. Let’s try do download a simple pac
 <span class="co"># Check it</span>
   <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">head</a></span><span class="op">(</span><span class="va">edgeWeights</span><span class="op">[</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setorder.html">order</a></span><span class="op">(</span><span class="va">edgeWeights</span><span class="op">$</span><span class="va">cellHomogeneity</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,<span class="op">]</span><span class="op">)</span>
 <span class="co">#&gt;    Var1 cellHomogeneity</span>
-<span class="co">#&gt; 4 1e+04     -0.02789777</span>
-<span class="co">#&gt; 5 1e+05     -0.03954104</span>
-<span class="co">#&gt; 7 1e+07     -0.04022707</span>
-<span class="co">#&gt; 6 1e+06     -0.05134244</span>
-<span class="co">#&gt; 3 1e+03     -0.06223973</span>
-<span class="co">#&gt; 2 1e+02     -0.23520271</span>
+<span class="co">#&gt; 4 1e+04     -0.02123435</span>
+<span class="co">#&gt; 5 1e+05     -0.02153081</span>
+<span class="co">#&gt; 7 1e+07     -0.02637162</span>
+<span class="co">#&gt; 6 1e+06     -0.03703620</span>
+<span class="co">#&gt; 3 1e+03     -0.05844438</span>
+<span class="co">#&gt; 2 1e+02     -0.27902273</span>
 
 <span class="co">### Making a cellWalk Object ###################################################</span>
 
@@ -379,7 +379,7 @@ I learned a great deal about what scRNA-seq is but I am still barely scratching 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2023-02-07.</p>
+    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2023-06-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

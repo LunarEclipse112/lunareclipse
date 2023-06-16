@@ -111,7 +111,7 @@
 </table></div>
 <p>We can change them in to any date combinations we want and any country as long as it has data in our input data the code will work. This makes it work as-though we wrote a function of the code with custom input but then our function is the complete Rmarkdown file. Very handy indeed.</p>
 <p>This page will show all the code so you can take a look at how the parameters are used in it. You can find the parameters used as variables: params$parameter_name</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">###################### Load in the Data ########################################</span>
 
 <span class="co">## First lets load in the Data kindly supplied by the ECDC. </span>
@@ -137,7 +137,7 @@
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="st">"turquoise3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="08-parameters_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Graph #2, The amount of covid-19 Deaths in a selected country for a selected period of time. If I didn't work with parameters I would have build a function for these two graphs seeing as they are very similar in code. </span>
   <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">month</span>, <span class="va">year</span>, <span class="va">day</span>, <span class="va">deaths</span>, <span class="va">countriesAndTerritories</span>, <span class="va">dateRep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -176,7 +176,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2023-02-07.</p>
+    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2023-06-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
