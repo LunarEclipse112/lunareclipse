@@ -68,7 +68,7 @@ CREATE DATABASE fludata;
 
 ```
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 ## Then we connect to the database
 con <- dbConnect(RPostgres::Postgres(), 
                  dbname = "fludata", 
