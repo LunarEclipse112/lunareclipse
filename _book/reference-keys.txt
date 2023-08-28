@@ -19,7 +19,6 @@ projects
 noldus-project
 the-application
 example-graphs
-resume
 relational-databases
 parameters
 normalizeme

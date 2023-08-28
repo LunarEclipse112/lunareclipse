@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 9 Parameters | Portfolio</title>
+<title>Chapter 8 Parameters | Portfolio</title>
 <meta name="author" content="Lunar Eclipse">
 <meta name="description" content="In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate...">
 <meta name="generator" content="bookdown 0.27 with bs4_book()">
-<meta property="og:title" content="Chapter 9 Parameters | Portfolio">
+<meta property="og:title" content="Chapter 8 Parameters | Portfolio">
 <meta property="og:type" content="book">
 <meta property="og:description" content="In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 9 Parameters | Portfolio">
+<meta name="twitter:title" content="Chapter 8 Parameters | Portfolio">
 <meta name="twitter:description" content="In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -71,11 +71,10 @@
 <li><a class="" href="guerrilla-analytics.html"><span class="header-section-number">4</span> Guerrilla Analytics</a></li>
 <li><a class="" href="looking-ahead.html"><span class="header-section-number">5</span> Looking ahead</a></li>
 <li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
-<li><a class="" href="resume.html"><span class="header-section-number">7</span> Resume</a></li>
-<li><a class="" href="relational-databases.html"><span class="header-section-number">8</span> Relational Databases</a></li>
-<li><a class="active" href="parameters.html"><span class="header-section-number">9</span> Parameters</a></li>
-<li><a class="" href="normalizeme.html"><span class="header-section-number">10</span> normalizeme</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
+<li><a class="" href="relational-databases.html"><span class="header-section-number">7</span> Relational Databases</a></li>
+<li><a class="active" href="parameters.html"><span class="header-section-number">8</span> Parameters</a></li>
+<li><a class="" href="normalizeme.html"><span class="header-section-number">9</span> normalizeme</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">10</span> References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -83,9 +82,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="parameters" class="section level1" number="9">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="parameters" class="section level1" number="8">
 <h1>
-<span class="header-section-number">9</span> Parameters<a class="anchor" aria-label="anchor" href="#parameters"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8</span> Parameters<a class="anchor" aria-label="anchor" href="#parameters"><i class="fas fa-link"></i></a>
 </h1>
 <p>In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate graphs, one showing the COVID-19 related cases in a specified month of a year in a country and the other the COVID-19 related deaths in a specified month of a year in a country. To this end we will make the parameters customisable to the month, year and country the graphs are supposed to show.</p>
 <p>Parameters are defined in the yaml header of Rmarkdown documents and can be used just like any variable in the code. One great advantage is that they can be customized on the fly to change function output. In this case we defined three parameters:</p>
@@ -136,7 +135,7 @@
          y<span class="op">=</span> <span class="st">"Number of Cases"</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="st">"turquoise3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="08-parameters_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<div class="inline-figure"><img src="07-parameters_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Graph #2, The amount of covid-19 Deaths in a selected country for a selected period of time. If I didn't work with parameters I would have build a function for these two graphs seeing as they are very similar in code. </span>
@@ -150,21 +149,21 @@
          y<span class="op">=</span> <span class="st">"Number of Deaths"</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values<span class="op">=</span><span class="st">"turquoise4"</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="08-parameters_files/figure-html/unnamed-chunk-2-2.png" width="672"></div>
+<div class="inline-figure"><img src="07-parameters_files/figure-html/unnamed-chunk-2-2.png" width="672"></div>
 <p>Parameters are great to work with and save time when you want to only change small things about code that has already been used before. I personally prefer writing good functions and reusing them but parameters are a great tool to apply aswell.</p>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="relational-databases.html"><span class="header-section-number">8</span> Relational Databases</a></div>
-<div class="next"><a href="normalizeme.html"><span class="header-section-number">10</span> normalizeme</a></div>
+<div class="prev"><a href="relational-databases.html"><span class="header-section-number">7</span> Relational Databases</a></div>
+<div class="next"><a href="normalizeme.html"><span class="header-section-number">9</span> normalizeme</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#parameters"><span class="header-section-number">9</span> Parameters</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#parameters"><span class="header-section-number">8</span> Parameters</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/LunarEclipse112/lunareclipse.github.io/blob/master/08-parameters.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/LunarEclipse112/lunareclipse.github.io/edit/master/08-parameters.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/LunarEclipse112/lunareclipse.github.io/blob/master/07-parameters.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/LunarEclipse112/lunareclipse.github.io/edit/master/07-parameters.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -176,7 +175,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2023-06-16.</p>
+    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2023-08-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
