@@ -23,7 +23,7 @@ We can change them in to any date combinations we want and any country as long a
 
 This page will show all the code so you can take a look at how the parameters are used in it. You can find the parameters used as variables: params$parameter_name
 
-```r
+``` r
 ###################### Load in the Data ########################################
 
 ## First lets load in the Data kindly supplied by the ECDC. 
@@ -52,7 +52,7 @@ This page will show all the code so you can take a look at how the parameters ar
 
 <img src="07-parameters_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
-```r
+``` r
 
 # Graph #2, The amount of covid-19 Deaths in a selected country for a selected period of time. If I didn't work with parameters I would have build a function for these two graphs seeing as they are very similar in code. 
   data %>% select(month, year, day, deaths, countriesAndTerritories, dateRep) %>% 

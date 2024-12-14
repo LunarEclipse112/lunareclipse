@@ -9,7 +9,7 @@ At first we start by loading in the required data for this short analysis. We us
 After loading in the data we need to make it tidy to make it easier to work with in R. It will also make it allot easier to work with when we compare the data and load it in into DBeaver using SQL. 
 
 
-```r
+``` r
 ############ Load in Data ##############################################
 ## Gapminder data from the dslabs package
   gapdat <- gapminder
@@ -22,7 +22,7 @@ After loading in the data we need to make it tidy to make it easier to work with
 
 
 
-```r
+``` r
 ############################## Tidy Data ################################
 
 ## Gapminder data looks very tidy so no changes there except for the year column, that needs to become Date
@@ -37,10 +37,11 @@ After loading in the data we need to make it tidy to make it easier to work with
   dengue_data_tidy <- dengue_data %>% pivot_longer(cols = -c(Date),
                                              names_to = "country",
                                              values_to = "values") 
+
 ```
 
 
-```r
+``` r
 ########################### Export the Data ############################
 
 ## Now we are going to write off the tidy data sets as csv and rds to export them later into the database
@@ -56,7 +57,7 @@ After loading in the data we need to make it tidy to make it easier to work with
 ```
 
 
-```sql
+``` sql
 ## In DBeaver we now make a new database to store the data
 CREATE DATABASE fludata;
 
@@ -65,7 +66,7 @@ CREATE DATABASE fludata;
 
 
 
-```sql
+``` sql
 ## Then in SQL we define the primary keys of the tables (Date and country)
 alter table public.flu_data 
 	add constraint PK_flu_data primary key (Date, country);
@@ -82,7 +83,7 @@ select * from flu_data;
 ```
 
 
-```r
+``` r
 ######################## Inspect the Data ######################################
 ## Now that the data has been stored in the database we can inspect it in R using the connection made
 
@@ -94,7 +95,7 @@ dbGetQuery(con, 'SELECT * FROM gapminder_data')
 ```
 
 
-```r
+``` r
 ####################### Modify the gapminder data ##############################
 # Next we want to join the 3 data frames together based on the year and country columns
 ## flu data tidy:

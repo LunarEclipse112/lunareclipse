@@ -1,7 +1,7 @@
 --- 
 title: "Portfolio"
 author: "Lunar Eclipse"
-date: "2023-08-28"
+date: "2024-12-14"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: "./bibliography_portfolio/bibliography_portfolio.bib"
@@ -16,14 +16,11 @@ params:
 
 # Welcome!
 
-Hi! And welcome, this is my portfolio. It is a collection of different skills I posses and a way to show what I can do in a data analysis context. Each page contains a different group of skills and stands alone in its presentation. Also good to know is that this is of course, an ongoing process.
+Hi! And welcome, this is my portfolio. It is a collection of different skills and projects to showcase what I can do. Each page contains a different group of skills and stands alone in its presentation. This website is an ongoing work in progress.
 
 ## About Me
 
-I am a student of the University of applied sciences Utrecht. I have great passion for biology, molecular life
-sciences and data analysis. A work environment where I can implement those interests is a dream job for
-me. With my specialization in biomolecular research and data analysis knowledge I can be a bridge
-between lab analysis and data scientist. I am a transgender nonbinary individual, This means I go by
-they/them (die/diens of hen/hun). Usually this isn’t something I place too much importance on, I just live my
-life like anyone else but it might have some implications in the future regarding sudden surgeries. In case
-this does occur I feel like my future employer or internship provider should be aware beforehand.
+I studied Life sciences at the university of applied sciences Utrecht. Within my degree I specialized in bio-molecular research and Data analysis and visualization. I am very passionate about biology, molecular life
+sciences and data analysis. A work environment where I can combine those interests is a dream job for
+me. With my specialization in bio-molecular research and data analysis knowledge I can be a bridge
+between lab analysis and data scientist. 

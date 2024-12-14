@@ -9,7 +9,7 @@ While working together in groups using github or alone on ones own *in silico* i
 A short example of a set up of this type is shown below. I organized one of my courses in the guerrilla analytics format to better explain the structure. It is very easy to work with and I very much enjoy looking at a well organized project.
 
 
-```r
+``` r
 # Using this command we can get the structure of our file organisation 
 fs::dir_tree(here::here("daur2/"))
 
@@ -155,7 +155,7 @@ Although the course above is organized properly it has allot of missing items li
 The path shown below is longer than necessary when working from a server or github project. 
 
 
-```r
+``` r
 fs::dir_tree(here::here(""))
 
 C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/dsbf2_workflows_portfolio/Portfolio
@@ -249,7 +249,7 @@ C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/dsbf2_workflows_portf
 Next we will be looking at the README from the Portfolio project. Listed below is content of the README file to show more information about the files in the project. You can also just look at the README linked in the Github link. That one is a little bit easier to read. 
 
 
-```r
+``` r
 read_file(here::here("README.md"))
 #> [1] "# lunareclipse\r\n\r\nThis repository contains my portfolio. It is meant to showcase my skills in data analysis. My goal is to be able to present to a future employer what it is I can do and such this portfolio will change greatly over time. As of now I am very much in the beginning of my journey and looking for an internship to improve my skills in a certain direction. For me my interest lies especially in next generation sequencing. I have worked on some NGS projects trough my university and I very much like how it goes hand in hand with understanding the biology of organisms to better interpret the results. \r\n\r\nMaking this portfolio has been a great learning experience and I will be keeping this update regularly. I have plans to include a RNA-seq analysis, Metagenomics pipeline and to keep working on the scRNA-seq skills as I find it very interesting. I would have liked to have one pipeline finished by now (12-06-2022) for the SnapATAC2 package but sadly I haven't figured out how to install and run the package properly on my device so that stands at the front of my to do list. Also I would like to improve on the skills I already posses and will make the pages in this portfolio go more in depth on the different basic skills to better showcase what I can do.\r\n\r\nI hope you will enjoy reading this and thank you for your time!\r\n\r\nIn this project most of the coding is done in R, with a little bit of Bash, CSS, YML, SQL and HTML on the side.\r\n\r\nWebsite link [here](https://lunareclipse.netlify.app/index.html)"
 ```

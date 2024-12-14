@@ -7,7 +7,7 @@
 <title>Chapter 5 Looking ahead | Portfolio</title>
 <meta name="author" content="Lunar Eclipse">
 <meta name="description" content="5.1 Single Cell NGS To demonstrate my ability to learn new skills and continue to develop myself I will try to learn as much as I can in four days about single cell next generation sequencing. I...">
-<meta name="generator" content="bookdown 0.27 with bs4_book()">
+<meta name="generator" content="bookdown 0.41.2 with bs4_book()">
 <meta property="og:title" content="Chapter 5 Looking ahead | Portfolio">
 <meta property="og:type" content="book">
 <meta property="og:description" content="5.1 Single Cell NGS To demonstrate my ability to learn new skills and continue to develop myself I will try to learn as much as I can in four days about single cell next generation sequencing. I...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="5.1 Single Cell NGS To demonstrate my ability to learn new skills and continue to develop myself I will try to learn as much as I can in four days about single cell next generation sequencing. I...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -26,6 +26,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+          margin-bottom: 0em;
         }
     .hanging div.csl-entry {
       margin-left:2em;
@@ -177,160 +178,104 @@ With pip failing we are left with Anaconda. Let’s try do download a simple pac
 </h3>
 <p>The next package I found is CellWalkR. <a href="https://github.com/PFPrzytycki/CellWalkR/blob/master/examples/CellWalkR_Vignette.md">CellWalkR</a> is a package to combine scATAC-seq data with labels and other epigenetic data. We will be using the data linked in the vignette which has been pre processed with ArchR. We will also install ArchR for future use.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Package requires devtools and BiocManager</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
-<span class="co"># Then install Archr</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"GreenleafLab/ArchR"</span>, ref<span class="op">=</span><span class="st">"master"</span>, repos <span class="op">=</span> <span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/repositories.html">repositories</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co"># Lastly install the dependencies</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ArchR</span><span class="op">)</span>
-<span class="fu">ArchR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ArchR/man/installExtraPackages.html">installExtraPackages</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Package requires devtools and BiocManager</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
+<span><span class="co"># Then install Archr</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"GreenleafLab/ArchR"</span>, ref<span class="op">=</span><span class="st">"master"</span>, repos <span class="op">=</span> <span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://bioconductor.github.io/BiocManager/reference/repositories.html">repositories</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Lastly install the dependencies</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ArchR</span><span class="op">)</span></span>
+<span><span class="fu">ArchR</span><span class="fu">::</span><span class="fu">installExtraPackages</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The data linked is from <a href="https://www.nature.com/articles/s41586-021-03209-8">this</a> article (<span class="citation">Ziffra et al. (2021)</span>). I won’t go into depth about the article just now. For now we are just going to collect the data and follow the vignette tutorial.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">### Load in the Data ###########################################################</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ArchR</span><span class="op">)</span>
-  <span class="fu">downloadSampleData</span><span class="op">(</span><span class="st">"vignette_data"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "vignette_data"</span>
-<span class="co">#&gt; [1] "vignette_data"</span>
-  <span class="va">ATACMat</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/externalFormats.html">readMM</a></span><span class="op">(</span><span class="st">"vignette_data/SamplePeakMat.mtx"</span><span class="op">)</span>
-  <span class="va">peaks</span> <span class="op">&lt;-</span> <span class="fu">as</span><span class="op">(</span><span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fread.html">fread</a></span><span class="op">(</span><span class="st">"vignette_data/SamplePeaks.txt"</span>, header <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">V1</span>, <span class="st">"GRanges"</span><span class="op">)</span>
-
-<span class="co">### Define Label Nodes #########################################################</span>
-
-  <span class="va">pathToLabels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"SampleMarkers1.txt"</span>, package <span class="op">=</span> <span class="st">"CellWalkR"</span><span class="op">)</span>
-  <span class="va">labelGenes</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fread.html">fread</a></span><span class="op">(</span><span class="va">pathToLabels</span><span class="op">)</span>
-
-<span class="co"># Check the labeling data. It has to have at least two columns</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">head</a></span><span class="op">(</span><span class="va">labelGenes</span><span class="op">)</span>
-<span class="co">#&gt;    entrez  cluster   avg_diff</span>
-<span class="co">#&gt; 1:  10299 RG-early -1.2297890</span>
-<span class="co">#&gt; 2:   6167 RG-early  0.2546596</span>
-<span class="co">#&gt; 3:  11168 RG-early  0.2570446</span>
-<span class="co">#&gt; 4:   8760 RG-early -0.2578798</span>
-<span class="co">#&gt; 5:   8503 RG-early  0.2613031</span>
-<span class="co">#&gt; 6:  10208 RG-early  0.2618003</span>
-  
-<span class="co">### Building a Network #########################################################</span>
-  
-<span class="co"># Next we compute cell-to-cell similarity in order to build edges in the cell-to-cell proportion of the graph</span>
-  
-  <span class="va">cellEdges</span> <span class="op">&lt;-</span> <span class="fu">computeCellSim</span><span class="op">(</span><span class="va">ATACMat</span><span class="op">)</span>
-  
-<span class="co"># Check cellEdges </span>
-  <span class="va">cellEdges</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>
-<span class="co">#&gt; 5 x 5 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;                                                            </span>
-<span class="co">#&gt; [1,] 1.00000000 0.11338151 0.15001705 0.09244314 0.09813385</span>
-<span class="co">#&gt; [2,] 0.11338151 1.00000000 0.14950372 0.08130564 0.09035017</span>
-<span class="co">#&gt; [3,] 0.15001705 0.14950372 1.00000000 0.08960442 0.11350499</span>
-<span class="co">#&gt; [4,] 0.09244314 0.08130564 0.08960442 1.00000000 0.06237177</span>
-<span class="co">#&gt; [5,] 0.09813385 0.09035017 0.11350499 0.06237177 1.00000000</span>
-  
-<span class="co">### Computing Label-Cell Edges #################################################</span>
-  
-<span class="co"># Now we need to define which genomic regions correspond to which genes. We’ll use hg38 with Entrez identifiers in this example, using full gene bodies</span>
-  <span class="va">regions</span> <span class="op">&lt;-</span> <span class="fu">getRegions</span><span class="op">(</span>geneBody <span class="op">=</span> <span class="cn">TRUE</span>, genome <span class="op">=</span> <span class="st">"hg38"</span>, names <span class="op">=</span> <span class="st">"Entrez"</span><span class="op">)</span>
-<span class="co"># Check it</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">head</a></span><span class="op">(</span><span class="va">regions</span><span class="op">)</span>
-<span class="co">#&gt; GRanges object with 6 ranges and 1 metadata column:</span>
-<span class="co">#&gt;             seqnames            ranges strand |     gene_id</span>
-<span class="co">#&gt;                &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt; | &lt;character&gt;</span>
-<span class="co">#&gt;           1    chr19 58362552-58364751      - |           1</span>
-<span class="co">#&gt;          10     chr8 18389282-18391481      + |          10</span>
-<span class="co">#&gt;         100    chr20 44652034-44654233      - |         100</span>
-<span class="co">#&gt;        1000    chr18 28176931-28179130      - |        1000</span>
-<span class="co">#&gt;   100009613    chr11 70075234-70077433      - |   100009613</span>
-<span class="co">#&gt;   100009667    chr10 68010663-68012862      - |   100009667</span>
-<span class="co">#&gt;   -------</span>
-<span class="co">#&gt;   seqinfo: 595 sequences (1 circular) from hg38 genome</span>
-<span class="co"># Now we map between this data and the peaks</span>
-  <span class="va">ATACGenePeak</span> <span class="op">&lt;-</span> <span class="fu">mapPeaksToGenes</span><span class="op">(</span><span class="va">labelGenes</span>, <span class="va">ATACMat</span>, <span class="va">peaks</span>, <span class="va">regions</span><span class="op">)</span>
-  <span class="va">labelEdges</span> <span class="op">&lt;-</span> <span class="fu">computeLabelEdges</span><span class="op">(</span><span class="va">labelGenes</span>, <span class="va">ATACMat</span>, <span class="va">ATACGenePeak</span><span class="op">)</span>
-<span class="co"># Check it</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">head</a></span><span class="op">(</span><span class="va">labelEdges</span><span class="op">)</span>
-<span class="co">#&gt;      RG-early        oRG        tRG         vRG    RG-div1</span>
-<span class="co">#&gt; [1,]        0 0.04201235 0.04275655 0.019920365 0.05198877</span>
-<span class="co">#&gt; [2,]        0 0.03108851 0.02250872 0.008458454 0.03121237</span>
-<span class="co">#&gt; [3,]        0 0.02902324 0.02383554 0.008164892 0.03279098</span>
-<span class="co">#&gt; [4,]        0 0.03035606 0.01968420 0.009663494 0.03510777</span>
-<span class="co">#&gt; [5,]        0 0.02334971 0.02856838 0.005171970 0.03755360</span>
-<span class="co">#&gt; [6,]        0 0.03310487 0.02331299 0.008916823 0.03410891</span>
-<span class="co">#&gt;         RG-div2</span>
-<span class="co">#&gt; [1,] 0.04404968</span>
-<span class="co">#&gt; [2,] 0.02986432</span>
-<span class="co">#&gt; [3,] 0.03135008</span>
-<span class="co">#&gt; [4,] 0.02916076</span>
-<span class="co">#&gt; [5,] 0.03137661</span>
-<span class="co">#&gt; [6,] 0.03400801</span>
-  
-<span class="co">### Tuning Label Edges #########################################################</span>
-  
-<span class="co"># We now have cell-to-cell edges and label-to-cell edges, we don’t know how to correctly weight the two relative to each other. The tuneEdgeWeights method will run CellWalker across a range of possible parameters and compute cell homogeneity for each</span>
-  <span class="va">labelEdgesList</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">labelEdges</span><span class="op">)</span>
-  
-  <span class="va">edgeWeights</span> <span class="op">&lt;-</span> <span class="fu">tuneEdgeWeights</span><span class="op">(</span><span class="va">cellEdges</span>, 
-                              <span class="va">labelEdgesList</span>, 
-                              labelEdgeOpts <span class="op">=</span> <span class="fl">10</span><span class="op">^</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">7</span>,<span class="fl">1</span><span class="op">)</span>, 
-                              sampleDepth <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
-<span class="co"># Check it</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">head</a></span><span class="op">(</span><span class="va">edgeWeights</span><span class="op">[</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setorder.html">order</a></span><span class="op">(</span><span class="va">edgeWeights</span><span class="op">$</span><span class="va">cellHomogeneity</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,<span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;    Var1 cellHomogeneity</span>
-<span class="co">#&gt; 5 1e+05     -0.03113308</span>
-<span class="co">#&gt; 4 1e+04     -0.04019329</span>
-<span class="co">#&gt; 7 1e+07     -0.04339063</span>
-<span class="co">#&gt; 6 1e+06     -0.04899151</span>
-<span class="co">#&gt; 3 1e+03     -0.05015195</span>
-<span class="co">#&gt; 2 1e+02     -0.28707275</span>
-
-<span class="co">### Making a cellWalk Object ###################################################</span>
-
-<span class="co"># Now we generate a cellWalk object with the above tuned edge weight parameter</span>
-  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">walkCells</span><span class="op">(</span><span class="va">cellEdges</span>, 
-                     <span class="va">labelEdgesList</span>, 
-                     labelEdgeWeights <span class="op">=</span> <span class="fl">1e+07</span><span class="op">)</span>
-  
-<span class="co">### Adding Filters #############################################################</span>
-
-<span class="co"># We may have some bulk epigenetic data that can help filter down which peaks are relevant to our analysis. We can tune weights on each filter to determine how significant it is to our data. For our example we have H3K4me3 data which indicates active promoters. Thus we apply this filter permissively (setting filterOut=FALSE) and at the whole gene level (filterGene=TRUE) rather than just to overlapping peaks. We can make a new cellWalk object using this filter:</span>
-  
-  <span class="co"># labelEdges &lt;- computeLabelEdges(labelGenes, </span>
-  <span class="co">#                              ATACMat, </span>
-  <span class="co">#                              ATACGenePeak,</span>
-  <span class="co">#                              filters = filters, </span>
-  <span class="co">#                              filterWeights = c(1),</span>
-  <span class="co">#                              filterOut = c(FALSE),</span>
-  <span class="co">#                              filterGene = c(TRUE),</span>
-  <span class="co">#                              regions = regions)</span>
-  <span class="co"># labelEdgesList &lt;- list(labelEdges)</span>
-  <span class="co"># cellWalk &lt;- walkCells(cellEdges, </span>
-  <span class="co">#                    labelEdgesList, </span>
-  <span class="co">#                    labelEdgeWeights = 1e+07)</span>
-
-<span class="co">### Downstream Analysis ########################################################</span>
-
-<span class="co"># Once we have a cellWalk object we can use it for downstream analysis</span>
-  
-<span class="co"># The label threshold determines the minimum influence score a cell must get to be considered labeled</span>
-  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">findUncertainLabels</span><span class="op">(</span><span class="va">cellWalk</span>, labelThreshold <span class="op">=</span> <span class="fl">0</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co"># We can also directly examine label similarity by considering label-to-label influence</span>
-  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">clusterLabels</span><span class="op">(</span><span class="va">cellWalk</span>,  plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-2.png" width="672"></div>
-<pre><code>#&gt; NULL
-  
-  cellWalk &lt;- plotCells(cellWalk, labelThreshold = 0, seed = 1)</code></pre>
-<div class="inline-figure"><img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-3.png" width="672"></div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R">    
-<span class="co"># It is also possible to plot how strongly a single label influences each cell in the embedding</span>
-  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">plotCells</span><span class="op">(</span><span class="va">cellWalk</span>, cellTypes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="st">"RG-div2"</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-4.png" width="672"></div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  
-<span class="co"># Furthermore, to analyze rare cell types, it can be helpful to only plot a subset of of all labels</span>
-  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">plotCells</span><span class="op">(</span><span class="va">cellWalk</span>, cellTypes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="st">"RG-early"</span>,<span class="st">"tRG"</span>,<span class="st">"vRG"</span><span class="op">)</span>, labelThreshold <span class="op">=</span> <span class="fl">0</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-5.png" width="672"></div>
+<code class="sourceCode R"><span><span class="co">### Load in the Data ###########################################################</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ArchR</span><span class="op">)</span></span>
+<span>  <span class="fu">downloadSampleData</span><span class="op">(</span><span class="st">"vignette_data"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "vignette_data"</span></span>
+<span>  <span class="va">ATACMat</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/externalFormats.html">readMM</a></span><span class="op">(</span><span class="st">"vignette_data/SamplePeakMat.mtx"</span><span class="op">)</span></span>
+<span>  <span class="va">peaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/methods/as.html">as</a></span><span class="op">(</span><span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"vignette_data/SamplePeaks.txt"</span>, header <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">V1</span>, <span class="st">"GRanges"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">### Define Label Nodes #########################################################</span></span>
+<span></span>
+<span>  <span class="va">pathToLabels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"SampleMarkers1.txt"</span>, package <span class="op">=</span> <span class="st">"CellWalkR"</span><span class="op">)</span></span>
+<span>  <span class="va">labelGenes</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="va">pathToLabels</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check the labeling data. It has to have at least two columns</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">labelGenes</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="co">### Building a Network #########################################################</span></span>
+<span>  </span>
+<span><span class="co"># Next we compute cell-to-cell similarity in order to build edges in the cell-to-cell proportion of the graph</span></span>
+<span>  </span>
+<span>  <span class="va">cellEdges</span> <span class="op">&lt;-</span> <span class="fu">computeCellSim</span><span class="op">(</span><span class="va">ATACMat</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="co"># Check cellEdges </span></span>
+<span>  <span class="va">cellEdges</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
+<span>  </span>
+<span><span class="co">### Computing Label-Cell Edges #################################################</span></span>
+<span>  </span>
+<span><span class="co"># Now we need to define which genomic regions correspond to which genes. We’ll use hg38 with Entrez identifiers in this example, using full gene bodies</span></span>
+<span>  <span class="va">regions</span> <span class="op">&lt;-</span> <span class="fu">getRegions</span><span class="op">(</span>geneBody <span class="op">=</span> <span class="cn">TRUE</span>, genome <span class="op">=</span> <span class="st">"hg38"</span>, names <span class="op">=</span> <span class="st">"Entrez"</span><span class="op">)</span></span>
+<span><span class="co"># Check it</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">regions</span><span class="op">)</span></span>
+<span><span class="co"># Now we map between this data and the peaks</span></span>
+<span>  <span class="va">ATACGenePeak</span> <span class="op">&lt;-</span> <span class="fu">mapPeaksToGenes</span><span class="op">(</span><span class="va">labelGenes</span>, <span class="va">ATACMat</span>, <span class="va">peaks</span>, <span class="va">regions</span><span class="op">)</span></span>
+<span>  <span class="va">labelEdges</span> <span class="op">&lt;-</span> <span class="fu">computeLabelEdges</span><span class="op">(</span><span class="va">labelGenes</span>, <span class="va">ATACMat</span>, <span class="va">ATACGenePeak</span><span class="op">)</span></span>
+<span><span class="co"># Check it</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">labelEdges</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="co">### Tuning Label Edges #########################################################</span></span>
+<span>  </span>
+<span><span class="co"># We now have cell-to-cell edges and label-to-cell edges, we don’t know how to correctly weight the two relative to each other. The tuneEdgeWeights method will run CellWalker across a range of possible parameters and compute cell homogeneity for each</span></span>
+<span>  <span class="va">labelEdgesList</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">labelEdges</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">edgeWeights</span> <span class="op">&lt;-</span> <span class="fu">tuneEdgeWeights</span><span class="op">(</span><span class="va">cellEdges</span>, </span>
+<span>                              <span class="va">labelEdgesList</span>, </span>
+<span>                              labelEdgeOpts <span class="op">=</span> <span class="fl">10</span><span class="op">^</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">7</span>,<span class="fl">1</span><span class="op">)</span>, </span>
+<span>                              sampleDepth <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="co"># Check it</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">edgeWeights</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">edgeWeights</span><span class="op">$</span><span class="va">cellHomogeneity</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,<span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">### Making a cellWalk Object ###################################################</span></span>
+<span></span>
+<span><span class="co"># Now we generate a cellWalk object with the above tuned edge weight parameter</span></span>
+<span>  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">walkCells</span><span class="op">(</span><span class="va">cellEdges</span>, </span>
+<span>                     <span class="va">labelEdgesList</span>, </span>
+<span>                     labelEdgeWeights <span class="op">=</span> <span class="fl">1e+07</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="co">### Adding Filters #############################################################</span></span>
+<span></span>
+<span><span class="co"># We may have some bulk epigenetic data that can help filter down which peaks are relevant to our analysis. We can tune weights on each filter to determine how significant it is to our data. For our example we have H3K4me3 data which indicates active promoters. Thus we apply this filter permissively (setting filterOut=FALSE) and at the whole gene level (filterGene=TRUE) rather than just to overlapping peaks. We can make a new cellWalk object using this filter:</span></span>
+<span>  </span>
+<span>  <span class="co"># labelEdges &lt;- computeLabelEdges(labelGenes, </span></span>
+<span>  <span class="co">#                              ATACMat, </span></span>
+<span>  <span class="co">#                              ATACGenePeak,</span></span>
+<span>  <span class="co">#                              filters = filters, </span></span>
+<span>  <span class="co">#                              filterWeights = c(1),</span></span>
+<span>  <span class="co">#                              filterOut = c(FALSE),</span></span>
+<span>  <span class="co">#                              filterGene = c(TRUE),</span></span>
+<span>  <span class="co">#                              regions = regions)</span></span>
+<span>  <span class="co"># labelEdgesList &lt;- list(labelEdges)</span></span>
+<span>  <span class="co"># cellWalk &lt;- walkCells(cellEdges, </span></span>
+<span>  <span class="co">#                    labelEdgesList, </span></span>
+<span>  <span class="co">#                    labelEdgeWeights = 1e+07)</span></span>
+<span></span>
+<span><span class="co">### Downstream Analysis ########################################################</span></span>
+<span></span>
+<span><span class="co"># Once we have a cellWalk object we can use it for downstream analysis</span></span>
+<span>  </span>
+<span><span class="co"># The label threshold determines the minimum influence score a cell must get to be considered labeled</span></span>
+<span>  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">findUncertainLabels</span><span class="op">(</span><span class="va">cellWalk</span>, labelThreshold <span class="op">=</span> <span class="fl">0</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># We can also directly examine label similarity by considering label-to-label influence</span></span>
+<span>  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">clusterLabels</span><span class="op">(</span><span class="va">cellWalk</span>,  plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">plotCells</span><span class="op">(</span><span class="va">cellWalk</span>, labelThreshold <span class="op">=</span> <span class="fl">0</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>    </span>
+<span><span class="co"># It is also possible to plot how strongly a single label influences each cell in the embedding</span></span>
+<span>  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">plotCells</span><span class="op">(</span><span class="va">cellWalk</span>, cellTypes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"RG-div2"</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="co"># Furthermore, to analyze rare cell types, it can be helpful to only plot a subset of of all labels</span></span>
+<span>  <span class="va">cellWalk</span> <span class="op">&lt;-</span> <span class="fu">plotCells</span><span class="op">(</span><span class="va">cellWalk</span>, cellTypes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"RG-early"</span>,<span class="st">"tRG"</span>,<span class="st">"vRG"</span><span class="op">)</span>, labelThreshold <span class="op">=</span> <span class="fl">0</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="whats-next" class="section level3" number="5.1.8">
 <h3>
@@ -378,7 +323,7 @@ I learned a great deal about what scRNA-seq is but I am still barely scratching 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2023-08-28.</p>
+    <p>"<strong>Portfolio</strong>" was written by Lunar Eclipse. It was last built on 2024-12-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

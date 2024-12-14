@@ -14,6 +14,7 @@ It is an article that looks at the psychological changes among teachers that hav
 We will start by scoring the article based on a rubric which determines reproducibility and will allow for a quick overview. 
 
 
+
 |Transparency Criteria       |Definition                                                                                                                                                                                                                                                              |Response Type       |Score                                                                                                                                                                                                                                                |
 |:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |Study Purpose               |A concise statement in the introduction of the article, often in the last paragraph, that establishes the reason the research was conducted. Also called the study objective                                                                                            |Binary              |TRUE                                                                                                                                                                                                                                                 |
@@ -25,6 +26,8 @@ We will start by scoring the article based on a rubric which determines reproduc
 |Funding Statement           |A statement within the manuscript indicating whether or not the authors received funding for their research                                                                                                                                                             |Binary              |TRUE. The research was conducted in the absence of any commercial or financial relationships                                                                                                                                                         |
 |Code Availability           |Authors have shared access to the most updated code that they used in their study, including code used for analysis                                                                                                                                                     |Binary              |FALSE. Although the analysis methods are listed in the files there is no code listed with which the analysis was done. I suspect SPSS was used and the results from there where simply copied in to Excel to create the figures shown in the results |
 
+
+
 Reviewing the rubric shows us the article is very professional overall. Their data supplied allows for later testing for reproducibility. Although to actually check for reproducibility we will need to write code to run the same analysis they did and check for any variances in the results, Because of this we can't fully conclude the article in question is fully reproducible. If code was supplied this article would have been a beautiful example of reproducible research. 
 
 ### Monitoring trends and differences in COVID-19 case-fatality rates using decomposition methods: Contributions of age structure and age-specific fatality
@@ -32,6 +35,7 @@ Reviewing the rubric shows us the article is very professional overall. Their da
 Now we are going to look at the code from an article that does qualify for reproducible research. The next paper is about Monitoring trends and differences in COVID-19 case-fatality rates using decomposition methods: Contributions of age structure and age-specific fatality [@dudel_monitoring_nodate].
 
 First lets score the article in question using the same rubric as before:
+
 
 |Transparency Criteria       |Definition                                                                                                                                                                                                                                                              |Response Type       |Score                                                                                       |
 |:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-------------------------------------------------------------------------------------------|
@@ -44,6 +48,8 @@ First lets score the article in question using the same rubric as before:
 |Funding Statement           |A statement within the manuscript indicating whether or not the authors received funding for their research                                                                                                                                                             |Binary              |FALSE                                                                                       |
 |Code Availability           |Authors have shared access to the most updated code that they used in their study, including code used for analysis                                                                                                                                                     |Binary              |TRUE                                                                                        |
 
+
+
 What sets this article apart from the previous one is the possibility to look at the code used to produce the results from the raw data. All the raw data links and exact code is supplied with the article and thus allow for an *easy* reproduction of the research done. It is important to note however that the article doesn't score perfectly on the rubric as seen above.
 
 The code is found under the R file name and is distributed based on the function of the code in a few different scripts. The scripts are easy to read and very clear on the function. Every section has well defined borders and has short but clear comments on what the purpose of the chunk is. I would rate this code a 4/5 on first inspection. The only reason I don't give it a full score is personal preference. I would prefer the different scripts to be simply in one script that is easy to run instead of reloading the data over and over again and having to change it every time, but that's just me.
@@ -55,11 +61,12 @@ The third script (02_analysis.R) modifies the data a bit more and runs some basi
 I won't go in to more detail about the other scripts as analysis of the research is not the purpose of this open peer review fragment. I will however try to reproduce a small portion of it in the following segment. Any changes to the code will be recorded as comments. 
 
 
-```r
+``` r
 ### Packages ##################################################################
 
   library(tidyverse)
   library(ggrepel)
+#> Warning: package 'ggrepel' was built under R version 4.3.3
   library(scales)
 
 ### Load data #################################################################
@@ -183,6 +190,12 @@ I won't go in to more detail about the other scripts as analysis of the research
       axis.title.x = element_text(size = tx + 1),
       axis.title.y = element_text(size = tx + 1)
     )
+#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2
+#> 3.4.0.
+#> ℹ Please use `linewidth` instead.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
 ```
 
 <img src="02-peer_revieuw_files/figure-html/unnamed-chunk-4-1.png" width="672" />

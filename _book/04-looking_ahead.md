@@ -15,12 +15,15 @@ I chose this skill because NGS is something that I find very interesting and NGS
 First a small overview of how I want to structure my 4 days to make sure I best make use of the time. By the end of it I can hopefully run a analysis, or part of one that isn't too complicated. To this end I will need to read up about it and search for usable data used in research to try and mimic what they have done. Hopefully in the future this will allow me to better develop the skills needed to run my own analysis on Single Cell NGS data. 
 
 
+
 |Day Number |Activity to do                                                                                              |Completion |
 |:----------|:-----------------------------------------------------------------------------------------------------------|:----------|
 |Day 1      |Reading about single cell NGS and looking for research articles where this has been used for analysis       |DONE       |
 |Day 2, 3   |Trying to get everything to work to mimic an analysis found in the article                                  |DONE       |
 |Day 4      |Continue with the reproduction of the article analysis untill done                                          |DONE       |
 |Day 5      |Write a report on what I have learned and things I need to learn more about, a what's next secion let's say |DONE       |
+
+
 
 ### Next generation sequencing
 
@@ -48,7 +51,7 @@ As posed before I will now be trying out the package SnapATAC on a provided data
 To use python code chunks in Rmarkdown I downloaded the reticulate package. This chunk below is running python.
 
 
-```python
+``` python
 
 print("Hello World")
 #> Hello World
@@ -63,7 +66,7 @@ With pip failing we are left with Anaconda. Let's try do download a simple packa
 The next package I found is CellWalkR. [CellWalkR](https://github.com/PFPrzytycki/CellWalkR/blob/master/examples/CellWalkR_Vignette.md) is a package to combine scATAC-seq data with labels and other epigenetic data. We will be using the data linked in the vignette which has been pre processed with ArchR. We will also install ArchR for future use. 
 
 
-```r
+``` r
 # Package requires devtools and BiocManager
 if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
 # Then install Archr
@@ -76,11 +79,10 @@ ArchR::installExtraPackages()
 The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-8) article (@ziffra_single-cell_2021). I won't go into depth about the article just now. For now we are just going to collect the data and follow the vignette tutorial. 
 
 
-```r
+``` r
 ### Load in the Data ###########################################################
   library(ArchR)
   downloadSampleData("vignette_data")
-#> [1] "vignette_data"
 #> [1] "vignette_data"
   ATACMat <- Matrix::readMM("vignette_data/SamplePeakMat.mtx")
   peaks <- as(data.table::fread("vignette_data/SamplePeaks.txt", header = FALSE)$V1, "GRanges")
@@ -92,13 +94,6 @@ The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-
 
 # Check the labeling data. It has to have at least two columns
   head(labelGenes)
-#>    entrez  cluster   avg_diff
-#> 1:  10299 RG-early -1.2297890
-#> 2:   6167 RG-early  0.2546596
-#> 3:  11168 RG-early  0.2570446
-#> 4:   8760 RG-early -0.2578798
-#> 5:   8503 RG-early  0.2613031
-#> 6:  10208 RG-early  0.2618003
   
 ### Building a Network #########################################################
   
@@ -108,13 +103,6 @@ The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-
   
 # Check cellEdges 
   cellEdges[1:5,1:5]
-#> 5 x 5 sparse Matrix of class "dgCMatrix"
-#>                                                            
-#> [1,] 1.00000000 0.11338151 0.15001705 0.09244314 0.09813385
-#> [2,] 0.11338151 1.00000000 0.14950372 0.08130564 0.09035017
-#> [3,] 0.15001705 0.14950372 1.00000000 0.08960442 0.11350499
-#> [4,] 0.09244314 0.08130564 0.08960442 1.00000000 0.06237177
-#> [5,] 0.09813385 0.09035017 0.11350499 0.06237177 1.00000000
   
 ### Computing Label-Cell Edges #################################################
   
@@ -122,36 +110,11 @@ The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-
   regions <- getRegions(geneBody = TRUE, genome = "hg38", names = "Entrez")
 # Check it
   head(regions)
-#> GRanges object with 6 ranges and 1 metadata column:
-#>             seqnames            ranges strand |     gene_id
-#>                <Rle>         <IRanges>  <Rle> | <character>
-#>           1    chr19 58362552-58364751      - |           1
-#>          10     chr8 18389282-18391481      + |          10
-#>         100    chr20 44652034-44654233      - |         100
-#>        1000    chr18 28176931-28179130      - |        1000
-#>   100009613    chr11 70075234-70077433      - |   100009613
-#>   100009667    chr10 68010663-68012862      - |   100009667
-#>   -------
-#>   seqinfo: 595 sequences (1 circular) from hg38 genome
 # Now we map between this data and the peaks
   ATACGenePeak <- mapPeaksToGenes(labelGenes, ATACMat, peaks, regions)
   labelEdges <- computeLabelEdges(labelGenes, ATACMat, ATACGenePeak)
 # Check it
   head(labelEdges)
-#>      RG-early        oRG        tRG         vRG    RG-div1
-#> [1,]        0 0.04201235 0.04275655 0.019920365 0.05198877
-#> [2,]        0 0.03108851 0.02250872 0.008458454 0.03121237
-#> [3,]        0 0.02902324 0.02383554 0.008164892 0.03279098
-#> [4,]        0 0.03035606 0.01968420 0.009663494 0.03510777
-#> [5,]        0 0.02334971 0.02856838 0.005171970 0.03755360
-#> [6,]        0 0.03310487 0.02331299 0.008916823 0.03410891
-#>         RG-div2
-#> [1,] 0.04404968
-#> [2,] 0.02986432
-#> [3,] 0.03135008
-#> [4,] 0.02916076
-#> [5,] 0.03137661
-#> [6,] 0.03400801
   
 ### Tuning Label Edges #########################################################
   
@@ -164,13 +127,6 @@ The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-
                               sampleDepth = 1000)
 # Check it
   head(edgeWeights[order(edgeWeights$cellHomogeneity, decreasing = TRUE),])
-#>    Var1 cellHomogeneity
-#> 5 1e+05     -0.03113308
-#> 4 1e+04     -0.04019329
-#> 7 1e+07     -0.04339063
-#> 6 1e+06     -0.04899151
-#> 3 1e+03     -0.05015195
-#> 2 1e+02     -0.28707275
 
 ### Making a cellWalk Object ###################################################
 
@@ -202,41 +158,18 @@ The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-
   
 # The label threshold determines the minimum influence score a cell must get to be considered labeled
   cellWalk <- findUncertainLabels(cellWalk, labelThreshold = 0, plot = TRUE)
-```
-
-<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-1.png" width="672" />
-
-```r
 
 # We can also directly examine label similarity by considering label-to-label influence
   cellWalk <- clusterLabels(cellWalk,  plot = TRUE)
-```
-
-<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-2.png" width="672" />
-
-```
-#> NULL
   
   cellWalk <- plotCells(cellWalk, labelThreshold = 0, seed = 1)
-```
-
-<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-3.png" width="672" />
-
-```r
     
 # It is also possible to plot how strongly a single label influences each cell in the embedding
   cellWalk <- plotCells(cellWalk, cellTypes = c("RG-div2"), seed = 1)
-```
-
-<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-4.png" width="672" />
-
-```r
   
 # Furthermore, to analyze rare cell types, it can be helpful to only plot a subset of of all labels
   cellWalk <- plotCells(cellWalk, cellTypes = c("RG-early","tRG","vRG"), labelThreshold = 0, seed = 1)
 ```
-
-<img src="04-looking_ahead_files/figure-html/unnamed-chunk-5-5.png" width="672" />
 
 ### What's Next
 

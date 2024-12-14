@@ -3,7 +3,7 @@
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 library(tidyverse)
-library(rbbt)
+#library(rbbt)
 library(ggplot2)
 library(here)
 library(DBI)

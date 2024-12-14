@@ -6,8 +6,8 @@
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 library(reticulate)
 library(tidyverse)
-library(CellWalkR)
-library(ArchR)
+#library(CellWalkR)
+#library(ArchR)
 library(ggplot2)
 library(reshape2)
 library(Rtsne)
@@ -84,7 +84,7 @@ ArchR::installExtraPackages()
 
 The data linked is from [this](https://www.nature.com/articles/s41586-021-03209-8) article (@ziffra_single-cell_2021). I won't go into depth about the article just now. For now we are just going to collect the data and follow the vignette tutorial. 
 
-```{r}
+```{r, echo=T, eval=F}
 ### Load in the Data ###########################################################
   library(ArchR)
   downloadSampleData("vignette_data")
