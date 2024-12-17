@@ -68,12 +68,12 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
 <li><a class="" href="guerrilla-analytics.html"><span class="header-section-number">2</span> Guerrilla Analytics</a></li>
-<li><a class="" href="open-peer-review.html"><span class="header-section-number">3</span> Open Peer Review</a></li>
-<li><a class="" href="example-analysis-c.-elegans-experiment.html"><span class="header-section-number">4</span> Example analysis C. Elegans experiment</a></li>
+<li><a class="" href="relational-databases.html"><span class="header-section-number">3</span> Relational Databases</a></li>
+<li><a class="" href="parameters.html"><span class="header-section-number">4</span> Parameters</a></li>
 <li><a class="active" href="looking-ahead.html"><span class="header-section-number">5</span> Looking ahead</a></li>
 <li><a class="" href="projects.html"><span class="header-section-number">6</span> Projects</a></li>
-<li><a class="" href="relational-databases.html"><span class="header-section-number">7</span> Relational Databases</a></li>
-<li><a class="" href="parameters.html"><span class="header-section-number">8</span> Parameters</a></li>
+<li><a class="" href="open-peer-review.html"><span class="header-section-number">7</span> Open Peer Review</a></li>
+<li><a class="" href="example-analysis-c.-elegans-experiment.html"><span class="header-section-number">8</span> Example analysis C. Elegans experiment</a></li>
 <li><a class="" href="normalizeme.html"><span class="header-section-number">9</span> normalizeme</a></li>
 <li><a class="" href="references.html"><span class="header-section-number">10</span> References</a></li>
 </ul>
@@ -165,9 +165,9 @@ to align the fragments to a reference genome and gain information about the gene
 <span class="header-section-number">5.1.6</span> Python in R<a class="anchor" aria-label="anchor" href="#python-in-r"><i class="fas fa-link"></i></a>
 </h3>
 <p>To use python code chunks in Rmarkdown I downloaded the reticulate package. This chunk below is running python.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="looking-ahead.html#cb5-1" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="looking-ahead.html#cb5-2" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span>
-<span id="cb5-3"><a href="looking-ahead.html#cb5-3" tabindex="-1"></a><span class="co">#&gt; Hello World</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="looking-ahead.html#cb13-1" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="looking-ahead.html#cb13-2" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span>
+<span id="cb13-3"><a href="looking-ahead.html#cb13-3" tabindex="-1"></a><span class="co">#&gt; Hello World</span></span></code></pre></div>
 <p>Now to download the SnapATAC2 package we will need pip or maybe Anaconda. I am not yet sure what is the better option so I am trying to get Anaconda in my environment so I can maybe download the package and run it trough Rstudio. I am also trying to get it to install with pip, which should be easier I think.
 Sadly using pip has not worked. I can get pip to install packages just fine but SnapAtac2 doesn’t want to install. I checked the issues on the github page of the package and found that the rust and anndate package would be able to help so I downloaded them both but still nothing. I also read that snapatac2 hadn’t been tested for windows but that was an older message so maybe that’s not the issue. Lets proceed as if it is supposed to work and see if we can get it to do so.
 With pip failing we are left with Anaconda. Let’s try do download a simple package first to see if it works properly. To check if anaconda works we installed the numpy package. The download was successful but downloading snapatac2 did not. It’s time to look for a different package, I would prefer to find one for R, I am more comfortable working with R packages and I have limited time.</p>
@@ -177,7 +177,7 @@ With pip failing we are left with Anaconda. Let’s try do download a simple pac
 <span class="header-section-number">5.1.7</span> CellWalkR<a class="anchor" aria-label="anchor" href="#cellwalkr"><i class="fas fa-link"></i></a>
 </h3>
 <p>The next package I found is CellWalkR. <a href="https://github.com/PFPrzytycki/CellWalkR/blob/master/examples/CellWalkR_Vignette.md">CellWalkR</a> is a package to combine scATAC-seq data with labels and other epigenetic data. We will be using the data linked in the vignette which has been pre processed with ArchR. We will also install ArchR for future use.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Package requires devtools and BiocManager</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
 <span><span class="co"># Then install Archr</span></span>
@@ -186,7 +186,7 @@ With pip failing we are left with Anaconda. Let’s try do download a simple pac
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ArchR</span><span class="op">)</span></span>
 <span><span class="fu">ArchR</span><span class="fu">::</span><span class="fu">installExtraPackages</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The data linked is from <a href="https://www.nature.com/articles/s41586-021-03209-8">this</a> article (<span class="citation">Ziffra et al. (2021)</span>). I won’t go into depth about the article just now. For now we are just going to collect the data and follow the vignette tutorial.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">### Load in the Data ###########################################################</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ArchR</span><span class="op">)</span></span>
 <span>  <span class="fu">downloadSampleData</span><span class="op">(</span><span class="st">"vignette_data"</span><span class="op">)</span></span>
@@ -288,7 +288,7 @@ I learned a great deal about what scRNA-seq is but I am still barely scratching 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="example-analysis-c.-elegans-experiment.html"><span class="header-section-number">4</span> Example analysis C. Elegans experiment</a></div>
+<div class="prev"><a href="parameters.html"><span class="header-section-number">4</span> Parameters</a></div>
 <div class="next"><a href="projects.html"><span class="header-section-number">6</span> Projects</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>

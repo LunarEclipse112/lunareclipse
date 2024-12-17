@@ -1,10 +1,8 @@
 welcome
 about-me
 guerrilla-analytics
-open-peer-review
-teaching-anxiety-stress-and-resilience-during-the-covid-19-pandemic
-monitoring-trends-and-differences-in-covid-19-case-fatality-rates-using-decomposition-methods-contributions-of-age-structure-and-age-specific-fatality
-example-analysis-c.-elegans-experiment
+relational-databases
+parameters
 looking-ahead
 single-cell-ngs
 plan
@@ -19,8 +17,10 @@ projects
 noldus-project
 the-application
 example-graphs
-relational-databases
-parameters
+open-peer-review
+teaching-anxiety-stress-and-resilience-during-the-covid-19-pandemic
+monitoring-trends-and-differences-in-covid-19-case-fatality-rates-using-decomposition-methods-contributions-of-age-structure-and-age-specific-fatality
+example-analysis-c.-elegans-experiment
 normalizeme
 installation
 references
