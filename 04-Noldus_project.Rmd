@@ -1,5 +1,4 @@
-# Projects {-}
-
+# Noldus project {-}
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -7,7 +6,7 @@ library(tidyverse)
 #library(rbbt)
 ```
 
-## Noldus project {-}
+
 
 With Noldus Inc. (@noauthor_noldus_nodate) and the University of Applied sciences Utrecht [(website HU)](https://www.hu.nl/) I worked in a team of 5 to create a shiny application to help analyse data acquired from one of their research products: The Erasmus Ladder. The Erasmus Ladder is a setup that consists of a horizontal ladder to determine differences in behavior of mice by recording steps made on a selection of sensors. Variations in the amount of steps made and the type of steps that are made by mice can be recorded very accurately which allows for statistical analysis to determine differences between groups. 
 
@@ -23,6 +22,6 @@ Versions of step type graphs plotted against the session can also be found in re
 We also looked at other types of cerebellum research [@schonewille_reevaluating_2011] and how they selected data to better answer research questions. Although mostly not very applicable in our project it did give some insight in how different data variables are important for different research groups. 
 Using the Erasmus ladder it's difficult on a first glance to show the effects of cerebellum degradation. One starts to recognize it's not a change in patterns to other new patterns but the switch from a pattern to a chaotic portray of inputs. 
 
-## The application
+## The application {-}
 
 Sadly I can't show of the application or the code for the application. Although I am quite proud of what we managed to create, it's a prototype application that has been changed and updated by now and integrated in to other software and not owned by us. I hope I was able to give it some justice in my description of it.
