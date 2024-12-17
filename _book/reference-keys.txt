@@ -1,7 +1,0 @@
-projects
-noldus-project
-the-application
-example-graphs
-references
-pages
-references-1
