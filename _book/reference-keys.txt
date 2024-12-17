@@ -1,10 +1,10 @@
 welcome
 about-me
-example-analysis-c.-elegans-experiment
+guerrilla-analytics
 open-peer-review
 teaching-anxiety-stress-and-resilience-during-the-covid-19-pandemic
 monitoring-trends-and-differences-in-covid-19-case-fatality-rates-using-decomposition-methods-contributions-of-age-structure-and-age-specific-fatality
-guerrilla-analytics
+example-analysis-c.-elegans-experiment
 looking-ahead
 single-cell-ngs
 plan

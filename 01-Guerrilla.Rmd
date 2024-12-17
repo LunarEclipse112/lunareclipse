@@ -1,15 +1,19 @@
 # Guerrilla Analytics
 
 
-
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(here)
+```
 
 
 While working together in groups using github or alone on ones own *in silico* interface it is of great importance to keep a consistent and organized structure to more easily find data or code. On one hand it is crucial to avoid confusion on version usage (v4_file instead of latestlateslatest_file) by having established how files and data will be named in a README.txt file and further explanation in a METADATA file. On the other hand it makes writing code to edit, analyse and plot data much easier because the path to data and files is fixed. Guerrilla analytics is all about reproducibility and allows for anyone to quickly understand what the files and data contain and helps analysts write easier code by not deepening the file locations. 
 
 A short example of a set up of this type is shown below. I organized one of my courses in the guerrilla analytics format to better explain the structure. It is very easy to work with and I very much enjoy looking at a well organized project.
 
-
-``` r
+```{r, eval=FALSE}
 fs::dir_tree(here::here("daur2/"))
 
 /home/1686589/daur2/
@@ -153,8 +157,7 @@ fs::dir_tree(here::here("daur2/"))
 Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos. It was run trough a linux server. In this next example we can see the structure of this project, which is my portfolio project (Not the bookdown project of my portfolio witch is linked trough this website!). It is organized in the same structure format but on my own pc. This allows easier access compared to a server designed to learn and run by my learning institution. 
 The path shown below is longer than necessary when working from a server or github project. 
 
-
-``` r
+```{r, eval=FALSE}
 fs::dir_tree(here::here(""))
 
 C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/dsbf2_workflows_portfolio/Portfolio
@@ -247,9 +250,8 @@ C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/dsbf2_workflows_portf
 
 Next we will be looking at the README from the Portfolio project. Listed below is content of the README file to show more information about the files in the project. You can also just look at the README linked in the Github link. That one is a little bit easier to read. 
 
-
-``` r
+```{r}
 read_file(here::here("README.md"))
-#> [1] "# lunareclipse\r\n\r\nThis repository contains my portfolio. It is meant to showcase my skills in areas other than labwork related. My goal is to be able to present to a future employer what it is I can do and such this portfolio will change greatly over time.\r\n\r\nI hope you will enjoy reading this and thank you for your time!\r\n\r\nIn this project most of the coding is done in R and Rmarkdown, with a little bit of Bash and YML on the side.\r\n\r\nWebsite [link.](https://lunareclipse.netlify.app/index.html)"
+
 ```
 
