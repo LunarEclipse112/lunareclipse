@@ -24,3 +24,7 @@ I studied Life sciences at the university of applied sciences Utrecht (HU). With
 me. With my specialization in bio-molecular research and data analysis knowledge I can be a bridge between lab analysis and data scientist. 
 
 After working for a little bit to gather some work experience I am looking forward to start a Master's program in either Bio-molecular research or Data analysis and bioinformatics. 
+
+## Future additions {-}
+
+In the near future I would like to add to this portfolio a page with information about my Metatranscriptomics project and some pages with RNAseq and Metagenomics pipelines and *in silico* research I have done in the past. I would also like to clean up the repository for the website as there are many redundant files there at the moment and previous projects now outdated or irrelevant.
