@@ -1,4 +1,4 @@
-# Relational Databases
+# Relational Databases {-}
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
@@ -125,11 +125,12 @@ merged_dat <- sic %>% full_join(gapdata_tidy, by=c("country", "year"))
 
 To finish we will plot a few simple graphs to show a bit about the data that was merged.
 
-
-```{r, echo=FALSE}
+```{r, echo=TRUE, eval=FALSE}
 #################### Graphs #####################################################
 
 # Now we have a dataframe with the data from all the 3 tables and we can make some exploratory graphs with it 
+
+# Actually render good graphs, this is still the basic output..
 
 ## Graph of the infant mortality in Bolivia
 merged_dat %>% filter(country == "Bolivia" & year >= 2003) %>% 

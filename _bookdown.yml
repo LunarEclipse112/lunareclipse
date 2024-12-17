@@ -5,3 +5,12 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+rmd_files: [
+  "index.Rmd",
+  "01-Guerrilla.Rmd",
+  "02-sql_databases.Rmd",
+  "03-parameters.Rmd",
+  "04-Noldus_project.Rmd",
+  "05-Metatranscriptomics_Project.Rmd",
+  "08-references.Rmd"
+]

@@ -1,4 +1,4 @@
-# Guerrilla Analytics
+# Guerrilla Analytics {-}
 
 
 ```{r, include=FALSE}
@@ -154,10 +154,9 @@ fs::dir_tree(here::here("daur2/"))
 
 ```
 
-Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos. It was run trough a linux server. In this next example we can see the structure of this project, which is my portfolio project (Not the bookdown project of my portfolio witch is linked trough this website!). It is organized in the same structure format but on my own pc. This allows easier access compared to a server designed to learn and run by my learning institution. 
-The path shown below is longer than necessary when working from a server or github project. 
+Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos.  
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=F}
 fs::dir_tree(here::here(""))
 
 C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/dsbf2_workflows_portfolio/Portfolio
@@ -248,10 +247,10 @@ C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/dsbf2_workflows_portf
     \-- Portfolio_opdracht7.Rmd
 ```
 
-Next we will be looking at the README from the Portfolio project. Listed below is content of the README file to show more information about the files in the project. You can also just look at the README linked in the Github link. That one is a little bit easier to read. 
 
-```{r}
+
+```{r, echo=FALSE, eval=FALSE}
 read_file(here::here("README.md"))
-
+#Next we will be looking at the README from the Portfolio project. Listed below is content of the README file to show more information about the files in the project. You can also just look at the README linked in the Github link. That one is a little bit easier to read. 
 ```
 

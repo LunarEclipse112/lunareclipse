@@ -1,4 +1,4 @@
-# Relational Databases
+# Relational Databases {-}
 
 
 
@@ -111,4 +111,39 @@ merged_dat <- sic %>% full_join(gapdata_tidy, by=c("country", "year"))
 To finish we will plot a few simple graphs to show a bit about the data that was merged.
 
 
-<img src="02-sql_databases_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="02-sql_databases_files/figure-html/unnamed-chunk-10-2.png" width="672" /><img src="02-sql_databases_files/figure-html/unnamed-chunk-10-3.png" width="672" />
+``` r
+#################### Graphs #####################################################
+
+# Now we have a dataframe with the data from all the 3 tables and we can make some exploratory graphs with it 
+
+# Actually render good graphs, this is still the basic output..
+
+## Graph of the infant mortality in Bolivia
+merged_dat %>% filter(country == "Bolivia" & year >= 2003) %>% 
+  group_by(year, infant_mortality) %>% summarise(mean = mean(infant_mortality, na.rm = TRUE), sdev = sd(infant_mortality, na.rm = TRUE)) %>%
+  ggplot(aes(x = year, y = mean)) +
+  geom_bar(stat = "identity", colour = "black") +
+  geom_errorbar(aes(ymin = mean-sdev, ymax = mean+sdev), width = .3) +
+  scale_fill_manual(values=c("#999999", "#E69F00")) +
+  labs(title = "Infant mortality rate in Bolivia after 2003",
+       y= "Infant mortality rate (per 1000 deaths)",
+       x= "Year")
+
+## Graph of the most populated countries in 1998
+merged_dat %>% select(population, country, year) %>% filter(year == 1998 & population >= 70000000) %>%
+  ggplot(aes(x = country, y = population)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Most populated countries in 1998",
+       subtitle = "Limiting values at below 70M inhabitants",
+       x = "Country Name",
+       y = "Population")
+
+## Gdp in asian countries in 1990
+merged_dat %>% select(gdp, continent, year, country) %>% filter(year == 1990 & continent == "Asia") %>% arrange(desc(gdp)) %>%
+  ggplot(aes(x = continent, y = gdp, fill = country)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "GDP of Asian countries in 1990",
+       x = "Country in Asia",
+       y = "GDP")
+
+```

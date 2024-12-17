@@ -1,4 +1,4 @@
-# Guerrilla Analytics
+# Guerrilla Analytics {-}
 
 
 
@@ -150,106 +150,11 @@ fs::dir_tree(here::here("daur2/"))
 
 ```
 
-Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos. It was run trough a linux server. In this next example we can see the structure of this project, which is my portfolio project (Not the bookdown project of my portfolio witch is linked trough this website!). It is organized in the same structure format but on my own pc. This allows easier access compared to a server designed to learn and run by my learning institution. 
-The path shown below is longer than necessary when working from a server or github project. 
+Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos.  
 
 
-``` r
-fs::dir_tree(here::here(""))
-
-C:/Users/31642/Documents/Study/Vakken/Bioinformatica/DSBF2/dsbf2_workflows_portfolio/Portfolio
-+-- bibliography_portfolio
-|   +-- bibliography_portfolio.bib
-|   \-- files
-|       +-- 11
-|       |   \-- Sathyanesan and Gallo - 2019 - Cerebellar contribution to locomotor behavior A n.pdf
-|       +-- 13
-|       |   \-- Dudel et al. - Monitoring trends and differences in COVID-19 case.pdf
-|       +-- 15
-|       |   \-- Delgado-Gallegos et al. - 2021 - Teaching Anxiety, Stress and Resilience During the.pdf
-|       +-- 18
-|       |   \-- www.noldus.com.html
-|       +-- 3
-|       |   \-- Vinueza Veloz et al. - 2012 - The effect of an mGluR5 inhibitor on procedural me.pdf
-|       +-- 5
-|       |   \-- Schonewille et al. - 2011 - Reevaluating the Role of LTD in Cerebellar Motor L.pdf
-|       +-- 7
-|       |   \-- Vinueza Veloz et al. - 2015 - Cerebellar control of gait and interlimb coordinat.pdf
-|       \-- 9
-|           \-- Sathyanesan et al. - 2018 - Neonatal brain injury causes cerebellar learning d.pdf
-+-- code
-|   +-- 00_functions.R
-|   +-- 01_input.R
-|   +-- 02_analysis.R
-|   +-- 03_excess.R
-|   +-- Fig_1.R
-|   +-- guerrilla_tactics.R
-|   +-- pdftopng.R
-|   \-- Tests.R
-+-- data
-|   +-- baseline_excess_pclm_5.csv
-|   +-- data_cv.R
-|   +-- dengue_data.csv
-|   +-- dengue_tidy.csv
-|   +-- dengue_tidy.rds
-|   +-- Dudel_et_al_CFR_Decomposition.xlsx
-|   +-- Excel_spreadsheets_decomposition.xlsx
-|   +-- flu_data.csv
-|   +-- flu_tidy.csv
-|   +-- flu_tidy.rds
-|   +-- gapdat_tidy.csv
-|   +-- gapdat_tidy.rds
-|   \-- inputdata.csv
-+-- output
-|   +-- AppendixTab1.xlsx
-|   +-- AppendixTab2.xlsx
-|   +-- AppendixTab3.xlsx
-|   +-- AppendixTab4.xlsx
-|   +-- AppendixTab5.xlsx
-|   +-- AppendixTab6.xlsx
-|   +-- Fig_1.jpg
-|   +-- Table2.xlsx
-|   +-- Table3.xlsx
-|   \-- thumbnail_IMG_7494.jpg
-+-- Portfolio.Rproj
-+-- README.txt
-\-- Rmarkdowns
-    +-- awesome-cv.cls
-    +-- fonts
-    |   +-- FontAwesome.ttf
-    |   +-- Roboto-Bold.ttf
-    |   +-- Roboto-BoldItalic.ttf
-    |   +-- Roboto-Italic.ttf
-    |   +-- Roboto-Light.ttf
-    |   +-- Roboto-LightItalic.ttf
-    |   +-- Roboto-Medium.ttf
-    |   +-- Roboto-MediumItalic.ttf
-    |   +-- Roboto-Regular.ttf
-    |   +-- Roboto-Thin.ttf
-    |   \-- Roboto-ThinItalic.ttf
-    +-- portfolio_opdracht1.html
-    +-- portfolio_opdracht1_1.html
-    +-- portfolio_opdracht1_1.Rmd
-    +-- portfolio_opdracht1_2.html
-    +-- portfolio_opdracht1_2.Rmd
-    +-- portfolio_opdracht2.html
-    +-- Portfolio_opdracht2.Rmd
-    +-- Portfolio_opdracht3.html
-    +-- Portfolio_opdracht3_1.pdf
-    +-- Portfolio_opdracht3_1.Rmd
-    +-- Portfolio_opdracht3_2.html
-    +-- Portfolio_opdracht3_2.Rmd
-    +-- Portfolio_opdracht5.html
-    +-- Portfolio_opdracht5.Rmd
-    +-- Portfolio_opdracht7.html
-    \-- Portfolio_opdracht7.Rmd
-```
-
-Next we will be looking at the README from the Portfolio project. Listed below is content of the README file to show more information about the files in the project. You can also just look at the README linked in the Github link. That one is a little bit easier to read. 
 
 
-``` r
-read_file(here::here("README.md"))
-#> [1] "# lunareclipse\r\n\r\nThis repository contains my portfolio. It is meant to showcase my skills in areas other than labwork related. My goal is to be able to present to a future employer what it is I can do and such this portfolio will change greatly over time.\r\n\r\nI hope you will enjoy reading this and thank you for your time!\r\n\r\nIn this project most of the coding is done in R and Rmarkdown, with a little bit of Bash and YML on the side.\r\n\r\nWebsite [link.](https://lunareclipse.netlify.app/index.html)"
-```
+
+
 
