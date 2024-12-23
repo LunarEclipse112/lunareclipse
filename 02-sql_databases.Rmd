@@ -114,14 +114,16 @@ dbGetQuery(con, 'SELECT * FROM gapminder_data')
 ####################### Modify the gapminder data ##############################
 # Next we want to join the 3 data frames together based on the year and country columns
 ## flu data tidy:
-  flu_data_tidy <- flu_data_tidy %>% separate(col = Date, into = c("year", "Month", "Day"), sep = "-")
+  flu_data_tidy <- flu_data_tidy %>% separate(col = Date, into = c("year", "Month", "Day"), sep = "-", remove = FALSE)
 
 ## dengue data tidy:
-  dengue_data_tidy <- dengue_data_tidy  %>% separate(col = Date, into = c("year", "Month", "Day"), sep ="-")
+  dengue_data_tidy <- dengue_data_tidy  %>% separate(col = Date, into = c("year", "Month", "Day"), sep ="-", remove = FALSE)
 
-sic <- dengue_data_tidy %>% full_join(flu_data_tidy, by=c("year","country", "Day", "Month"))
+## Now we can add them together like glue
+glue <- dengue_data_tidy %>% full_join(flu_data_tidy, by=c("year","country", "Day", "Month", "Date"))
+glue$year<-as.integer(glue$year)
 
-merged_dat <- sic %>% full_join(gapdata_tidy, by=c("country", "year"))
+merged_dat <- glue %>% full_join(gapdata_tidy, by=c("country", "year"))
 ```
 
 To finish we will plot a few simple graphs to show a bit about the data that was merged.
@@ -132,19 +134,16 @@ To finish we will plot a few simple graphs to show a bit about the data that was
 # Now we have a dataframe with the data from all the 3 tables and we can make some exploratory graphs with it 
 
 ## Graph showing the decline in infant mortality in bolivia
-boliviagraph_im <- merged_dat %>% filter(country == "Bolivia" & year == 2003:2015) %>%
-  group_by(year, infant_mortality) %>% summarise(mean = mean(infant_mortality))
+boliviagraph_im <- merged_dat %>% filter(country == "Bolivia") %>% 
+  select(infant_mortality, Date) %>%
+  group_by(Date, infant_mortality)
 
-boliviagraph_im$year <- as.double(boliviagraph_im$year)
-
-boliviagraph_im %>% ggplot(aes(x = year, y = infant_mortality)) +
+boliviagraph_im %>% ggplot(aes(x = Date, y = infant_mortality)) +
   theme_classic() +
-  geom_line(aes()) +
-  geom_point() +
-  xlim(2003, 2015) +
-  labs(title = "Infant mortality rate due to dengue in Bolivia from 2003 to 2015",
+  geom_line() +
+  labs(title = "Infant mortality rate due to dengue and influensa in Bolivia",
        y= "Infant deaths (per 1000 deaths)",
-       x= "Time (Year)")
+       x= "Time (Date)")
 
 ## look at dengue data specifically and let's make a some connections between data from bolia in the following graphs, see what we can learn from the data
 
