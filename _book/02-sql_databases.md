@@ -116,18 +116,35 @@ To finish we will plot a few simple graphs to show a bit about the data that was
 
 # Now we have a dataframe with the data from all the 3 tables and we can make some exploratory graphs with it 
 
-# Actually render good graphs, this is still the basic output..
+## Graph showing the decline in infant mortality in bolivia
+boliviagraph_im <- merged_dat %>% filter(country == "Bolivia" & year == 2003:2015) %>%
+  group_by(year, infant_mortality) %>% summarise(mean = mean(infant_mortality))
 
-## Graph of the infant mortality in Bolivia
-merged_dat %>% filter(country == "Bolivia" & year >= 2003) %>% 
-  group_by(year, infant_mortality) %>% summarise(mean = mean(infant_mortality, na.rm = TRUE), sdev = sd(infant_mortality, na.rm = TRUE)) %>%
-  ggplot(aes(x = year, y = mean)) +
-  geom_bar(stat = "identity", colour = "black") +
-  geom_errorbar(aes(ymin = mean-sdev, ymax = mean+sdev), width = .3) +
-  scale_fill_manual(values=c("#999999", "#E69F00")) +
-  labs(title = "Infant mortality rate in Bolivia after 2003",
-       y= "Infant mortality rate (per 1000 deaths)",
-       x= "Year")
+boliviagraph_im$year <- as.double(boliviagraph_im$year)
+
+boliviagraph_im %>% ggplot(aes(x = year, y = infant_mortality)) +
+  theme_classic() +
+  geom_line(aes()) +
+  geom_point() +
+  xlim(2003, 2015) +
+  labs(title = "Infant mortality rate due to dengue in Bolivia from 2003 to 2015",
+       y= "Infant deaths (per 1000 deaths)",
+       x= "Time (Year)")
+
+## look at dengue data specifically and let's make a some connections between data from bolia in the following graphs, see what we can learn from the data
+
+merged_dat %>% filter(country == "Bolivia" & year == 2003:2015) %>% 
+  group_by(year, infant_mortality) %>% summarise(mean = mean(infant_mortality, na.rm = TRUE), 
+                                                 sdev = sd(infant_mortality, na.rm = TRUE)) %>%
+  ggplot(aes(x = year, y = infant_mortality)) +
+  theme_classic() +
+  geom_line(aes()) +
+#  geom_bar(stat = "identity", colour = "white") +
+#  geom_errorbar(aes(ymin = mean-sdev, ymax = mean+sdev), width = .3) +
+#  scale_fill_manual(values=c("#999999", "#E69F00")) +
+  labs(title = "Infant mortality rate in Bolivia from 2003 to 2015",
+       y= "Infant deaths (per 1000 deaths)",
+       x= "Time (Year)")
 
 ## Graph of the most populated countries in 1998
 merged_dat %>% select(population, country, year) %>% filter(year == 1998 & population >= 70000000) %>%
