@@ -100,9 +100,10 @@ dbGetQuery(con, 'SELECT * FROM gapminder_data')
 # Next we want to join the 3 data frames together based on the year and country columns
 ## flu data tidy:
   flu_data_tidy <- flu_data_tidy %>% separate(col = Date, into = c("year", "Month", "Day"), sep = "-")
+
 ## dengue data tidy:
   dengue_data_tidy <- dengue_data_tidy  %>% separate(col = Date, into = c("year", "Month", "Day"), sep ="-")
-    
+
 sic <- dengue_data_tidy %>% full_join(flu_data_tidy, by=c("year","country", "Day", "Month"))
 
 merged_dat <- sic %>% full_join(gapdata_tidy, by=c("country", "year"))
