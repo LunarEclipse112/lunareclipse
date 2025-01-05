@@ -110,7 +110,7 @@ dbListTables(con)
 dbGetQuery(con, 'SELECT * FROM gapminder_data')
 ```
 
-```{r}
+```{r, eval=FALSE}
 ####################### Modify the gapminder data ##############################
 # Next we want to join the 3 data frames together based on the year and country columns
 ## flu data tidy:
