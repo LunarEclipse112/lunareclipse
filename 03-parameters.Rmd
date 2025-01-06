@@ -13,7 +13,7 @@ library(ggplot2)
 library(here)
 ```
 
-In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate graphs, one showing the COVID-19 related cases in a specified month of a year in a country and the other the COVID-19 related deaths in a specified month of a year in a country. To this end we will make the parameters customisable to the month, year and country the graphs are supposed to show.
+In this page we will look at the use of parameters in Rmarkdown. To this end we will use the data from the European Center of Disease Control COVID-19 case data. The goal is to create two separate graphs, one showing the COVID-19 related cases in a specified month of a year in a country and the other the COVID-19 related deaths in a specified month of a year in a country. We will make the parameters customisable to the month, year and country the graphs are supposed to show.
 
 Parameters are defined in the yaml header of Rmarkdown documents and can be used just like any variable in the code. One great advantage is that they can be customized on the fly to change function output. In this case we defined three parameters: 
 
