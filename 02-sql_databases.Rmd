@@ -3,7 +3,7 @@
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 library(tidyverse)
-#library(rbbt)
+library(paletteer)
 library(ggplot2)
 library(here)
 library(DBI)
@@ -14,13 +14,12 @@ library(dplyr)
 Working with relational databases means in many cases having to communicate using SQL. To pull and store data is very important and here follows a small demonstration on how this can be done.  
 
 
-At first we start by loading in the required data for this short analysis. We use data from gapminder, a data set from the dslabs package and we use the dengue and flu data sets. 
-After loading in the data we need to make it tidy to make it easier to work with in R. It will also make it allot easier to work with when we compare the data and load it in into DBeaver using SQL. 
+At first we start by loading in the required data for this short analysis. We use data from the gapminder data set, part of the dslabs package. We will additionally merge this data set with two other data sets for some added complexity (flu_data & dengue_data). 
+After loading in the data we need to process it to make it easier to work with in R. It will also make it allot easier to work with when we compare the data and load it in into DBeaver using SQL. 
 
 ```{r}
 ############ Load in Data ##############################################
 ## Gapminder data from the dslabs package
-  gapdat <- gapminder
   gapdata_tidy <- gapminder
 ## Dengue en flu data 
   dengue_data <- read_csv(here::here("data/dengue_data.csv"), skip = 10)
@@ -63,8 +62,10 @@ After loading in the data we need to make it tidy to make it easier to work with
 ```
 
 ```{sql, eval=FALSE}
-## In DBeaver we now make a new database to store the data
+-- In DBeaver we now make a new database to store the data
 CREATE DATABASE fludata;
+
+-- Next we connect to the database in Rstudio (not visible)
 
 ```
 
@@ -84,7 +85,7 @@ dbWriteTable(con, "gapminder_data", gapdat_tidy)
 ```
 
 ```{sql, eval=FALSE}
-## Then in SQL we define the primary keys of the tables (Date and country)
+-- Then in SQL we define the primary keys of the tables (Date and country)
 alter table public.flu_data 
 	add constraint PK_flu_data primary key (Date, country);
 	
@@ -94,7 +95,7 @@ alter table public.dengue_data
 alter table public.gapminer_data 
 	add constraint PK_gapminder_data primary key (Date, country);
 
-## And we inspect the data from the table flu_data to check if all went well
+-- And we inspect the data from the table flu_data to check if all went well
 select * from flu_data;
 
 ```
@@ -110,8 +111,8 @@ dbListTables(con)
 dbGetQuery(con, 'SELECT * FROM gapminder_data')
 ```
 
-```{r, eval=FALSE}
-####################### Modify the gapminder data ##############################
+```{r}
+####################### Merge the gapminder data ##############################
 # Next we want to join the 3 data frames together based on the year and country columns
 ## flu data tidy:
   flu_data_tidy <- flu_data_tidy %>% separate(col = Date, into = c("year", "Month", "Day"), sep = "-", remove = FALSE)
@@ -121,61 +122,38 @@ dbGetQuery(con, 'SELECT * FROM gapminder_data')
 
 ## Now we can add them together like glue
 glue <- dengue_data_tidy %>% full_join(flu_data_tidy, by=c("year","country", "Day", "Month", "Date"))
-glue$year<-as.integer(glue$year)
 
+## fix year variable
+gapdata_tidy$year <- as.integer(gapdata_tidy$year)
+glue$year <- as.integer(glue$year)
+
+## Fully merge the data sets
 merged_dat <- glue %>% full_join(gapdata_tidy, by=c("country", "year"))
+
+## inspect new data set
+#merged_dat
+
 ```
 
-To finish we will plot a few simple graphs to show a bit about the data that was merged.
+To finish this section we will plot a simple graph to show a bit about the gapminder data set. I chose to display the GDP according to World Bankdev. (gapminder data set) for a selection of countries in Europe from 1960 to 2016.
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=FALSE, echo=TRUE, warning=FALSE}
 #################### Graphs #####################################################
 
-# Now we have a dataframe with the data from all the 3 tables and we can make some exploratory graphs with it 
+# Now we have a dataframe with the data from all the 3 tables and we can make some exploratory graphs with it, I opted for a simple graph to compare the countries GDP's
 
 ## Graph showing the decline in infant mortality in bolivia
-boliviagraph_im <- merged_dat %>% filter(country == "Bolivia") %>% 
-  select(infant_mortality, Date) %>%
-  group_by(Date, infant_mortality)
+gdp_graph_europe <- gapdata_tidy %>% filter(region == "Western Europe") %>% 
+  select(country, year, gdp, continent) %>%
+  group_by(gdp) 
 
-boliviagraph_im %>% ggplot(aes(x = Date, y = infant_mortality)) +
+gdp_graph_europe %>% ggplot(aes(x = year, y = gdp, colour = country)) +
   theme_classic() +
+  scale_color_paletteer_d("awtools::a_palette") +
   geom_line() +
-  labs(title = "Infant mortality rate due to dengue and influensa in Bolivia",
-       y= "Infant deaths (per 1000 deaths)",
-       x= "Time (Date)")
-
-## look at dengue data specifically and let's make a some connections between data from bolia in the following graphs, see what we can learn from the data
-
-merged_dat %>% filter(country == "Bolivia" & year == 2003:2015) %>% 
-  group_by(year, infant_mortality) %>% summarise(mean = mean(infant_mortality, na.rm = TRUE), 
-                                                 sdev = sd(infant_mortality, na.rm = TRUE)) %>%
-  ggplot(aes(x = year, y = infant_mortality)) +
-  theme_classic() +
-  geom_line(aes()) +
-#  geom_bar(stat = "identity", colour = "white") +
-#  geom_errorbar(aes(ymin = mean-sdev, ymax = mean+sdev), width = .3) +
-#  scale_fill_manual(values=c("#999999", "#E69F00")) +
-  labs(title = "Infant mortality rate in Bolivia from 2003 to 2015",
-       y= "Infant deaths (per 1000 deaths)",
-       x= "Time (Year)")
-
-## Graph of the most populated countries in 1998
-merged_dat %>% select(population, country, year) %>% filter(year == 1998 & population >= 70000000) %>%
-  ggplot(aes(x = country, y = population)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Most populated countries in 1998",
-       subtitle = "Limiting values at below 70M inhabitants",
-       x = "Country Name",
-       y = "Population")
-
-## Gdp in asian countries in 1990
-merged_dat %>% select(gdp, continent, year, country) %>% filter(year == 1990 & continent == "Asia") %>% arrange(desc(gdp)) %>%
-  ggplot(aes(x = continent, y = gdp, fill = country)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "GDP of Asian countries in 1990",
-       x = "Country in Asia",
-       y = "GDP")
-
+  scale_x_continuous(breaks = round(seq(min(gdp_graph_europe$year), max(gdp_graph_europe$year), by = 10),1)) + 
+  labs(title = "GDP of Western-European countries from 1960 to 2016",
+       y= "GDP",
+       x= "Time (year)")
 
 ```
