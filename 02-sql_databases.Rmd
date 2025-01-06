@@ -20,6 +20,7 @@ After loading in the data we need to process it to make it easier to work with i
 ```{r}
 ############ Load in Data ##############################################
 ## Gapminder data from the dslabs package
+  gapdat <- gapminder
   gapdata_tidy <- gapminder
 ## Dengue en flu data 
   dengue_data <- read_csv(here::here("data/dengue_data.csv"), skip = 10)
@@ -137,7 +138,7 @@ merged_dat <- glue %>% full_join(gapdata_tidy, by=c("country", "year"))
 
 To finish this section we will plot a simple graph to show a bit about the gapminder data set. I chose to display the GDP according to World Bankdev. (gapminder data set) for a selection of countries in Europe from 1960 to 2016.
 
-```{r, echo=FALSE, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE, warning=FALSE}
 #################### Graphs #####################################################
 
 # Now we have a dataframe with the data from all the 3 tables and we can make some exploratory graphs with it, I opted for a simple graph to compare the countries GDP's

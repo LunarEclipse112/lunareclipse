@@ -1,7 +1,7 @@
 --- 
 title: "Portfolio"
 author: "Lunar Eclipse"
-date: "2025-01-05"
+date: "2025-01-06"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: "./bibliography_portfolio/bibliography_portfolio.bib"
