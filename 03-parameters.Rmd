@@ -17,11 +17,11 @@ In this page we will look at the use of parameters in Rmarkdown. To this end we 
 
 Parameters are defined in the yaml header of Rmarkdown documents and can be used just like any variable in the code. One great advantage is that they can be customized on the fly to change function output. In this case we defined three parameters: 
 
-| Paramater Name  | Param Input   |
-| --------------- | ------------- |
-|  date_from:     |"2022-01-23"   |
-|  date_until:    |"2022-07-23"   |
-|  country:       |"Netherlands"  |
+| Parameter Name  | Parameter Input  |
+| --------------- | -------------    |
+|  date_from:     |"2022-01-23"      |
+|  date_until:    |"2022-07-23"      |
+|  country:       |"Netherlands"     |
 
   
 We can change them in to any date combinations we want and any country as long as it has data in our input data the code will work. This makes it work as-though we wrote a function of the code with custom input but then our function is the complete Rmarkdown file. Very handy indeed.
