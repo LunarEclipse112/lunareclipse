@@ -1,7 +1,7 @@
 --- 
 title: "Portfolio"
 author: "Lunar Eclipse"
-date: "2025-01-06"
+date: "2025-01-07"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: "./bibliography_portfolio/bibliography_portfolio.bib"
@@ -23,7 +23,7 @@ Welcome to my portfolio. It is a collection of different skills and projects to 
 I studied Life sciences at the university of applied sciences Utrecht (HU). Within my degree I specialized in bio-molecular research and data analysis and visualization. I am very passionate about biology, molecular life sciences and data analysis. A work environment where I can combine those interests is a dream job for
 me. With my specialization in bio-molecular research and data analysis knowledge I can be a bridge between lab analysis and data scientist. 
 
-After working for a year or two I am looking forward to start a Master's program in either Bio-molecular research or Data analysis and bioinformatics. 
+After working for a year or two I am looking forward to start a Master's program in either Data analysis or Bioinformatics. 
 
 ## Future additions {-}
 
