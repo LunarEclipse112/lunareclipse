@@ -8,7 +8,7 @@ library(tidyverse)
 
 
 
-With Noldus Inc. (@noauthor_noldus_nodate) and the University of Applied sciences Utrecht [(website HU)](https://www.hu.nl/) I worked in a team of 5 to create a shiny application to help analyse data acquired from one of their research products: The Erasmus Ladder. The Erasmus Ladder is a setup that consists of a horizontal ladder to determine differences in behavior of mice by recording steps made on a selection of sensors. Variations in the amount of steps made and the type of steps that are made by mice can be recorded very accurately which allows for statistical analysis to determine differences between groups. 
+With Noldus Inc. (@noauthor_noldus_nodate) and the University of Applied sciences Utrecht [(HU)](https://www.hu.nl/) I worked in a team of 5 to create a shiny application to help analyse data acquired from one of their research products: The Erasmus Ladder. The Erasmus Ladder is a setup that consists of a horizontal ladder to determine differences in behavior of mice by recording steps made on a selection of sensors. Variations in the amount of steps made and the type of steps that are made by mice can be recorded very accurately which allows for statistical analysis to determine differences between groups. 
 
 ### The output {-}
 
