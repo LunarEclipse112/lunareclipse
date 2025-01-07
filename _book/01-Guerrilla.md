@@ -1,10 +1,10 @@
-# Guerrilla Analytics {-}
+# Directory organisation {-}
 
 
 
 
 
-While working together in groups using github or alone on ones own projects it is of great importance to keep a consistent and organized structure to more easily find data or code. On one hand it is crucial to avoid confusion on version usage (v4_file instead of latestlateslatest_file) by having established how files and data will be named in a README.txt file and further explanation in a METADATA file. On the other hand it makes writing code to edit, analyse and plot data much easier because the path to data and files is fixed. Guerrilla analytics is all about reproducibility and allows for anyone to quickly understand what the files and data contain and helps analysts write easier code by not deepening the file locations. 
+While working together in groups using github or alone on ones own projects it is of great importance to keep a consistent and organized structure to more easily find data or code. On one hand it is crucial to avoid confusion on version usage (v4_file instead of latestlateslatest_file) by having established how files will be named in a for example a README.txt file or further explanation in a separate file. On the other hand it makes writing code to edit, analyse and plot data much easier because the path to data and files is fixed. This directory organisation is all about reproducibility and allows for anyone to quickly understand what the files and data contain and helps analysts write easier code by not deepening the file locations. 
 
 A short example of a set up of this type is shown below. I organized one of my courses in the guerrilla analytics format to better explain the structure. It is very easy to work with and I very much enjoy looking at a well organized project.
 
@@ -150,7 +150,7 @@ fs::dir_tree(here::here("daur2/"))
 
 ```
 
-Although the course above is organized properly it has allot of missing items like missing code chunks due to running code and changes to data in Rmarkdown instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and as said before, more depth creates more chaos.  
+Although the course above is organized properly it has allot of missing items like missing code chunks due to running code from a different server and changes to data in Rmarkdown files instead of individual scripts. Note that it also consists of 3 projects, not just one. This means that it has more depth in comparison to a single project, and more depth creates more chaos.  
 
 
 
