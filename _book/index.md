@@ -1,7 +1,7 @@
 --- 
 title: "Portfolio"
 author: "Lunar Eclipse"
-date: "2025-01-22"
+date: "2025-08-11"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: "./bibliography_portfolio/bibliography_portfolio.bib"
@@ -16,11 +16,11 @@ params:
 
 # Welcome! {-}
 
-Welcome to my portfolio. This is a collection of different skills and projects to showcase what I can do and have done. Each page contains a different group of skills and stands alone in its presentation. This website is a work in progress, currently still very much in the beginning stages of being made.
+Welcome to my portfolio. This is a collection of different skills and projects to showcase what I can do and have done. Each page contains a different group of skills and stands alone in its presentation. This website is a work in progress.
 
 ## About Me {-}
 
-I studied Life sciences at the university of applied sciences Utrecht (HU). Within my degree I specialized in bio-molecular research and data analysis and visualization. I am very passionate about biology, molecular life sciences and data analysis. In my work environment I can combine these interests to break down and solve complex problems, allowing me to apply programming and laboratory analysis skills to create reliable methods of research or improve existing ones.
+I studied Life sciences at the university of applied sciences Utrecht (HU). Within my degree I specialized in bio-molecular research, bioinformatics and data analysis and visualization. I am very passionate about biology, molecular life sciences and data analysis. In my work environment I can combine these interests to break down and solve complex problems, allowing me to apply programming and laboratory analysis skills to create reliable methods of research or improve existing ones.
 
 ## Future additions {-}
 
